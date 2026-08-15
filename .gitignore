@@ -1,0 +1,15 @@
+# Hermes + OpenCode local config
+.hermes/serve-recipe.sh
+.hermes/*.local.md
+.opencode/tools/
+
+# Client documents (not for public repo)
+*.pdf
+*.docx
+*.zip
+HNN Logo C/
+HNN Logo.pdf
+
+# OS files
+.DS_Store
+Thumbs.db

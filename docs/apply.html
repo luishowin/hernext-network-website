@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply — HerNext Network</title>
+  <meta name="description" content="Apply to join HerNext Network's programmes and opportunities for women's economic transformation across Africa.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-container">
+    <a href="index.html"><img src="assets/images/logo-light.svg" alt="HerNext Network" class="nav-logo"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="opportunities.html">Opportunities</a></li>
+      <li><a href="impact.html">Impact</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="apply.html" class="active nav-cta nav-cta-mobile">Apply Now</a></li>
+    </ul>
+    <a href="apply.html" class="nav-cta">Apply Now</a>
+  </div>
+</header>
+
+<main>
+<section class="section-hero page-header">
+  <div class="container">
+    <span class="section-label">Application</span>
+    <h1>Begin Your Journey</h1>
+    <p style="max-width:650px;margin:0 auto;">Complete the form below to apply for HerNext Network programmes and opportunities. All fields marked with * are required.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container form-container">
+
+    <!-- Step indicators -->
+    <div class="form-steps" id="formSteps">
+      <span class="form-step-indicator active" data-step="1">1</span>
+      <span class="form-step-connector" data-connector="1"></span>
+      <span class="form-step-indicator" data-step="2">2</span>
+      <span class="form-step-connector" data-connector="2"></span>
+      <span class="form-step-indicator" data-step="3">3</span>
+      <span class="form-step-connector" data-connector="3"></span>
+      <span class="form-step-indicator" data-step="4">4</span>
+    </div>
+
+    <form id="applyForm" onsubmit="handleApplySubmit(event)">
+
+      <!-- Step 1: Personal Information -->
+      <div class="form-step active" data-step="1">
+        <h3 style="margin-bottom:1.5rem;">Personal Information</h3>
+        <div class="form-group"><label for="firstName">First Name *</label><input type="text" id="firstName" required placeholder="Your first name"></div>
+        <div class="form-group"><label for="lastName">Last Name *</label><input type="text" id="lastName" required placeholder="Your last name"></div>
+        <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" required placeholder="your@email.com"></div>
+        <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="+ Country code and number"></div>
+        <div class="form-group"><label for="country">Country of Residence *</label>
+          <select id="country" required>
+            <option value="">Select your country</option>
+            <option>Nigeria</option><option>Kenya</option><option>South Africa</option><option>Ghana</option>
+            <option>Ethiopia</option><option>Tanzania</option><option>Uganda</option><option>Rwanda</option>
+            <option>Egypt</option><option>Morocco</option><option>Senegal</option><option>Côte d'Ivoire</option>
+            <option>Cameroon</option><option>Zimbabwe</option><option>Zambia</option><option>Botswana</option>
+            <option>Namibia</option><option>Mozambique</option><option>Angola</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-nav"><span></span><button type="button" class="btn btn-primary" onclick="nextStep(2)">Continue →</button></div>
+      </div>
+
+      <!-- Step 2: Professional / Organisational Profile -->
+      <div class="form-step" data-step="2">
+        <h3 style="margin-bottom:1.5rem;">Professional Profile</h3>
+        <div class="form-group"><label for="organisation">Organisation / Business Name</label><input type="text" id="organisation" placeholder="Your organisation or business"></div>
+        <div class="form-group"><label for="role">Current Role / Title *</label><input type="text" id="role" required placeholder="e.g. Founder, CEO, Director"></div>
+        <div class="form-group"><label for="industry">Industry / Sector *</label>
+          <select id="industry" required>
+            <option value="">Select your industry</option>
+            <option>Agriculture & Agribusiness</option><option>Manufacturing & Industry</option>
+            <option>Technology & Digital Innovation</option><option>Finance & Investment</option>
+            <option>Healthcare & Life Sciences</option><option>Energy & Green Transition</option>
+            <option>Textile, Fashion & Creative Industries</option><option>Education & Research</option>
+            <option>Leadership & Governance</option><option>Trade & Commerce</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="experience">Years of Professional Experience *</label>
+          <select id="experience" required>
+            <option value="">Select range</option>
+            <option>0–2 years</option><option>3–5 years</option><option>6–10 years</option><option>11–20 years</option><option>20+ years</option>
+          </select>
+        </div>
+        <div class="form-nav">
+          <button type="button" class="btn btn-outline" onclick="prevStep(1)">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Opportunity Selection -->
+      <div class="form-step" data-step="3">
+        <h3 style="margin-bottom:1.5rem;">Programme Selection</h3>
+        <div class="form-group"><label for="programme">Which programme interests you? *</label>
+          <select id="programme" required>
+            <option value="">Select a programme</option>
+            <option>HerNext Leadership Academy</option><option>HerNext Opportunity Hub</option>
+            <option>HerNext Global Trade & Investment Platform</option><option>HerNext Innovation & Sustainability Forum</option>
+            <option>HerNext Partnership Forum</option><option>HerNext Research & Policy Dialogue</option>
+            <option>General / Multiple Programmes</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="motivation">Why are you interested in this opportunity? *</label>
+          <textarea id="motivation" required placeholder="Tell us about your goals, aspirations, and what you hope to achieve through this programme..."></textarea>
+          <span class="hint">Briefly describe your motivation (500 words max)</span>
+        </div>
+        <div class="form-group"><label for="contribution">How do you plan to contribute to your community or industry? *</label>
+          <textarea id="contribution" required placeholder="Describe how you will apply what you learn to create impact..."></textarea>
+          <span class="hint">Share your vision for creating change</span>
+        </div>
+        <div class="form-nav">
+          <button type="button" class="btn btn-outline" onclick="prevStep(2)">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep(4)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Review & Submit -->
+      <div class="form-step" data-step="4">
+        <h3 style="margin-bottom:1.5rem;">Review Your Application</h3>
+        <div class="card" style="margin-bottom:1.5rem;" id="reviewSummary">
+          <p style="color:var(--text-muted);">Review your information below before submitting.</p>
+        </div>
+        <div class="form-group"><label for="referral">How did you hear about HerNext?</label>
+          <select id="referral">
+            <option value="">Select an option</option>
+            <option>Social Media</option><option>Partner Organisation</option><option>Professional Network</option>
+            <option>Event or Conference</option><option>Search Engine</option><option>Friend or Colleague</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group" style="display:flex;align-items:flex-start;gap:0.75rem;margin-top:1.5rem;">
+          <input type="checkbox" id="terms" required style="width:18px;height:18px;margin-top:3px;accent-color:var(--gold);">
+          <label for="terms" style="font-weight:400;color:var(--text-secondary);font-size:0.9rem;">I confirm that the information provided is accurate and I agree to be contacted by HerNext Network regarding this application. *</label>
+        </div>
+        <div class="form-nav">
+          <button type="button" class="btn btn-outline" onclick="prevStep(3)">← Back</button>
+          <button type="submit" class="btn btn-primary">Submit Application</button>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+      <div class="success-icon">✓</div>
+      <h2 style="color:var(--gold);margin-bottom:1rem;">Application Submitted!</h2>
+      <p>Thank you for your interest in HerNext Network. Your application has been received and our team will review it shortly.</p>
+      <p style="color:var(--text-muted);margin-top:1rem;">You will receive a confirmation email at the address you provided.</p>
+      <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Return Home</a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <img src="assets/images/logo-light.svg" alt="HerNext Network" class="footer-logo">
+    <p>Creating Opportunity. Building Legacy.<br>Building Pathways for Women's Economic Transformation Across Africa</p>
+    <p style="margin-top:0.5rem;">&copy; 2026 HerNext Network. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
