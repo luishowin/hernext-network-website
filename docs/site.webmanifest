@@ -1,0 +1,10 @@
+{
+  "name": "HerNext Network",
+  "short_name": "HerNext",
+  "theme_color": "#3e2557",
+  "background_color": "#ffffff",
+  "icons": [
+    { "src": "assets/images/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "assets/images/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
