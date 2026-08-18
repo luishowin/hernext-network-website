@@ -23,3 +23,7 @@ desktop.ini
 
 # Untouched photo originals, kept local. Optimised WebP lives in docs/.
 /source-images/
+
+# Python cache from the page builder
+__pycache__/
+*.pyc

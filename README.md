@@ -7,15 +7,19 @@ Pan-African institution creating pathways of opportunity that advance women's
 economic transformation through leadership, entrepreneurship, innovation,
 strategic partnerships and sustainable development.
 
-Plain HTML, CSS and JavaScript. No framework, no build step, no dependencies.
-The contents of `docs/` are the deployed site exactly as written.
+Plain HTML, CSS and JavaScript. No framework and no dependencies. The contents
+of `docs/` are the deployed site exactly as served.
+
+**Live at** https://luishowin.github.io/hernext-network-website/
 
 ---
 
 ## Contents
 
+- [Status](#status)
 - [Quick start](#quick-start)
 - [Project structure](#project-structure)
+- [Regenerating the pages](#regenerating-the-pages)
 - [Design system](#design-system)
 - [Connect the forms](#connect-the-forms)
 - [Images](#images)
@@ -26,6 +30,29 @@ The contents of `docs/` are the deployed site exactly as written.
 - [Adding the custom domain](#adding-the-custom-domain)
 - [Before launch](#before-launch)
 - [Browser support and accessibility](#browser-support-and-accessibility)
+
+---
+
+## Status
+
+The site is complete, verified and deployed. Six things are still outstanding,
+and four of them will make it look and behave differently once they land.
+
+| Outstanding | Where it goes | Blocking launch |
+|---|---|---|
+| Formspree form IDs | `apply.html`, `contact.html` | **Yes.** Both forms are inert until then, and say so rather than failing quietly |
+| Legal placeholders: entity name, address, jurisdiction | `privacy.html`, `terms.html` | **Yes** |
+| Redrawn logo SVG | regenerates `logo-mark`, `logo-light`, `logo-dark`, `favicon` | No, current files are derived from the supplied SVG |
+| Real email address and telephone, LinkedIn URL | footer and contact page | No |
+| Final social preview image and `apple-touch-icon.png` | `assets/images/` | No, an interim preview is in place |
+| Seven remaining photographs | `assets/images/placeholder-*.svg` | No |
+
+Each has its own section below, and the full list is repeated as a checklist
+under [Before launch](#before-launch).
+
+One thing to know before reading further: **the pages in `docs/` are generated.**
+Edit `tools/partials/` and run `python tools/make.py`. See
+[Regenerating the pages](#regenerating-the-pages).
 
 ---
 
@@ -42,6 +69,15 @@ Then open `http://localhost:8123`.
 
 Opening the HTML files directly from the file system also works, though the
 fonts load from Google Fonts and therefore need a network connection.
+
+To change anything on the pages, edit `tools/partials/` and rebuild:
+
+```bash
+python tools/make.py
+```
+
+That needs Python 3 and nothing else. Pillow is only required if you are
+optimising new photographs, as described under [Images](#images).
 
 ---
 
@@ -69,12 +105,59 @@ docs/                      the published site, this is the deploy root
   js/forms.js              validation, the four-step flow, submission
   assets/images/           logos, favicon, image placeholders
 
+tools/
+  make.py                  rebuilds every page in docs/, run this after editing
+  build.py                 assembler, and the one place BASE is defined
+  partials/
+    _head.html             doctype through to the opening <main>, shared
+    _footer.html           footer, scripts, closing tags, shared
+    _cta.html              the closing call to action, shared by four pages
+    _index_main.html       the body of each page, one file per page
+    _about.html            ...
+
 CONTENT.md                 the copy deck, every line of text on the site
 README.md                  this file
+source-images/             untouched photo originals, gitignored
 ```
 
 The source PDFs and the original logo folder sit at the repository root,
-outside `docs/`, so they are never published with the site.
+outside `docs/`, so they are never published with the site. So do the photo
+originals in `source-images/`, which keeps multi-megabyte files from ever being
+served to a visitor.
+
+---
+
+## Regenerating the pages
+
+Eleven pages share one head, one header, one footer and one closing call to
+action. Keeping those in step by hand is how sites drift, so the shared chrome
+is assembled instead.
+
+**The HTML files in `docs/` are outputs.** Each one opens with a comment saying
+so. Edit the partial, not the page:
+
+```bash
+python tools/make.py
+```
+
+That rewrites all eleven pages, regenerates canonicals, Open Graph tags and
+JSON-LD from `BASE`, and re-attaches `forms.js` to the two pages that need it.
+It takes about a second.
+
+| To change | Edit |
+|---|---|
+| Anything in the `<head>`, or the header and navigation | `tools/partials/_head.html` |
+| The footer, including contact details and legal links | `tools/partials/_footer.html` |
+| The closing call to action on four pages | `tools/partials/_cta.html` |
+| The body of one page | `tools/partials/_<page>.html` |
+| A page title, description, or which pages get the call to action | `tools/make.py` |
+| The live origin used by canonicals, tags, JSON-LD | `BASE` in `tools/build.py` |
+
+This is an authoring convenience, not a build step. Nothing is compiled,
+minified or transformed. The output is the same plain HTML you would write by
+hand, and the deployed site has no idea the tooling exists. You can safely
+ignore it and hand-edit all eleven pages instead, as long as you accept that
+the shared chrome will drift.
 
 ---
 
@@ -274,15 +357,22 @@ Three files support crawling:
 ### The origin is defined in one place
 
 Canonicals, `og:url`, JSON-LD and the sitemap all need an absolute URL. That
-lives in `BASE` at the top of the page builder, and is currently the live
+lives in `BASE` near the top of `tools/build.py`, and is currently the live
 GitHub Pages address. It is deliberately not the future custom domain, because
 a canonical pointing at a site that does not answer yet will get the pages
 dropped from the index.
 
-When the domain is live, update it everywhere in one pass:
+When the domain is live, change `BASE`, rebuild, and regenerate the sitemap:
 
 ```bash
-grep -rl "luishowin.github.io/hernext-network-website/" docs/ | xargs sed -i 's#https://luishowin.github.io/hernext-network-website/#https://www.hernextnetwork.org/#g'
+python tools/make.py
+```
+
+`robots.txt` and `sitemap.xml` are not generated by that script, so update the
+origin in both by hand, or run:
+
+```bash
+sed -i 's#https://luishowin.github.io/hernext-network-website/#https://www.hernextnetwork.org/#g' docs/robots.txt docs/sitemap.xml docs/llms.txt
 ```
 
 Then submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools.
@@ -331,9 +421,10 @@ notice in `apply.html`, the confirmation text, and the shared call to action.
 
 ## Editing the copy
 
-All text lives in the HTML, and `CONTENT.md` mirrors it as a plain document
-organised by page and section. Copy can be reviewed and revised there, then
-applied to the matching page.
+All text lives in the partials under `tools/partials/`, and `CONTENT.md`
+mirrors it as a plain document organised by page and section. Copy can be
+reviewed and revised in `CONTENT.md`, applied to the matching partial, then
+built with `python tools/make.py`.
 
 Two conventions to preserve:
 
@@ -414,10 +505,10 @@ Once the domain is registered:
    **Enforce HTTPS** once the certificate has been issued, which usually takes
    a few minutes and occasionally up to a day.
 
-Then set the social sharing tags, which need absolute URLs. Add a 1200 x 630
-PNG at `docs/assets/images/og-image.png`, and uncomment the `og:url` and
-`og:image` block in the `<head>` of each page, replacing the domain with the
-real one.
+The social sharing tags need no attention here. `og:url` and `og:image` are
+generated from `BASE`, so changing `BASE` and rebuilding updates them on all
+eleven pages at once. The steps for that are under
+[The origin is defined in one place](#the-origin-is-defined-in-one-place).
 
 ---
 
@@ -431,7 +522,8 @@ real one.
 - [ ] Final social preview image replacing the interim `og-image.jpg`
 - [ ] `apple-touch-icon.png` added and the line in the `<head>` uncommented
 - [ ] Remaining seven placeholder images replaced, with alt text reviewed
-- [ ] `CNAME` added, HTTPS enforced, and the origin swap run across `docs/`
+- [ ] `CNAME` added, HTTPS enforced, `BASE` updated in `tools/build.py` and rebuilt,
+      and the origin swapped in `robots.txt`, `sitemap.xml` and `llms.txt`
 - [ ] `sitemap.xml` submitted to Google Search Console
 - [ ] Copy signed off against `CONTENT.md`
 
@@ -440,9 +532,15 @@ real one.
 ## Browser support and accessibility
 
 Targets the current versions of Chrome, Edge, Firefox and Safari, desktop and
-mobile. The layout uses CSS Grid, custom properties, `clamp()` and `:has()`,
-all of which have been broadly supported since 2023. There is no build step and
-no polyfill.
+mobile. The layout uses CSS Grid, custom properties, `clamp()`, `:has()` and
+`dvh` units, and photographs are served as WebP through `srcset`. All of these
+have been broadly supported since 2023, WebP since 2020. There are no
+polyfills, and nothing is transpiled.
+
+The one place this matters in practice: `dvh` is what makes the mobile menu
+fill the screen correctly as browser chrome grows and shrinks on scroll. On a
+browser without it the menu falls back to filling the layout viewport, which is
+slightly taller than the visible area but still usable.
 
 Accessibility work already in place:
 
@@ -456,8 +554,16 @@ Accessibility work already in place:
 - `prefers-reduced-motion` is fully honoured
 - Text contrast meets WCAG AA throughout
 
-Verified across the site: no horizontal scrolling at 375, 768 or 1280 pixels,
-no console errors, no broken links, and no em dashes.
+Verified across all eleven pages: no horizontal scrolling at 375, 768 or 1280
+pixels, no console errors, no broken links, no unused assets, no heading level
+skips and no em dashes.
+
+`accessibility.html` states this publicly, along with four limitations named
+honestly rather than left for a visitor to discover: the Google Fonts
+dependency, screen reader pairings not yet exhaustively tested, photography
+still being replaced, and no independent audit yet. Keep that page truthful as
+the site changes. An accessibility statement that overclaims is worse than
+none.
 
 ---
 
