@@ -1,75 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — HerNext Network</title>
-  <meta name="description" content="Get in touch with HerNext Network.">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | HerNext Network</title>
+<meta name="description" content="Contact HerNext Network about programme applications, partnership enquiries, media requests and research collaboration.">
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact | HerNext Network">
+<meta property="og:description" content="Contact HerNext Network about programme applications, partnership enquiries, media requests and research collaboration.">
+<!-- Social sharing image. Add a 1200x630 PNG at assets/images/og-image.png,
+     then uncomment these two lines and set the absolute URL for your domain.
+     Social platforms require an absolute URL and do not render SVG.
+<meta property="og:url" content="https://www.hernextnetwork.org/">
+<meta property="og:image" content="https://www.hernextnetwork.org/assets/images/og-image.png">
+-->
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header class="nav" id="nav">
-  <div class="nav-container">
-    <a href="index.html"><img src="assets/images/logo-light.svg" alt="HerNext Network" class="nav-logo"></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="opportunities.html">Opportunities</a></li>
-      <li><a href="impact.html">Impact</a></li>
-      <li><a href="partners.html">Partners</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-      <li><a href="apply.html" class="nav-cta nav-cta-mobile">Apply Now</a></li>
-    </ul>
-    <a href="apply.html" class="nav-cta">Apply Now</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="HerNext Network, home">
+      <img src="assets/images/logo-mark.svg" alt="" width="44" height="44">
+      <span class="brand__text">
+        <span class="brand__name">HerNext Network</span>
+        <span class="brand__motto">Creating Opportunity. Building Legacy.</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+      <span class="nav-toggle__bars"></span>
+    </button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="opportunities.html">Opportunities</a>
+      <a class="nav__link" href="impact.html">Impact</a>
+      <a class="nav__link" href="partners.html">Partners</a>
+      <a class="nav__link" href="contact.html" aria-current="page">Contact</a>
+      <span class="nav__cta">
+        <a class="btn btn--primary" href="apply.html">Apply <span class="btn__arrow" aria-hidden="true">&#8599;</span></a>
+      </span>
+    </nav>
   </div>
 </header>
-<main>
 
-<section class="section-hero page-header">
-  <div class="container">
-    <span class="section-label">Contact</span>
-    <h1>Get in Touch</h1>
-    <p style="max-width:650px;margin:0 auto;">We welcome enquiries from potential partners, participants, and organisations interested in collaborating with HerNext Network.</p>
-  </div>
-</section>
+<main id="main">
 
-<section class="section">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info">
-        <h3>Contact Information</h3>
-        <div class="contact-method"><span class="icon">📧</span><div><strong>Email</strong><p style="margin:0;">info@hernextnetwork.org</p></div></div>
-        <div class="contact-method"><span class="icon">📍</span><div><strong>Location</strong><p style="margin:0;">Pan-African — Serving Communities Across the Continent</p></div></div>
-        <div class="contact-method"><span class="icon">🌐</span><div><strong>Website</strong><p style="margin:0;">hernextnetwork.org</p></div></div>
-        <h3 style="margin-top:2rem;">Follow HerNext</h3>
-        <p>Connect with us on social media for the latest updates, opportunities and insights.</p>
-      </div>
-      <div>
-        <h3>Send a Message</h3>
-        <form id="contactForm" onsubmit="handleContactSubmit(event)">
-          <div class="form-group"><label for="contactName">Full Name</label><input type="text" id="contactName" required placeholder="Your full name"></div>
-          <div class="form-group"><label for="contactEmail">Email Address</label><input type="email" id="contactEmail" required placeholder="your@email.com"></div>
-          <div class="form-group"><label for="contactSubject">Subject</label><input type="text" id="contactSubject" required placeholder="How can we help?"></div>
-          <div class="form-group"><label for="contactMessage">Message</label><textarea id="contactMessage" required placeholder="Tell us about your enquiry..."></textarea></div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-        <div id="contactSuccess" style="display:none;text-align:center;padding:2rem;margin-top:1rem;background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border-gold);">
-          <p style="color:var(--gold);font-size:1.2rem;margin:0;">✅ Thank you! Your message has been received. We will be in touch shortly.</p>
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="split" data-reveal>
+        <div>
+          <p class="label">Contact</p>
+          <h1 class="page-hero__title">Start a <em>conversation</em></h1>
         </div>
+        <p class="lead">Whether you are applying to a programme, exploring a partnership or requesting information about our work, we would be glad to hear from you.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Contact details and form -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="split" data-reveal>
+
+        <div class="stack-lg">
+          <div>
+            <p class="label">Contact details</p>
+            <ul class="site-footer__links" style="color:var(--text-muted);margin-top:1rem">
+              <li><a href="mailto:info@hernextnetwork.org">info@hernextnetwork.org</a></li>
+              <li><a href="mailto:apply@hernextnetwork.org">apply@hernextnetwork.org</a></li>
+              <li><a href="tel:+000000000000">+00 000 000 000</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="label">Follow</p>
+            <ul class="site-footer__links" style="color:var(--text-muted);margin-top:1rem">
+              <li><a href="https://www.linkedin.com" rel="noopener">LinkedIn</a></li>
+              <li><a href="https://www.instagram.com" rel="noopener">Instagram</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="label">Partnership enquiries</p>
+            <p class="prose" style="margin-top:1rem">Institutions exploring collaboration are welcome to write directly. Please include your organisation, the area of interest and the outcome you have in mind, and the relevant member of our team will respond.</p>
+          </div>
+          <figure class="media media--landscape">
+            <img src="assets/images/placeholder-contact.svg" alt="The HerNext Network team at work" width="1000" height="667" loading="lazy">
+          </figure>
+        </div>
+
+        <div>
+          <p class="label">Send an enquiry</p>
+          <h2 style="margin-top:1rem;margin-bottom:2rem">How can we <em>help</em>?</h2>
+
+          <!-- Replace REPLACE_ME with your Formspree form ID. See README, "Connect the forms". -->
+          <form class="form" id="contact-form" data-endpoint="https://formspree.io/f/REPLACE_ME" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label class="field__label" for="c-name">Full name <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="c-name" name="name" autocomplete="name" required>
+                <p class="field__error" data-error-for="c-name"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="c-email">Email address <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="c-email" name="email" autocomplete="email" required>
+                <p class="field__error" data-error-for="c-email"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="c-org">Organisation</label>
+              <input type="text" id="c-org" name="organisation" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label class="field__label" for="c-subject">Subject <span class="req" aria-hidden="true">*</span></label>
+              <select id="c-subject" name="subject" required>
+                <option value="">Please choose</option>
+                <option>Programme application</option>
+                <option>Partnership enquiry</option>
+                <option>Media and speaking</option>
+                <option>Research and policy</option>
+                <option>General enquiry</option>
+              </select>
+              <p class="field__error" data-error-for="c-subject"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="c-message">Message <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="c-message" name="message" required></textarea>
+              <p class="field__error" data-error-for="c-message"></p>
+            </div>
+            <button class="btn btn--primary" type="submit">Send enquiry <span class="btn__arrow" aria-hidden="true">&#8599;</span></button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 </main>
-<footer class="footer">
+
+<footer class="site-footer">
   <div class="container">
-    <img src="assets/images/logo-light.svg" alt="HerNext Network" class="footer-logo">
-    <p>Creating Opportunity. Building Legacy.<br>Building Pathways for Women's Economic Transformation Across Africa</p>
-    <p style="margin-top:0.5rem;">&copy; 2026 HerNext Network. All rights reserved.</p>
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <img src="assets/images/logo-dark.svg" alt="HerNext Network" width="176" height="180">
+        <p class="site-footer__motto">Creating Opportunity. Building Legacy.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul class="site-footer__links">
+          <li><a href="about.html">About HerNext</a></li>
+          <li><a href="opportunities.html">Opportunities</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="partners.html">Partners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Engage</h3>
+        <ul class="site-footer__links">
+          <li><a href="apply.html">Apply</a></li>
+          <li><a href="partners.html">Become a partner</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul class="site-footer__links">
+          <li><a href="mailto:info@hernextnetwork.org">info@hernextnetwork.org</a></li>
+          <li><a href="tel:+000000000000">+00 000 000 000</a></li>
+          <li><a href="https://www.linkedin.com" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p>&copy; <span data-year>2026</span> HerNext Network. All rights reserved.</p>
+      <p>A Pan-African institution.</p>
+    </div>
   </div>
 </footer>
-<script src="js/app.js"></script>
+
+<script src="js/main.js" defer></script>
+<script src="js/forms.js" defer></script>
 </body>
 </html>

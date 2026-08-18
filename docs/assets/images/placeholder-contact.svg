@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 667" width="1000" height="667" role="img" aria-label="Contact image placeholder">
+  <rect width="1000" height="667" fill="#f6f3f9"/>
+  <rect x="0.5" y="0.5" width="999" height="666" fill="none" stroke="#e6e0ee" stroke-width="1"/>
+  <line x1="450" y1="293" x2="550" y2="293" stroke="#d4af37" stroke-width="3"/>
+  <text x="500" y="347" font-family="Georgia, 'Times New Roman', serif" font-size="41" fill="#5c3f7a" text-anchor="middle">Contact</text>
+  <text x="500" y="417" font-family="Helvetica, Arial, sans-serif" font-size="18" letter-spacing="3.7" fill="#786190" text-anchor="middle">1000 x 667</text>
+</svg>

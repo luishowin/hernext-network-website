@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Hero portrait image placeholder">
+  <rect width="800" height="1000" fill="#f6f3f9"/>
+  <rect x="0.5" y="0.5" width="799" height="999" fill="none" stroke="#e6e0ee" stroke-width="1"/>
+  <line x1="360" y1="440" x2="440" y2="440" stroke="#d4af37" stroke-width="3"/>
+  <text x="400" y="520" font-family="Georgia, 'Times New Roman', serif" font-size="50" fill="#5c3f7a" text-anchor="middle">Hero portrait</text>
+  <text x="400" y="605" font-family="Helvetica, Arial, sans-serif" font-size="22" letter-spacing="4.5" fill="#786190" text-anchor="middle">800 x 1000</text>
+</svg>

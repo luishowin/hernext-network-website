@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700" role="img" aria-label="Partnership forum image placeholder">
+  <rect width="1600" height="700" fill="#f6f3f9"/>
+  <rect x="0.5" y="0.5" width="1599" height="699" fill="none" stroke="#e6e0ee" stroke-width="1"/>
+  <line x1="720" y1="308" x2="880" y2="308" stroke="#d4af37" stroke-width="3"/>
+  <text x="800" y="364" font-family="Georgia, 'Times New Roman', serif" font-size="43" fill="#5c3f7a" text-anchor="middle">Partnership forum</text>
+  <text x="800" y="437" font-family="Helvetica, Arial, sans-serif" font-size="19" letter-spacing="3.9" fill="#786190" text-anchor="middle">1600 x 700</text>
+</svg>

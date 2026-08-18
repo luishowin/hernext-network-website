@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="Trade and Investment image placeholder">
+  <rect width="900" height="600" fill="#f6f3f9"/>
+  <rect x="0.5" y="0.5" width="899" height="599" fill="none" stroke="#e6e0ee" stroke-width="1"/>
+  <line x1="405" y1="264" x2="495" y2="264" stroke="#d4af37" stroke-width="2"/>
+  <text x="450" y="312" font-family="Georgia, 'Times New Roman', serif" font-size="37" fill="#5c3f7a" text-anchor="middle">Trade and Investment</text>
+  <text x="450" y="375" font-family="Helvetica, Arial, sans-serif" font-size="16" letter-spacing="3.3" fill="#786190" text-anchor="middle">900 x 600</text>
+</svg>

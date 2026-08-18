@@ -1,15 +1,22 @@
-# Hermes + OpenCode local config
-.hermes/serve-recipe.sh
-.hermes/*.local.md
-.opencode/tools/
-
-# Client documents (not for public repo)
-*.pdf
-*.docx
-*.zip
-HNN Logo C/
-HNN Logo.pdf
-
-# OS files
+# OS
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs and local scratch
+*.log
+.cache/
+
+# Client source materials, kept local and out of this public repository.
+# The invoice and the project brief both carry commercial terms.
+/HERNEXT NETWORK.pdf
+/HerNext Network Website & Application Platform.pdf
+/INVOICE.pdf
+/HNN Logo.pdf
+/HNN Logo C/

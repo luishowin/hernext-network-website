@@ -1,175 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apply — HerNext Network</title>
-  <meta name="description" content="Apply to join HerNext Network's programmes and opportunities for women's economic transformation across Africa.">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apply | HerNext Network</title>
+<meta name="description" content="Apply to a HerNext Network programme. A short four-step application covering your details, professional profile, chosen initiative and supporting links.">
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Apply | HerNext Network">
+<meta property="og:description" content="Apply to a HerNext Network programme. A short four-step application covering your details, professional profile, chosen initiative and supporting links.">
+<!-- Social sharing image. Add a 1200x630 PNG at assets/images/og-image.png,
+     then uncomment these two lines and set the absolute URL for your domain.
+     Social platforms require an absolute URL and do not render SVG.
+<meta property="og:url" content="https://www.hernextnetwork.org/">
+<meta property="og:image" content="https://www.hernextnetwork.org/assets/images/og-image.png">
+-->
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<header class="nav" id="nav">
-  <div class="nav-container">
-    <a href="index.html"><img src="assets/images/logo-light.svg" alt="HerNext Network" class="nav-logo"></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="opportunities.html">Opportunities</a></li>
-      <li><a href="impact.html">Impact</a></li>
-      <li><a href="partners.html">Partners</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="apply.html" class="active nav-cta nav-cta-mobile">Apply Now</a></li>
-    </ul>
-    <a href="apply.html" class="nav-cta">Apply Now</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="HerNext Network, home">
+      <img src="assets/images/logo-mark.svg" alt="" width="44" height="44">
+      <span class="brand__text">
+        <span class="brand__name">HerNext Network</span>
+        <span class="brand__motto">Creating Opportunity. Building Legacy.</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+      <span class="nav-toggle__bars"></span>
+    </button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="opportunities.html">Opportunities</a>
+      <a class="nav__link" href="impact.html">Impact</a>
+      <a class="nav__link" href="partners.html">Partners</a>
+      <a class="nav__link" href="contact.html">Contact</a>
+      <span class="nav__cta">
+        <a class="btn btn--primary" href="apply.html">Apply <span class="btn__arrow" aria-hidden="true">&#8599;</span></a>
+      </span>
+    </nav>
   </div>
 </header>
 
-<main>
-<section class="section-hero page-header">
-  <div class="container">
-    <span class="section-label">Application</span>
-    <h1>Begin Your Journey</h1>
-    <p style="max-width:650px;margin:0 auto;">Complete the form below to apply for HerNext Network programmes and opportunities. All fields marked with * are required.</p>
-  </div>
-</section>
+<main id="main">
 
-<section class="section">
-  <div class="container form-container">
-
-    <!-- Step indicators -->
-    <div class="form-steps" id="formSteps">
-      <span class="form-step-indicator active" data-step="1">1</span>
-      <span class="form-step-connector" data-connector="1"></span>
-      <span class="form-step-indicator" data-step="2">2</span>
-      <span class="form-step-connector" data-connector="2"></span>
-      <span class="form-step-indicator" data-step="3">3</span>
-      <span class="form-step-connector" data-connector="3"></span>
-      <span class="form-step-indicator" data-step="4">4</span>
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="split" data-reveal>
+        <div>
+          <p class="label">Application</p>
+          <h1 class="page-hero__title">Your next opportunity <em>begins here</em></h1>
+        </div>
+        <p class="lead">The application takes about ten minutes. It moves through four short steps, and you can review everything before you submit. Fields marked with an asterisk are required.</p>
+      </div>
     </div>
+  </section>
 
-    <form id="applyForm" onsubmit="handleApplySubmit(event)">
+  <section class="section section--tight">
+    <div class="container">
 
-      <!-- Step 1: Personal Information -->
-      <div class="form-step active" data-step="1">
-        <h3 style="margin-bottom:1.5rem;">Personal Information</h3>
-        <div class="form-group"><label for="firstName">First Name *</label><input type="text" id="firstName" required placeholder="Your first name"></div>
-        <div class="form-group"><label for="lastName">Last Name *</label><input type="text" id="lastName" required placeholder="Your last name"></div>
-        <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" required placeholder="your@email.com"></div>
-        <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="+ Country code and number"></div>
-        <div class="form-group"><label for="country">Country of Residence *</label>
-          <select id="country" required>
-            <option value="">Select your country</option>
-            <option>Nigeria</option><option>Kenya</option><option>South Africa</option><option>Ghana</option>
-            <option>Ethiopia</option><option>Tanzania</option><option>Uganda</option><option>Rwanda</option>
-            <option>Egypt</option><option>Morocco</option><option>Senegal</option><option>Côte d'Ivoire</option>
-            <option>Cameroon</option><option>Zimbabwe</option><option>Zambia</option><option>Botswana</option>
-            <option>Namibia</option><option>Mozambique</option><option>Angola</option><option>Other</option>
-          </select>
+      <!-- Replace REPLACE_ME with your Formspree form ID. See README, "Connect the forms". -->
+      <form class="form steps" id="apply-form" data-endpoint="https://formspree.io/f/REPLACE_ME" novalidate>
+
+        <div class="steps__progress">
+          <p class="steps__count">Step <span data-step-current>1</span> of <span data-step-total>4</span>, <span data-step-name>Personal details</span></p>
+          <div class="steps__track" aria-hidden="true">
+            <span class="steps__bar is-done"></span>
+            <span class="steps__bar"></span>
+            <span class="steps__bar"></span>
+            <span class="steps__bar"></span>
+          </div>
         </div>
-        <div class="form-nav"><span></span><button type="button" class="btn btn-primary" onclick="nextStep(2)">Continue →</button></div>
+
+        <div data-step-region role="region" aria-live="polite">
+
+        <!-- Step 1 -->
+        <fieldset class="step" data-step="1" data-step-label="Personal details">
+          <legend class="step__legend">Personal details</legend>
+          <p class="step__intro">Tell us who you are and where you are based.</p>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="a-name">Full name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="a-name" name="Full name" autocomplete="name" required>
+              <p class="field__error" data-error-for="a-name"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="a-email">Email address <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="a-email" name="Email" autocomplete="email" required>
+              <p class="field__error" data-error-for="a-email"></p>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="a-phone">Telephone <span class="req" aria-hidden="true">*</span></label>
+              <input type="tel" id="a-phone" name="Telephone" autocomplete="tel" required>
+              <p class="field__error" data-error-for="a-phone"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="a-country">Country <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="a-country" name="Country" autocomplete="country-name" required>
+              <p class="field__error" data-error-for="a-country"></p>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="a-city">City or town</label>
+            <input type="text" id="a-city" name="City" autocomplete="address-level2">
+          </div>
+        </fieldset>
+
+        <!-- Step 2 -->
+        <fieldset class="step" data-step="2" data-step-label="Professional profile" hidden>
+          <legend class="step__legend">Professional profile</legend>
+          <p class="step__intro">Help us understand your work and the organisation you represent.</p>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="a-role">Current role <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="a-role" name="Current role" autocomplete="organization-title" required>
+              <p class="field__error" data-error-for="a-role"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="a-org">Organisation or business</label>
+              <input type="text" id="a-org" name="Organisation" autocomplete="organization">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="a-orgtype">Organisation type <span class="req" aria-hidden="true">*</span></label>
+              <select id="a-orgtype" name="Organisation type" required>
+                <option value="">Please choose</option>
+                <option>Sole proprietor or freelancer</option>
+                <option>Small or medium enterprise</option>
+                <option>Large corporate</option>
+                <option>Startup</option>
+                <option>Cooperative or association</option>
+                <option>Non-governmental organisation</option>
+                <option>Government or public body</option>
+                <option>Academic or research institution</option>
+                <option>Not currently affiliated</option>
+              </select>
+              <p class="field__error" data-error-for="a-orgtype"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="a-experience">Years of experience <span class="req" aria-hidden="true">*</span></label>
+              <select id="a-experience" name="Years of experience" required>
+                <option value="">Please choose</option>
+                <option>Less than 2 years</option>
+                <option>2 to 5 years</option>
+                <option>6 to 10 years</option>
+                <option>11 to 15 years</option>
+                <option>More than 15 years</option>
+              </select>
+              <p class="field__error" data-error-for="a-experience"></p>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="a-sector">Primary sector <span class="req" aria-hidden="true">*</span></label>
+            <select id="a-sector" name="Sector" required>
+              <option value="">Please choose</option>
+              <option>Manufacturing and Industrial Development</option>
+              <option>Agriculture and Agribusiness</option>
+              <option>Technology and Digital Innovation</option>
+              <option>Entrepreneurship and Small Businesses</option>
+              <option>Finance and Investment</option>
+              <option>Healthcare and Life Sciences</option>
+              <option>Energy and Green Transition</option>
+              <option>Climate and Sustainability</option>
+              <option>Textile, Fashion and Creative Industries</option>
+              <option>Leadership and Governance</option>
+              <option>Trade and Regional Integration</option>
+              <option>Other</option>
+            </select>
+            <p class="field__error" data-error-for="a-sector"></p>
+          </div>
+        </fieldset>
+
+        <!-- Step 3 -->
+        <fieldset class="step" data-step="3" data-step-label="Opportunity" hidden>
+          <legend class="step__legend">Opportunity</legend>
+          <p class="step__intro">Choose the initiative you are applying to, and tell us what you intend to do with it.</p>
+
+          <div class="field">
+            <span class="field__label">Which initiative are you applying to? <span class="req" aria-hidden="true">*</span></span>
+            <div class="option-grid" role="radiogroup" aria-labelledby="a-initiative-label">
+              <label class="option">
+                <input type="radio" name="Initiative" value="HerNext Leadership Academy" required>
+                <span>
+                  <span class="option__title">HerNext Leadership Academy</span>
+                  <span class="option__desc">Leadership development for women leading organisations, influencing policy and driving change.</span>
+                </span>
+              </label>
+              <label class="option">
+                <input type="radio" name="Initiative" value="HerNext Opportunity Hub">
+                <span>
+                  <span class="option__title">HerNext Opportunity Hub</span>
+                  <span class="option__desc">Mentorship, business support, networks, funding opportunities, markets and partnerships.</span>
+                </span>
+              </label>
+              <label class="option">
+                <input type="radio" name="Initiative" value="Global Trade and Investment Platform">
+                <span>
+                  <span class="option__title">Global Trade and Investment Platform</span>
+                  <span class="option__desc">Trade missions, exhibitions, buyers and investors across regional and international markets.</span>
+                </span>
+              </label>
+              <label class="option">
+                <input type="radio" name="Initiative" value="Innovation and Sustainability Forum">
+                <span>
+                  <span class="option__title">Innovation and Sustainability Forum</span>
+                  <span class="option__desc">Innovation, technology adoption and sustainable business practice.</span>
+                </span>
+              </label>
+              <label class="option">
+                <input type="radio" name="Initiative" value="HerNext Partnership Forum">
+                <span>
+                  <span class="option__title">HerNext Partnership Forum</span>
+                  <span class="option__desc">The annual convening of governments, corporates, development partners and entrepreneurs.</span>
+                </span>
+              </label>
+              <label class="option">
+                <input type="radio" name="Initiative" value="Research and Policy Dialogue">
+                <span>
+                  <span class="option__title">Research and Policy Dialogue</span>
+                  <span class="option__desc">Research, policy discussion and evidence-based recommendations.</span>
+                </span>
+              </label>
+            </div>
+            <p class="field__error" data-error-for="a-initiative"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="a-goal">What do you hope to gain? <span class="req" aria-hidden="true">*</span></label>
+            <p class="field__hint">Around 100 to 200 words is plenty.</p>
+            <textarea id="a-goal" name="What you hope to gain" required></textarea>
+            <p class="field__error" data-error-for="a-goal"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="a-contribute">What will you contribute? <span class="req" aria-hidden="true">*</span></label>
+            <p class="field__hint">Tell us about the experience, network or perspective you bring to the cohort.</p>
+            <textarea id="a-contribute" name="What you will contribute" required></textarea>
+            <p class="field__error" data-error-for="a-contribute"></p>
+          </div>
+        </fieldset>
+
+        <!-- Step 4 -->
+        <fieldset class="step" data-step="4" data-step-label="Supporting links and review" hidden>
+          <legend class="step__legend">Supporting links and review</legend>
+          <p class="step__intro">Add anything that helps us understand your work, then check your answers before submitting.</p>
+
+          <div class="field">
+            <label class="field__label" for="a-cv">Link to your CV or professional profile</label>
+            <p class="field__hint">A shared document, a personal site or a LinkedIn profile all work.</p>
+            <input type="url" id="a-cv" name="CV or profile link" placeholder="https://">
+            <p class="field__error" data-error-for="a-cv"></p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="a-linkedin">LinkedIn</label>
+              <input type="url" id="a-linkedin" name="LinkedIn" placeholder="https://">
+              <p class="field__error" data-error-for="a-linkedin"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="a-website">Organisation website or portfolio</label>
+              <input type="url" id="a-website" name="Website" placeholder="https://">
+              <p class="field__error" data-error-for="a-website"></p>
+            </div>
+          </div>
+
+          <h2 class="h-minor" style="margin:2.5rem 0 1rem">Review your application</h2>
+          <div class="review" data-review></div>
+
+          <div class="field">
+            <div class="consent">
+              <input type="checkbox" id="a-consent" name="Consent" value="Given" required>
+              <label for="a-consent">I confirm the information above is accurate, and I consent to HerNext Network storing and processing it for the purpose of assessing this application. <span class="req" aria-hidden="true">*</span></label>
+            </div>
+            <p class="field__error" data-error-for="a-consent"></p>
+          </div>
+        </fieldset>
+
+        </div>
+
+        <div class="steps__actions">
+          <button class="btn btn--ghost" type="button" data-prev hidden>Back</button>
+          <button class="btn btn--primary" type="button" data-next>Continue <span class="btn__arrow" aria-hidden="true">&#8599;</span></button>
+          <button class="btn btn--primary" type="submit" data-submit hidden>Submit application <span class="btn__arrow" aria-hidden="true">&#8599;</span></button>
+        </div>
+
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- Shown after a successful submission -->
+      <div class="confirmation" data-confirmation hidden>
+        <p class="confirmation__mark" aria-hidden="true">&#10003;</p>
+        <h2>Application received</h2>
+        <p>Thank you for applying to HerNext Network. A confirmation has been sent to the email address you provided. Our team reviews every application, and you can expect to hear from us within fifteen working days.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="index.html">Return home</a>
+          <a class="btn btn--ghost" href="opportunities.html">Explore opportunities</a>
+        </div>
       </div>
 
-      <!-- Step 2: Professional / Organisational Profile -->
-      <div class="form-step" data-step="2">
-        <h3 style="margin-bottom:1.5rem;">Professional Profile</h3>
-        <div class="form-group"><label for="organisation">Organisation / Business Name</label><input type="text" id="organisation" placeholder="Your organisation or business"></div>
-        <div class="form-group"><label for="role">Current Role / Title *</label><input type="text" id="role" required placeholder="e.g. Founder, CEO, Director"></div>
-        <div class="form-group"><label for="industry">Industry / Sector *</label>
-          <select id="industry" required>
-            <option value="">Select your industry</option>
-            <option>Agriculture & Agribusiness</option><option>Manufacturing & Industry</option>
-            <option>Technology & Digital Innovation</option><option>Finance & Investment</option>
-            <option>Healthcare & Life Sciences</option><option>Energy & Green Transition</option>
-            <option>Textile, Fashion & Creative Industries</option><option>Education & Research</option>
-            <option>Leadership & Governance</option><option>Trade & Commerce</option><option>Other</option>
-          </select>
-        </div>
-        <div class="form-group"><label for="experience">Years of Professional Experience *</label>
-          <select id="experience" required>
-            <option value="">Select range</option>
-            <option>0–2 years</option><option>3–5 years</option><option>6–10 years</option><option>11–20 years</option><option>20+ years</option>
-          </select>
-        </div>
-        <div class="form-nav">
-          <button type="button" class="btn btn-outline" onclick="prevStep(1)">← Back</button>
-          <button type="button" class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
-        </div>
-      </div>
-
-      <!-- Step 3: Opportunity Selection -->
-      <div class="form-step" data-step="3">
-        <h3 style="margin-bottom:1.5rem;">Programme Selection</h3>
-        <div class="form-group"><label for="programme">Which programme interests you? *</label>
-          <select id="programme" required>
-            <option value="">Select a programme</option>
-            <option>HerNext Leadership Academy</option><option>HerNext Opportunity Hub</option>
-            <option>HerNext Global Trade & Investment Platform</option><option>HerNext Innovation & Sustainability Forum</option>
-            <option>HerNext Partnership Forum</option><option>HerNext Research & Policy Dialogue</option>
-            <option>General / Multiple Programmes</option>
-          </select>
-        </div>
-        <div class="form-group"><label for="motivation">Why are you interested in this opportunity? *</label>
-          <textarea id="motivation" required placeholder="Tell us about your goals, aspirations, and what you hope to achieve through this programme..."></textarea>
-          <span class="hint">Briefly describe your motivation (500 words max)</span>
-        </div>
-        <div class="form-group"><label for="contribution">How do you plan to contribute to your community or industry? *</label>
-          <textarea id="contribution" required placeholder="Describe how you will apply what you learn to create impact..."></textarea>
-          <span class="hint">Share your vision for creating change</span>
-        </div>
-        <div class="form-nav">
-          <button type="button" class="btn btn-outline" onclick="prevStep(2)">← Back</button>
-          <button type="button" class="btn btn-primary" onclick="nextStep(4)">Continue →</button>
-        </div>
-      </div>
-
-      <!-- Step 4: Review & Submit -->
-      <div class="form-step" data-step="4">
-        <h3 style="margin-bottom:1.5rem;">Review Your Application</h3>
-        <div class="card" style="margin-bottom:1.5rem;" id="reviewSummary">
-          <p style="color:var(--text-muted);">Review your information below before submitting.</p>
-        </div>
-        <div class="form-group"><label for="referral">How did you hear about HerNext?</label>
-          <select id="referral">
-            <option value="">Select an option</option>
-            <option>Social Media</option><option>Partner Organisation</option><option>Professional Network</option>
-            <option>Event or Conference</option><option>Search Engine</option><option>Friend or Colleague</option><option>Other</option>
-          </select>
-        </div>
-        <div class="form-group" style="display:flex;align-items:flex-start;gap:0.75rem;margin-top:1.5rem;">
-          <input type="checkbox" id="terms" required style="width:18px;height:18px;margin-top:3px;accent-color:var(--gold);">
-          <label for="terms" style="font-weight:400;color:var(--text-secondary);font-size:0.9rem;">I confirm that the information provided is accurate and I agree to be contacted by HerNext Network regarding this application. *</label>
-        </div>
-        <div class="form-nav">
-          <button type="button" class="btn btn-outline" onclick="prevStep(3)">← Back</button>
-          <button type="submit" class="btn btn-primary">Submit Application</button>
-        </div>
-      </div>
-
-    </form>
-
-    <!-- Success Message -->
-    <div class="success-message" id="successMessage">
-      <div class="success-icon">✓</div>
-      <h2 style="color:var(--gold);margin-bottom:1rem;">Application Submitted!</h2>
-      <p>Thank you for your interest in HerNext Network. Your application has been received and our team will review it shortly.</p>
-      <p style="color:var(--text-muted);margin-top:1rem;">You will receive a confirmation email at the address you provided.</p>
-      <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Return Home</a>
     </div>
+  </section>
 
-  </div>
-</section>
 </main>
 
-<footer class="footer">
+<footer class="site-footer">
   <div class="container">
-    <img src="assets/images/logo-light.svg" alt="HerNext Network" class="footer-logo">
-    <p>Creating Opportunity. Building Legacy.<br>Building Pathways for Women's Economic Transformation Across Africa</p>
-    <p style="margin-top:0.5rem;">&copy; 2026 HerNext Network. All rights reserved.</p>
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <img src="assets/images/logo-dark.svg" alt="HerNext Network" width="176" height="180">
+        <p class="site-footer__motto">Creating Opportunity. Building Legacy.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul class="site-footer__links">
+          <li><a href="about.html">About HerNext</a></li>
+          <li><a href="opportunities.html">Opportunities</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="partners.html">Partners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Engage</h3>
+        <ul class="site-footer__links">
+          <li><a href="apply.html">Apply</a></li>
+          <li><a href="partners.html">Become a partner</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul class="site-footer__links">
+          <li><a href="mailto:info@hernextnetwork.org">info@hernextnetwork.org</a></li>
+          <li><a href="tel:+000000000000">+00 000 000 000</a></li>
+          <li><a href="https://www.linkedin.com" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p>&copy; <span data-year>2026</span> HerNext Network. All rights reserved.</p>
+      <p>A Pan-African institution.</p>
+    </div>
   </div>
 </footer>
 
-<script src="js/app.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/forms.js" defer></script>
 </body>
 </html>
