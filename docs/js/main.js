@@ -90,7 +90,11 @@
     if (!pending.length) return;
 
     function revealAll() {
-      pending.forEach(function (g) { g.classList.add("is-visible"); });
+      pending.forEach(function (g) {
+        // is-settled goes on immediately here: nothing is animating, so the
+        // compositor hint would only cost memory.
+        g.classList.add("is-visible", "is-settled");
+      });
       pending = [];
     }
 
@@ -112,12 +116,29 @@
     // content stuck at opacity 0 if the observer never reports.
     var ticking = false;
 
+    // How long a group needs before its last child has finished animating.
+    var styles = window.getComputedStyle(document.documentElement);
+    var ms = function (name, fallback) {
+      var v = parseFloat(styles.getPropertyValue(name));
+      return isNaN(v) ? fallback : v;
+    };
+    var duration = ms("--reveal-duration", 1100);
+    var stagger = ms("--reveal-stagger", 115);
+
+    function settle(group) {
+      var children = group.getAttribute("data-reveal") === "self" ? 1 : group.children.length;
+      window.setTimeout(function () {
+        group.classList.add("is-settled"); // drops the will-change hint
+      }, duration + stagger * children + 100);
+    }
+
     function check() {
       ticking = false;
       var trigger = window.innerHeight * 0.88;
       for (var i = pending.length - 1; i >= 0; i--) {
         if (pending[i].getBoundingClientRect().top < trigger) {
           pending[i].classList.add("is-visible"); // reveal once, never re-run
+          settle(pending[i]);
           pending.splice(i, 1);
         }
       }

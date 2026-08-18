@@ -72,8 +72,12 @@
 
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --reveal-duration: 700ms;
-  --reveal-stagger: 80ms;
+  /* A near-exponential ease out. It decelerates over a long tail, which is
+     what makes the reveal read as unhurried rather than as a slide. */
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --reveal-duration: 1100ms;
+  --reveal-stagger: 115ms;
+  --reveal-shift: 32px;
 }
 
 /* --------------------------------------------------------------------------
@@ -443,7 +447,7 @@ hr.rule {
    7. Hero
    -------------------------------------------------------------------------- */
 
-.hero { padding-top: clamp(3.5rem, 8vh, 6rem); padding-bottom: var(--section-y); }
+.hero { padding-top: clamp(3.5rem, 8vh, 6rem); padding-bottom: 0; }
 
 .hero__grid {
   display: grid;
@@ -451,6 +455,10 @@ hr.rule {
   gap: clamp(2rem, 6vw, 5rem);
   align-items: center;
 }
+
+/* Headline column, held short of the full container so the line lengths
+   stay readable and the white space around them does the work. */
+.hero__intro { max-width: 58rem; }
 .hero__title { margin-block: var(--space-sm) var(--space-md); }
 .hero__lead { margin-bottom: var(--space-md); }
 .hero__meta {
@@ -462,6 +470,21 @@ hr.rule {
   gap: 0.5rem 2rem;
   font-size: var(--step-small);
   color: var(--text-muted);
+}
+
+/* Full-bleed hero photograph. Sits outside .container so it runs edge to
+   edge, and is capped by viewport height so it never swallows the fold on
+   short, wide screens. */
+.hero__figure {
+  margin-top: clamp(3rem, 7vw, 5.5rem);
+  width: 100%;
+}
+.hero__figure img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 78dvh;
+  object-fit: cover;
+  object-position: center 40%;
 }
 
 .page-hero { padding-block: clamp(4rem, 10vh, 7.5rem) clamp(2.5rem, 6vh, 4.5rem); }
@@ -476,6 +499,7 @@ hr.rule {
 .media--portrait img { aspect-ratio: 4 / 5; object-fit: cover; }
 .media--landscape img { aspect-ratio: 3 / 2; object-fit: cover; }
 .media--wide img { aspect-ratio: 16 / 7; object-fit: cover; }
+.media--169 img { aspect-ratio: 16 / 9; object-fit: cover; }
 .media__caption {
   margin-top: var(--space-xs);
   font-size: var(--step-small);
@@ -833,25 +857,30 @@ hr.rule {
 
 .js [data-reveal] > * {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(var(--reveal-shift));
   transition:
-    opacity var(--reveal-duration) var(--ease-out),
-    transform var(--reveal-duration) var(--ease-out);
+    opacity var(--reveal-duration) var(--ease-reveal),
+    transform var(--reveal-duration) var(--ease-reveal);
   transition-delay: calc(var(--i, 0) * var(--reveal-stagger));
+  will-change: opacity, transform;
 }
 .js [data-reveal].is-visible > * {
   opacity: 1;
   transform: none;
 }
+/* Release the compositor hint once the animation has finished. */
+.js [data-reveal].is-settled > * { will-change: auto; }
 
 /* Reveal the element itself rather than its children */
 .js [data-reveal="self"] {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(var(--reveal-shift));
   transition:
-    opacity var(--reveal-duration) var(--ease-out),
-    transform var(--reveal-duration) var(--ease-out);
+    opacity var(--reveal-duration) var(--ease-reveal),
+    transform var(--reveal-duration) var(--ease-reveal);
+  will-change: opacity, transform;
 }
+.js [data-reveal="self"].is-settled { will-change: auto; }
 .js [data-reveal="self"] > * { opacity: 1; transform: none; transition: none; }
 .js [data-reveal="self"].is-visible { opacity: 1; transform: none; }
 
@@ -870,29 +899,48 @@ hr.rule {
 
   .nav-toggle { display: inline-flex; }
 
-  /* Anchored to the header rather than to a fixed offset, so the panel sits
-     flush against it whatever the header ends up measuring. */
+  /* A full-screen panel. It is pinned to the viewport at the full dynamic
+     viewport height, so it covers the screen exactly as mobile browser
+     chrome grows and shrinks, and sits below the header in the stacking
+     order so the logo and close control stay visible on top of it. */
   .nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    height: 100dvh;
     flex-direction: column;
     align-items: stretch;
+    justify-content: flex-start;
     gap: 0;
     background: var(--white);
-    border-bottom: 1px solid var(--rule);
-    padding: var(--space-sm) var(--gutter) var(--space-md);
-    max-height: calc(100dvh - 5rem);
+    padding: calc(5rem + var(--space-md)) var(--gutter) var(--space-xl);
     overflow-y: auto;
-    transform: translateY(-8px);
+    overscroll-behavior: contain;
+    transform: translateY(-1rem);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out), visibility 260ms;
+    transition:
+      opacity 340ms var(--ease-out),
+      transform 340ms var(--ease-out),
+      visibility 340ms;
   }
   .nav.is-open { opacity: 1; visibility: visible; transform: none; }
 
-  .nav__link { font-size: 1rem; padding-block: 0.9rem; border-bottom: 1px solid var(--rule); }
+  /* The panel is a child of the header, so it shares the header's stacking
+     context. Lift the brand and the toggle above it, otherwise the open
+     panel paints over the logo and its own close control. */
+  .brand,
+  .nav-toggle { position: relative; z-index: 95; }
+
+  .nav__link {
+    font-size: 1.35rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
   .nav__link::after { display: none; }
   .nav__cta { margin: var(--space-sm) 0 0; }
   .nav__cta .btn { width: 100%; }
@@ -962,3 +1010,66 @@ hr.rule {
 /* A heading that must sit at h2 in the document outline but read at h3 size,
    used where the visual hierarchy and the semantic one differ. */
 .h-minor { font-size: var(--step-h3); font-weight: 500; }
+
+/* Legal links in the footer base line */
+.site-footer__legal { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.site-footer__legal a { border-bottom: 1px solid transparent; }
+.site-footer__legal a:hover { border-bottom-color: var(--gold); }
+
+/* --------------------------------------------------------------------------
+   18. Long-form legal pages
+   -------------------------------------------------------------------------- */
+
+.legal { max-width: 46rem; }
+.legal__meta {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--step-small);
+  color: var(--text-muted);
+}
+.legal h2 {
+  font-size: var(--step-h3);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xs);
+}
+.legal h3 {
+  font-size: var(--step-h4);
+  font-weight: 600;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-2xs);
+}
+.legal p,
+.legal li { color: var(--text-muted); }
+.legal p + p { margin-top: 0.9em; }
+.legal ul { margin-top: 0.75rem; display: grid; gap: 0.6rem; }
+.legal ul li { position: relative; padding-left: 1.5rem; }
+.legal ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--gold);
+}
+.legal a:not(.btn) {
+  color: var(--gold-text);
+  border-bottom: 1px solid var(--gold);
+  transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out);
+}
+.legal a:not(.btn):hover { color: var(--plum); border-color: var(--plum); }
+.legal dl { display: grid; gap: 0.75rem; margin-top: 0.9rem; }
+.legal dt { font-weight: 600; color: var(--plum); font-size: 0.95rem; }
+.legal dd { margin: 0; color: var(--text-muted); }
+
+/* A boxed note for anything the reader should not miss */
+.callout {
+  margin: var(--space-md) 0;
+  padding: var(--space-sm) var(--space-md);
+  border-left: 2px solid var(--gold);
+  background: var(--plum-tint);
+}
+.callout p { color: var(--text-muted); }
+.callout p + p { margin-top: 0.75em; }
+.callout strong { color: var(--plum); }

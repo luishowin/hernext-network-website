@@ -18,7 +18,9 @@ The contents of `docs/` are the deployed site exactly as written.
 - [Project structure](#project-structure)
 - [Design system](#design-system)
 - [Connect the forms](#connect-the-forms)
-- [Replacing the placeholder images](#replacing-the-placeholder-images)
+- [Images](#images)
+- [SEO and crawling](#seo-and-crawling)
+- [Legal pages](#legal-pages)
 - [Editing the copy](#editing-the-copy)
 - [Deploying to GitHub Pages](#deploying-to-github-pages)
 - [Adding the custom domain](#adding-the-custom-domain)
@@ -52,10 +54,15 @@ docs/                      the published site, this is the deploy root
   opportunities.html       Strategic pillars, signature initiatives, sectors
   impact.html              Opportunity gap, approach, outcomes, SDG alignment
   partners.html            Partnership philosophy, partner types, principles
-  apply.html               Four-step application
+  apply.html               Four-step interest registration
   contact.html             Contact details and enquiry form
-  404.html                 Not found
-  robots.txt
+  privacy.html             Privacy policy
+  terms.html               Terms of use
+  accessibility.html       Accessibility statement
+  404.html                 Not found, noindex
+  robots.txt               permissive, points at the sitemap
+  sitemap.xml              all ten indexable pages
+  llms.txt                 structured summary for assistants and answer engines
   .nojekyll                tells GitHub Pages to serve the files as they are
   css/style.css            the entire design system, one file
   js/main.js               navigation, scroll reveal, header state, year
@@ -128,6 +135,12 @@ container and its direct children animate in sequence; `main.js` assigns the
 `--i` index, and the CSS turns that into a `transition-delay`. Use
 `data-reveal="self"` to animate the element itself instead of its children.
 
+Timing is set by three tokens: `--reveal-duration` at 1100ms,
+`--reveal-stagger` at 115ms between siblings, and `--reveal-shift` at 32px of
+travel. The curve is `--ease-reveal`, a near-exponential ease out that spends
+most of its time decelerating, which is what makes the movement read as
+unhurried rather than as a slide.
+
 The reveal is driven by a direct geometry check rather than
 `IntersectionObserver`, which keeps it deterministic across browsers. Two
 safeguards mean content can never be left invisible:
@@ -177,43 +190,142 @@ to change.
 
 ---
 
-## Replacing the placeholder images
+## Images
 
-Every image slot holds a flat SVG placeholder labelled with its purpose and its
-recommended pixel size. To use a real photograph, **replace the file and keep
-the existing name**, and no markup has to change.
+Photographs are served as WebP at three widths each, chosen by the browser
+through `srcset`. On a 375 pixel phone at 2x the hero loads the 1000 wide file
+at 75 KB rather than the 1600 wide file at 164 KB.
 
-| File | Slot | Recommended size |
+| Slot | Files | Page |
 |---|---|---|
-| `placeholder-hero.svg` | Home hero portrait | 800 x 1000 |
-| `placeholder-story.svg` | About, our story | 1200 x 800 |
-| `placeholder-initiative-1.svg` | Leadership Academy | 900 x 600 |
-| `placeholder-initiative-2.svg` | Opportunity Hub | 900 x 600 |
-| `placeholder-initiative-3.svg` | Trade and Investment | 900 x 600 |
-| `placeholder-partners.svg` | Partners banner | 1600 x 700 |
-| `placeholder-impact.svg` | Impact section | 1200 x 800 |
-| `placeholder-contact.svg` | Contact page | 1000 x 667 |
-| `placeholder-apply.svg` | Closing call to action | 900 x 1125 |
+| Hero, full bleed | `hnn-presentation-{700,1000,1600}.webp` | Home |
+| Our story | `hnn-office-{600,900,1400}.webp` | About |
+| Social preview | `og-image.jpg`, 1200 x 630 | all pages |
 
-If you switch to `.jpg` or `.webp`, update the `src` and the `width` and
-`height` attributes on that `<img>`. Keeping `width` and `height` accurate is
-what stops the page from shifting as images load.
+The untouched PNG originals are in `source-images/` at the repository root,
+which is gitignored. They stay out of `docs/` so a 2 MB file can never be
+served to a visitor by accident.
 
-Alt text is already written for each slot on the assumption that a real
-photograph will replace the placeholder. Review it once the final images are
-chosen so it describes what is actually shown.
+### Adding a new photograph
 
-### About the logo files
+```bash
+python - <<'PY'
+from PIL import Image
+im = Image.open("source-images/your-photo.png").convert("RGB")
+for w in (1600, 1000, 700):
+    h = round(im.height * w / im.width)
+    im.resize((w, h), Image.LANCZOS).save(
+        f"docs/assets/images/your-photo-{w}.webp", "WEBP", quality=82, method=6)
+PY
+```
 
-The supplied logo SVGs were 156 KB each, mostly a 257-stop gradient
-interpolating two colours plus the tagline set as outlines. Three lighter
-assets were derived for the web:
+Then reference all three in one `<img>`, and keep `width` and `height` on the
+tag so the page does not shift as it loads:
 
-- `logo-mark.svg` (22 KB), the emblem alone, used in the header and favicon
-- `logo-light.svg` (61 KB), emblem and wordmark on light backgrounds
-- `logo-dark.svg` (61 KB), the same for dark backgrounds, used in the footer
+```html
+<img src="assets/images/your-photo-1600.webp"
+     srcset="assets/images/your-photo-700.webp 700w,
+             assets/images/your-photo-1000.webp 1000w,
+             assets/images/your-photo-1600.webp 1600w"
+     sizes="100vw" alt="Describe what is happening in the photograph"
+     width="1600" height="900" decoding="async">
+```
 
-The originals are untouched in `HNN Logo C/` for print and other uses.
+Use `sizes="100vw"` for full width images and `sizes="(max-width: 900px) 100vw, 45vw"`
+for one sitting in a two column split.
+
+### Remaining placeholders
+
+Seven flat SVG placeholders are still in use, each labelled with its slot and
+recommended size: three initiative cards, the partners banner, the impact
+section, the contact page and the closing call to action. Replace the file,
+keep the name, and no markup changes.
+
+### Assets you are replacing
+
+| File | Note |
+|---|---|
+| `logo-mark.svg`, `logo-light.svg`, `logo-dark.svg` | Derived from the supplied SVG. Regenerate all three when the redrawn logo lands |
+| `favicon.svg` | Currently the emblem cropped from the same source |
+| `og-image.jpg` | Interim, cropped from the presentation photograph |
+| `apple-touch-icon.png` | Not present. Add a 180 x 180 PNG, then uncomment the line in the `<head>` |
+
+---
+
+## SEO and crawling
+
+Every page carries a unique title under 60 characters, a description under 160,
+a canonical URL, Open Graph and Twitter card tags, and JSON-LD. The home page
+declares `Organization` and `WebSite`; every other page declares `Organization`
+and a `BreadcrumbList`. The 404 page is `noindex` and carries no structured
+data.
+
+Three files support crawling:
+
+- **`robots.txt`** allows everything and names the sitemap. It also names the
+  major assistant crawlers explicitly, so answer engines can read and cite the
+  site.
+- **`sitemap.xml`** lists the ten indexable pages with priorities.
+- **`llms.txt`** is a structured plain-language summary following the
+  llmstxt.org convention. Its final section tells a summarising model what
+  *not* to claim: that programmes are not open, that no impact figures exist,
+  and that no fee is ever charged.
+
+### The origin is defined in one place
+
+Canonicals, `og:url`, JSON-LD and the sitemap all need an absolute URL. That
+lives in `BASE` at the top of the page builder, and is currently the live
+GitHub Pages address. It is deliberately not the future custom domain, because
+a canonical pointing at a site that does not answer yet will get the pages
+dropped from the index.
+
+When the domain is live, update it everywhere in one pass:
+
+```bash
+grep -rl "luishowin.github.io/hernext-network-website/" docs/ | xargs sed -i 's#https://luishowin.github.io/hernext-network-website/#https://www.hernextnetwork.org/#g'
+```
+
+Then submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+
+---
+
+## Legal pages
+
+Three pages sit in the footer: `privacy.html`, `terms.html` and
+`accessibility.html`.
+
+**These are drafts written to match what the site actually does, not legal
+advice.** Have them reviewed by a qualified adviser in the jurisdictions
+HerNext operates in. Four placeholders must be filled in first, and they are
+marked in the text:
+
+- `[registered entity name]`
+- `[registered address]`
+- `[governing jurisdiction]`, in both the privacy policy and the terms
+
+```bash
+grep -rn "\[registered entity name\]\|\[registered address\]\|\[governing jurisdiction\]" docs/
+```
+
+The privacy policy names the three third parties that actually see visitor
+data: Formspree, GitHub Pages and Google Fonts. If you drop Google Fonts in
+favour of self-hosting, or add analytics, that section has to change with it.
+
+### Why the application flow says "register your interest"
+
+The site previously said applications were open and promised a reply within
+fifteen working days. For a pre-funding organisation whose programmes are still
+in development, that is a representation that would be hard to defend, and the
+people it would let down are the exact audience HerNext exists to serve.
+
+The flow now collects the same information through the same four steps, but it
+is framed as registering interest, states plainly that programmes are in
+development, and commits to no timeline. The terms page carries the same
+statement, and adds that no fee is ever charged and how to report anyone
+soliciting payment in the organisation's name.
+
+If real programmes open later, the copy to revisit is the page hero and the
+notice in `apply.html`, the confirmation text, and the shared call to action.
 
 ---
 
@@ -241,7 +353,6 @@ site carries placeholders. Replace these everywhere before launch:
 | `apply@hernextnetwork.org` | contact page, form error message in `forms.js` |
 | `+00 000 000 000` | footer on all pages, contact page |
 | `https://www.linkedin.com` | footer on all pages, contact page |
-| `https://www.instagram.com` | footer on all pages, contact page |
 
 A quick way to find every occurrence:
 
@@ -313,10 +424,15 @@ real one.
 ## Before launch
 
 - [ ] Formspree IDs added to `apply.html` and `contact.html`, both tested live
-- [ ] Real email addresses, telephone number and social links in place
-- [ ] Real photographs replacing the nine placeholders, with alt text reviewed
-- [ ] `CNAME` added and HTTPS enforced
-- [ ] Social sharing image added and the `og:` block uncommented
+- [ ] Real email address and telephone number in place, LinkedIn URL confirmed
+- [ ] Legal placeholders filled in: entity name, address, governing jurisdiction
+- [ ] Privacy policy and terms reviewed by a qualified adviser
+- [ ] Redrawn logo dropped in, and all three logo files plus the favicon regenerated
+- [ ] Final social preview image replacing the interim `og-image.jpg`
+- [ ] `apple-touch-icon.png` added and the line in the `<head>` uncommented
+- [ ] Remaining seven placeholder images replaced, with alt text reviewed
+- [ ] `CNAME` added, HTTPS enforced, and the origin swap run across `docs/`
+- [ ] `sitemap.xml` submitted to Google Search Console
 - [ ] Copy signed off against `CONTENT.md`
 
 ---

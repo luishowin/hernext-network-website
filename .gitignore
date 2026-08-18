@@ -20,3 +20,6 @@ desktop.ini
 /INVOICE.pdf
 /HNN Logo.pdf
 /HNN Logo C/
+
+# Untouched photo originals, kept local. Optimised WebP lives in docs/.
+/source-images/

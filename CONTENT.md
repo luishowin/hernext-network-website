@@ -26,23 +26,24 @@ written for this site and are marked **[new]** below.
 - **Descriptor:** A Pan-African institution
 
 ### Navigation
-About · Opportunities · Impact · Partners · Contact · **Apply** (button)
+About · Opportunities · Impact · Partners · Contact · **Register interest** (button)
 
 ### Footer
 - **Motto line:** Creating Opportunity. Building Legacy.
 - **Explore:** About HerNext · Opportunities · Impact · Partners
-- **Engage:** Apply · Become a partner · Contact us
-- **Contact:** email, telephone, LinkedIn, Instagram *(placeholders, see README)*
+- **Engage:** Register your interest · Become a partner · Contact us
+- **Legal line:** Privacy · Terms · Accessibility
+- **Contact:** email and telephone *(placeholders)*, Instagram @hernextnetworkltd *(live)*, LinkedIn *(placeholder)*
 - **Legal:** Copyright HerNext Network. All rights reserved.
 - **Right side:** A Pan-African institution.
 
 ### Closing call to action *(repeated on Home, About, Opportunities, Impact)* **[new]**
 - **Label:** Take the next step
-- **Heading:** Your next opportunity *begins here*
-- **Body:** Applications are open to women building enterprises, leading
-  organisations, advancing research and driving innovation across the continent.
-  Tell us where you are and where you intend to go.
-- **Buttons:** Start your application · Partner with us
+- **Heading:** Tell us what you are *building*
+- **Body:** Our programmes are in development. Registering your interest tells
+  us what to build, and puts you first in line when a cohort opens. It takes
+  about ten minutes.
+- **Buttons:** Register your interest · Partner with us
 
 ---
 
@@ -54,7 +55,7 @@ About · Opportunities · Impact · Partners · Contact · **Apply** (button)
 - **Lead:** HerNext Network creates pathways of opportunity that advance women's
   economic transformation across Africa, through leadership, entrepreneurship,
   innovation, strategic partnerships and sustainable development.
-- **Buttons:** Apply for a programme · Explore opportunities
+- **Buttons:** Register your interest · Explore opportunities
 - **Meta strip:** Nine strategic pillars · Six signature initiatives ·
   Eleven priority sectors
 
@@ -389,16 +390,27 @@ Descriptions expanded from the single lines in the Profile. **[new]**
 
 ---
 
-## Apply
+## Register your interest *(apply.html)*
 
-All copy on this page is **[new]**. The Profile describes the application
-system but supplies no field labels or microcopy.
+All copy on this page is **[new]**. The Profile describes an application system
+but supplies no field labels or microcopy.
 
-- **Label:** Application
-- **Heading:** Your next opportunity *begins here*
-- **Lead:** The application takes about ten minutes. It moves through four short
-  steps, and you can review everything before you submit. Fields marked with an
-  asterisk are required.
+> **Framing changed 18 August 2026.** This page previously read as an open
+> application and promised a reply within fifteen working days. Because HerNext
+> is pre-funding and its programmes are still in development, that was a
+> representation the organisation could not stand behind. The same four steps
+> now collect the same information, framed as registering interest, with no
+> timeline committed. See the README section "Why the application flow says
+> register your interest".
+
+- **Label:** Register your interest
+- **Heading:** Tell us what you are *building*
+- **Notice:** HerNext programmes are in development. Registering tells us what
+  to build and puts you first in line when a cohort opens. It is not an offer of
+  a place, and no fee is payable at any stage.
+- **Lead:** This takes about ten minutes. It moves through four short steps, and
+  you can review everything before you submit. Fields marked with an asterisk
+  are required.
 - **Progress:** Step 1 of 4, Personal details
 
 ### Step 1, Personal details
@@ -418,9 +430,9 @@ system but supplies no field labels or microcopy.
 - **Sector options:** the eleven priority sectors, plus Other
 
 ### Step 3, Opportunity
-- **Intro:** Choose the initiative you are applying to, and tell us what you
-  intend to do with it.
-- **Which initiative are you applying to?** `*` The six signature initiatives,
+- **Intro:** Choose the initiative you are most interested in, and tell us what
+  you intend to do with it.
+- **Which initiative interests you most?** `*` The six signature initiatives,
   each with a one-line description.
 - **What do you hope to gain?** `*` Hint: Around 100 to 200 words is plenty.
 - **What will you contribute?** `*` Hint: Tell us about the experience, network
@@ -432,24 +444,20 @@ system but supplies no field labels or microcopy.
 - Link to your CV or professional profile. Hint: A shared document, a personal
   site or a LinkedIn profile all work.
 - LinkedIn · Organisation website or portfolio
-- **Review your application**, a read-only summary of steps 1 to 3.
+- **Review your details**, a read-only summary of steps 1 to 3.
 - **Consent** `*` I confirm the information above is accurate, and I consent to
-  HerNext Network storing and processing it for the purpose of assessing this
-  application.
+  HerNext Network storing and processing it so that it can contact me about its
+  programmes. I have read the privacy policy.
 
 ### Buttons
-Back · Continue · Submit application
+Back · Continue · Register my interest
 
 ### Confirmation
-- **Heading:** Application received
-- **Body:** Thank you for applying to HerNext Network. A confirmation has been
-  sent to the email address you provided. Our team reviews every application,
-  and you can expect to hear from us within fifteen working days.
+- **Heading:** Interest registered
+- **Body:** Thank you. A confirmation has been sent to the email address you
+  provided. We will be in touch as programmes open, and we may contact you
+  before then to understand what would be most useful to you.
 - **Buttons:** Return home · Explore opportunities
-
-> **To confirm with HerNext:** the fifteen working day response window, and
-> whether applications are open continuously or in rounds. Both are placeholder
-> commitments taken from common practice, not from the Profile.
 
 ### Validation messages
 | Case | Message |
@@ -501,6 +509,45 @@ Back · Continue · Submit application
 
 ---
 
+## Legal pages
+
+Three pages written for this site, all **[new]**, all drafts pending review by
+a qualified adviser. Each carries a visible note saying so, and each marks the
+placeholders that must be filled in: `[registered entity name]`,
+`[registered address]` and `[governing jurisdiction]`.
+
+### Privacy policy *(privacy.html)*
+Eleven sections: who we are, what we collect, why and on what basis, who else
+handles it, where it goes, how long we keep it, your rights, security, children,
+changes, governing law.
+
+Written to describe what the site genuinely does rather than a generic template.
+It names the three third parties that actually see visitor data, Formspree,
+GitHub Pages and Google Fonts, states that the site sets no cookies of its own
+and runs no analytics, and gives retention periods of twenty four months for
+enquiries and thirty six for registrations. **If Google Fonts is ever
+self-hosted, or analytics added, section 4 must change with it.**
+
+### Terms of use *(terms.html)*
+Thirteen sections. Two carry most of the weight:
+
+- **Section 2, the status of our programmes.** States in a boxed callout that
+  the initiatives described are statements of intent, that registering is not an
+  application to an open programme and creates no obligation, and that nothing
+  on the site is an offer of employment, funding, investment, a grant or a
+  scholarship.
+- **Section 3, no fees and how to spot impersonation.** States that HerNext
+  never charges to register or take part, names the only official channels, and
+  gives an address to report anyone soliciting payment in its name.
+
+### Accessibility statement *(accessibility.html)*
+Commits to WCAG 2.1 AA, lists ten specific measures taken, and names four known
+limitations honestly: the Google Fonts dependency, screen reader pairings not
+yet exhaustively tested, photography still being replaced, and no independent
+audit yet. Gives a contact route and a ten working day response aim.
+
+---
+
 ## Image alt text
 
 Written on the assumption that a real photograph replaces each placeholder.
@@ -508,8 +555,8 @@ Review once the final images are chosen.
 
 | Slot | Alt text |
 |---|---|
-| Home hero | A woman leading a working session with colleagues |
-| About story | Founding members of HerNext Network in discussion |
+| Home hero **(real photo)** | A speaker addressing a full auditorium, with the HerNext Network name projected on the wall behind her |
+| About story **(real photo)** | A team meeting around a boardroom table beneath the HerNext Network wall mark |
 | Leadership Academy | A leadership development session in progress |
 | Opportunity Hub | Entrepreneurs meeting mentors at the Opportunity Hub |
 | Trade and Investment | Delegates at an international trade exhibition |
@@ -525,11 +572,12 @@ text. The footer logo carries `alt="HerNext Network"`.
 
 ## Open questions for HerNext
 
-1. Email addresses, telephone number and social media handles.
-2. The response window quoted on the confirmation screen, currently fifteen
-   working days.
-3. Whether applications run continuously or in rounds, and whether the site
-   should state a deadline.
-4. Whether all six initiatives accept applications, or only some.
-5. Real impact figures, when available, for the statistics band on the home page.
-6. Photography, nine slots, listed in the README.
+1. Email address and telephone number. Instagram is confirmed as
+   @hernextnetworkltd; the LinkedIn URL is still a placeholder.
+2. Registered entity name, registered address and governing jurisdiction, for
+   the privacy policy and the terms.
+3. Whether all six initiatives will open to registration, or only some.
+4. Real impact figures, when available, for the statistics band on the home page.
+5. Photography for the seven remaining placeholder slots, listed in the README.
+6. Whether to publish an indicative timeline for the first cohort, once funding
+   is settled. Until then the site deliberately commits to none.

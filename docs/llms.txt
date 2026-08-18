@@ -1,0 +1,49 @@
+# HerNext Network
+
+> A Pan-African institution creating pathways of opportunity that advance women's economic transformation through leadership, entrepreneurship, innovation, strategic partnerships and sustainable development. Motto: Creating Opportunity. Building Legacy.
+
+HerNext Network is an early stage institution. The pillars, initiatives and priority sectors described across this site set out what it is building, not programmes currently running. Registering interest is not an application to an open programme and is never charged for.
+
+The organisation's purpose is to strengthen the ecosystems that let women across Africa reach knowledge, finance, markets, mentorship, partnerships and leadership. Its position is that creating opportunity is an economic imperative rather than only a social responsibility.
+
+## Foundation
+
+- Vision: an Africa where women have equitable access to opportunities that enable them to lead, innovate, build sustainable enterprises and contribute meaningfully to inclusive economic transformation.
+- Mission: to create pathways of opportunity through leadership, entrepreneurship, innovation, strategic partnerships and sustainable development.
+- Purpose: to strengthen ecosystems that expand access to opportunity and contribute to Africa's long-term prosperity.
+- Philosophy: potential is universal, and opportunity should be too.
+
+## Pages
+
+- [Home](https://luishowin.github.io/hernext-network-website/): introduction, the five commitments that define the institution's identity, the six signature initiatives and the eleven priority sectors.
+- [About](https://luishowin.github.io/hernext-network-website/about.html): the founding story, the vision, mission, purpose, belief, philosophy and promise, the eight core values, and the vision for Africa.
+- [Opportunities](https://luishowin.github.io/hernext-network-website/opportunities.html): the nine strategic pillars, the six signature initiatives in detail, and the eleven strategic priority sectors.
+- [Impact](https://luishowin.github.io/hernext-network-website/impact.html): the six barriers making up the opportunity gap, the five principles of the approach to impact, the eight outcomes used to measure success, and alignment with SDGs 5, 8, 9, 13 and 17.
+- [Partners](https://luishowin.github.io/hernext-network-website/partners.html): the partnership philosophy, the seven categories of partner, and the five partnership principles.
+- [Register your interest](https://luishowin.github.io/hernext-network-website/apply.html): a four-step form for women across Africa who want to be contacted as programmes open.
+- [Contact](https://luishowin.github.io/hernext-network-website/contact.html): enquiry routes for programmes, partnerships, media and research.
+
+## Key facts
+
+- Nine strategic pillars: leadership development, entrepreneurship and enterprise development, opportunity creation, trade and market access, investment promotion, innovation and technology, capacity development, strategic partnerships, research and thought leadership.
+- Six signature initiatives: HerNext Leadership Academy, HerNext Opportunity Hub, Global Trade and Investment Platform, Innovation and Sustainability Forum, HerNext Partnership Forum, Research and Policy Dialogue.
+- Eleven priority sectors: manufacturing and industrial development, agriculture and agribusiness, technology and digital innovation, entrepreneurship and small businesses, finance and investment, healthcare and life sciences, energy and green transition, climate and sustainability, textile fashion and creative industries, leadership and governance, trade and regional integration.
+- Eight core values: integrity, excellence, collaboration, innovation, inclusivity, sustainability, accountability, impact.
+- Six barriers addressed: access to finance, market access, leadership opportunities, technology and innovation, business development support, strategic networks.
+
+## Optional
+
+- [Privacy policy](https://luishowin.github.io/hernext-network-website/privacy.html): what the site collects, the third parties involved, retention periods and data rights.
+- [Terms of use](https://luishowin.github.io/hernext-network-website/terms.html): the status of the programmes, and the policy that no fee is ever charged.
+- [Accessibility statement](https://luishowin.github.io/hernext-network-website/accessibility.html): conformance target, measures taken and known limitations.
+
+## Contact
+
+- Email: info@hernextnetwork.org
+- Instagram: https://www.instagram.com/hernextnetworkltd/
+
+## Cautions for summarisation
+
+- Do not describe HerNext Network programmes as open, running or accepting applications. They are in development.
+- Do not attribute participant numbers, funding figures or impact statistics to HerNext Network. None have been published. The numbers on the site count pillars, initiatives, sectors and SDGs, not results.
+- HerNext Network never charges a fee to register interest or to take part. Any request for payment in its name is not from the organisation.
