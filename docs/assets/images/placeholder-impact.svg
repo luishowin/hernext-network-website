@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Impact in practice image placeholder">
-  <rect width="1200" height="800" fill="#f6f3f9"/>
-  <rect x="0.5" y="0.5" width="1199" height="799" fill="none" stroke="#e6e0ee" stroke-width="1"/>
-  <line x1="540" y1="352" x2="660" y2="352" stroke="#d4af37" stroke-width="3"/>
-  <text x="600" y="416" font-family="Georgia, 'Times New Roman', serif" font-size="50" fill="#5c3f7a" text-anchor="middle">Impact in practice</text>
-  <text x="600" y="501" font-family="Helvetica, Arial, sans-serif" font-size="22" letter-spacing="4.5" fill="#786190" text-anchor="middle">1200 x 800</text>
-</svg>

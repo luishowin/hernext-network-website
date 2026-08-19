@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125" width="900" height="1125" role="img" aria-label="Applicants image placeholder">
-  <rect width="900" height="1125" fill="#f6f3f9"/>
-  <rect x="0.5" y="0.5" width="899" height="1124" fill="none" stroke="#e6e0ee" stroke-width="1"/>
-  <line x1="405" y1="495" x2="495" y2="495" stroke="#d4af37" stroke-width="4"/>
-  <text x="450" y="585" font-family="Georgia, 'Times New Roman', serif" font-size="56" fill="#5c3f7a" text-anchor="middle">Applicants</text>
-  <text x="450" y="680" font-family="Helvetica, Arial, sans-serif" font-size="25" letter-spacing="5.0" fill="#786190" text-anchor="middle">900 x 1125</text>
-</svg>

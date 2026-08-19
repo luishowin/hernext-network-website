@@ -45,7 +45,6 @@ and four of them will make it look and behave differently once they land.
 | Redrawn logo SVG | regenerates `logo-mark`, `logo-light`, `logo-dark`, `favicon` | No, current files are derived from the supplied SVG |
 | Real email address and telephone, LinkedIn URL | footer and contact page | No |
 | Final social preview image and `apple-touch-icon.png` | `assets/images/` | No, an interim preview is in place |
-| Seven remaining photographs | `assets/images/placeholder-*.svg` | No |
 
 Each has its own section below, and the full list is repeated as a checklist
 under [Before launch](#before-launch).
@@ -283,6 +282,13 @@ at 75 KB rather than the 1600 wide file at 164 KB.
 |---|---|---|
 | Hero, full bleed | `hnn-presentation-{700,1000,1600}.webp` | Home |
 | Our story | `hnn-office-{600,900,1400}.webp` | About |
+| Partnership Forum banner, 16:7 | `hnn-forum-{700,1000,1600}.webp` | Partners |
+| Leadership Academy card, 3:2 | `hnn-academy-{350,500,700}.webp` | Opportunities |
+| Opportunity Hub card, 3:2 | `hnn-mentoring-{600,900,1400}.webp` | Opportunities |
+| Global Trade card, 3:2 | `hnn-trade-{350,500,700}.webp` | Opportunities |
+| Measuring success, 3:2 | `hnn-team-{600,900,1400}.webp` | Impact |
+| Contact, 3:2 | `hnn-hall-{600,900,1400}.webp` | Contact |
+| Closing call to action, 4:5 | `hnn-conversation-{400,600,800}.webp` | Home, About, Opportunities, Impact |
 | Social preview | `og-image.jpg`, 1200 x 630 | all pages |
 
 The untouched PNG originals are in `source-images/` at the repository root,
@@ -317,12 +323,28 @@ tag so the page does not shift as it loads:
 Use `sizes="100vw"` for full width images and `sizes="(max-width: 900px) 100vw, 45vw"`
 for one sitting in a two column split.
 
-### Remaining placeholders
+### Cropping to the slot
 
-Seven flat SVG placeholders are still in use, each labelled with its slot and
-recommended size: three initiative cards, the partners banner, the impact
-section, the contact page and the closing call to action. Replace the file,
-keep the name, and no markup changes.
+Every `.media` class fixes an aspect ratio in CSS and crops with
+`object-fit: cover`, so a photograph whose native ratio differs will be cut by
+the browser wherever it happens to land. Crop deliberately at build time
+instead, then set `width` and `height` to the cropped size so the ratio in the
+markup matches the ratio in the stylesheet and the page never shifts:
+
+| Class | Ratio | Used by |
+|---|---|---|
+| `media--portrait` | 4 / 5 | closing call to action |
+| `media--landscape` | 3 / 2 | initiative cards, impact, contact |
+| `media--wide` | 16 / 7 | partners banner |
+| `media--169` | 16 / 9 | about, our story |
+
+Two of the seven slots were filled from portrait originals (`hnn books.jpg`,
+`hnn un.jpg`), so their crops are capped at 700 wide. That is enough for a
+card in a three column grid at 2x, but they cannot be reused full bleed.
+
+The impact slot reuses the event hall photograph that also appears on the
+contact page, framed differently. A photograph of a women-led enterprise at
+work would suit that section better whenever one is available.
 
 ### Assets you are replacing
 
@@ -521,7 +543,7 @@ eleven pages at once. The steps for that are under
 - [ ] Redrawn logo dropped in, and all three logo files plus the favicon regenerated
 - [ ] Final social preview image replacing the interim `og-image.jpg`
 - [ ] `apple-touch-icon.png` added and the line in the `<head>` uncommented
-- [ ] Remaining seven placeholder images replaced, with alt text reviewed
+- [ ] Dedicated photograph for the impact section, replacing the reused hall image
 - [ ] `CNAME` added, HTTPS enforced, `BASE` updated in `tools/build.py` and rebuilt,
       and the origin swapped in `robots.txt`, `sitemap.xml` and `llms.txt`
 - [ ] `sitemap.xml` submitted to Google Search Console
