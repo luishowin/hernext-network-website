@@ -29,25 +29,39 @@ ORG = {
     "image": BASE + "assets/images/og-image.jpg",
     "slogan": "Creating Opportunity. Building Legacy.",
     "description": (
-        "HerNext Network is a Pan-African institution creating pathways of "
-        "opportunity that advance women's economic transformation through "
-        "leadership, entrepreneurship, innovation, strategic partnerships and "
-        "sustainable development."
+        "HerNext Network is a women-centred Pan-African institution advancing "
+        "women's economic transformation through practical, evidence-driven "
+        "interventions that expand access to markets, finance, skills, "
+        "strategic partnerships and sustainable livelihood opportunities."
     ),
     "areaServed": {"@type": "Place", "name": "Africa"},
     "knowsAbout": [
-        "Women's economic empowerment", "Leadership development",
-        "Entrepreneurship", "Trade and market access", "Investment promotion",
-        "Innovation and technology", "Strategic partnerships",
-        "Sustainable development in Africa",
+        "Women's economic empowerment", "Enterprise and livelihood development",
+        "Markets and trade", "Finance and investment",
+        "Skills, leadership and enterprise capability",
+        "Innovation, technology and sustainability",
+        "Partnerships and economic ecosystems",
+        "Monitoring, evaluation and impact measurement",
     ],
     "sameAs": ["https://www.instagram.com/hernextnetworkltd/"],
-    "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "general enquiries",
-        "email": "info@hernextnetwork.org",
-        "availableLanguage": ["English"],
-    },
+    "email": "info@hernextnetwork.com",
+    "telephone": "+254780528551",
+    "contactPoint": [
+        {
+            "@type": "ContactPoint",
+            "contactType": "general enquiries",
+            "email": "info@hernextnetwork.com",
+            "telephone": "+254780528551",
+            "availableLanguage": ["English"],
+        },
+        {
+            "@type": "ContactPoint",
+            "contactType": "programmes and partnerships",
+            "email": "hernextnetwork@gmail.com",
+            "telephone": "+254734806637",
+            "availableLanguage": ["English"],
+        },
+    ],
 }
 
 
@@ -112,3 +126,46 @@ def build(out_path, body_file, active, title, desc, with_cta,
         f.write("".join(parts))
     print("built %-22s %6d bytes" % (os.path.basename(out_path),
                                      os.path.getsize(out_path)))
+
+
+def redirect(out_path, target, title, note):
+    """Write a stub at an address that has moved.
+
+    GitHub Pages serves static files and cannot issue a 301, so the stub does
+    the three things a redirect would: it tells crawlers where the content
+    really lives, keeps itself out of the index, and moves the visitor along.
+    The visible link is the fallback for anyone whose browser blocks refreshes.
+    """
+    html = """<!DOCTYPE html>
+<!-- Generated file. This address moved; see tools/make.py. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>%(title)s</title>
+<link rel="canonical" href="%(base)s%(target)s">
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="0; url=%(target)s">
+<link rel="icon" href="assets/images/favicon.ico" sizes="32x32">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <div class="stack">
+        <p class="label">This page has moved</p>
+        <h1 class="page-hero__title">%(title)s</h1>
+        <p class="lead">%(note)s</p>
+        <p><a class="btn btn--primary" href="%(target)s">Continue <span class="btn__arrow" aria-hidden="true">&#8599;</span></a></p>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
+""" % {"title": title, "target": target, "note": note, "base": BASE}
+
+    with io.open(out_path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(html)
+    print("redirect %-22s -> %s" % (os.path.basename(out_path), target))

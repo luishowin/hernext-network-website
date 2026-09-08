@@ -7,7 +7,7 @@ change will be overwritten the next time this runs.
 """
 import io, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build import build, ROOT
+from build import build, redirect, ROOT
 
 D = "docs/"
 PAGES = [
@@ -22,29 +22,24 @@ PAGES = [
   "The story behind HerNext Network, our vision, mission and eight core values, and the Africa we are working to help build.",
   True, "About", "About HerNext Network"),
 
- (D+"opportunities.html", "_opps.html", "opportunities.html",
-  "Opportunities and Programmes | HerNext Network",
-  "Nine strategic pillars, six signature initiatives and eleven priority sectors, from leadership and enterprise to trade, investment and innovation.",
-  True, "Opportunities", "Opportunities and Programmes"),
+ (D+"our-work.html", "_our_work.html", "our-work.html",
+  "Our Work | HerNext Network",
+  "Six interconnected areas of work, the pathway from listening to scale, six signature initiatives in development and nine priority sectors across Africa.",
+  True, "Our Work", "Our Work"),
 
  (D+"impact.html", "_impact.html", "impact.html",
-  "Our Impact and Approach | HerNext Network",
-  "The six barriers limiting women's economic participation in Africa, the five principles guiding our response, and the outcomes we measure.",
-  True, "Impact", "Impact and Approach"),
+  "Our Impact | HerNext Network",
+  "What impact means to HerNext, the eight-step model from listening to scale, the Kiambu Chapter baseline work, and the indicators we measure against.",
+  True, "Impact", "Our Impact"),
 
  (D+"partners.html", "_partners.html", "partners.html",
   "Partners and Collaboration | HerNext Network",
-  "The seven kinds of partner we work with, from governments to entrepreneurs, and the five principles behind every HerNext collaboration.",
+  "The eight kinds of partner we work with, the seven forms collaboration takes, how a HerNext partnership begins, and the five principles behind every one.",
   False, "Partners", "Partners and Collaboration"),
-
- (D+"apply.html", "_apply.html", "apply.html",
-  "Register Your Interest | HerNext Network",
-  "Tell us what you are building. A short four-step registration for women across Africa who want to hear from HerNext Network as programmes open.",
-  False, "Register", "Register Your Interest"),
 
  (D+"contact.html", "_contact.html", "contact.html",
   "Contact Us | HerNext Network",
-  "Contact HerNext Network about programmes, partnership enquiries, media requests and research collaboration.",
+  "Register your interest, or contact HerNext Network about partnerships, market and trade connections, media requests and research collaboration.",
   False, "Contact", "Contact"),
 
  (D+"privacy.html", "_privacy.html", "",
@@ -72,15 +67,24 @@ build(D+"404.html", "_404.html", "", "Page Not Found | HerNext Network",
       False, og_title="Page not found", noindex=True)
 
 
-# Pages carrying a form also need forms.js. Appending it here keeps the
-# rebuild to a single command with no follow-up edit.
+# Addresses that have moved keep a stub, so a link already shared still lands
+# on the right page rather than on the 404.
+redirect(D+"opportunities.html", "our-work.html", "Opportunities is now Our Work",
+         "This page was renamed. Everything that was here, and a good deal more, "
+         "now lives on Our Work.")
+redirect(D+"apply.html", "contact.html", "Registering your interest moved",
+         "Registration now goes through the contact form. Choose "
+         "\u201cRegister your interest\u201d as the subject and tell us what you are building.")
+
+
+# The contact page carries the only form on the site and needs forms.js.
+# Appending it here keeps the rebuild to a single command with no follow-up edit.
 SCRIPT_TAG = '<script src="js/main.js" defer></script>'
 FORMS_TAG = '<script src="js/forms.js" defer></script>'
 
-for page in ("contact.html", "apply.html"):
-    path = os.path.join(ROOT, "docs", page)
-    html = io.open(path, encoding="utf-8").read()
-    if "forms.js" not in html:
-        html = html.replace(SCRIPT_TAG, SCRIPT_TAG + chr(10) + FORMS_TAG)
-        io.open(path, "w", encoding="utf-8", newline=chr(10)).write(html)
-        print("wired forms.js into %s" % page)
+path = os.path.join(ROOT, "docs", "contact.html")
+html = io.open(path, encoding="utf-8").read()
+if "forms.js" not in html:
+    html = html.replace(SCRIPT_TAG, SCRIPT_TAG + chr(10) + FORMS_TAG)
+    io.open(path, "w", encoding="utf-8", newline=chr(10)).write(html)
+    print("wired forms.js into contact.html")

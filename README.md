@@ -2,10 +2,10 @@
 
 **Creating Opportunity. Building Legacy.**
 
-The institutional website and online application platform for HerNext Network, a
-Pan-African institution creating pathways of opportunity that advance women's
-economic transformation through leadership, entrepreneurship, innovation,
-strategic partnerships and sustainable development.
+The institutional website for HerNext Network, a women-centred Pan-African
+institution advancing women's economic transformation through practical,
+evidence-driven interventions that expand access to markets, finance, skills,
+strategic partnerships and sustainable livelihood opportunities.
 
 Plain HTML, CSS and JavaScript. No framework and no dependencies. The contents
 of `docs/` are the deployed site exactly as served.
@@ -17,11 +17,12 @@ of `docs/` are the deployed site exactly as served.
 ## Contents
 
 - [Status](#status)
+- [What changed in the 2026 revision](#what-changed-in-the-2026-revision)
 - [Quick start](#quick-start)
 - [Project structure](#project-structure)
 - [Regenerating the pages](#regenerating-the-pages)
 - [Design system](#design-system)
-- [Connect the forms](#connect-the-forms)
+- [Connect the form](#connect-the-form)
 - [Images](#images)
 - [SEO and crawling](#seo-and-crawling)
 - [Legal pages](#legal-pages)
@@ -35,15 +36,16 @@ of `docs/` are the deployed site exactly as served.
 
 ## Status
 
-The site is complete, verified and deployed. Six things are still outstanding,
-and four of them will make it look and behave differently once they land.
+The site is complete, verified and deployed. The 2026 content corrections have
+been applied in full. Five things are still outstanding, and two of them block
+launch.
 
 | Outstanding | Where it goes | Blocking launch |
 |---|---|---|
-| Formspree form IDs | `apply.html`, `contact.html` | **Yes.** Both forms are inert until then, and say so rather than failing quietly |
+| Formspree form ID | `contact.html` | **Yes.** The form is inert until then, and says so rather than failing quietly |
 | Legal placeholders: entity name, address, jurisdiction | `privacy.html`, `terms.html` | **Yes** |
 | Redrawn logo SVG | regenerates `logo-mark`, `logo-light`, `logo-dark`, `favicon` | No, current files are derived from the supplied SVG |
-| Real email address and telephone, LinkedIn URL | footer and contact page | No |
+| LinkedIn URL | footer and contact page | No. Email, telephone and Instagram are live |
 | Final social preview image and `apple-touch-icon.png` | `assets/images/` | No, an interim preview is in place |
 
 Each has its own section below, and the full list is repeated as a checklist
@@ -52,6 +54,46 @@ under [Before launch](#before-launch).
 One thing to know before reading further: **the pages in `docs/` are generated.**
 Edit `tools/partials/` and run `python tools/make.py`. See
 [Regenerating the pages](#regenerating-the-pages).
+
+---
+
+## What changed in the 2026 revision
+
+The client returned four correction documents that rewrote most of the site's
+copy. The through-line of all four is a repositioning **from aspiration to
+evidence**: the site used to describe the institution by its ambitions, and now
+describes it by its method.
+
+If you knew the earlier site, these are the changes that will surprise you.
+
+| Was | Now |
+|---|---|
+| `opportunities.html`, "Opportunities" in the nav | `our-work.html`, "Our Work". The old address is a redirect stub |
+| `apply.html`, a four-step registration form | Folded into the contact form. The old address is a redirect stub |
+| Six nav items including a gold "Register interest" button | Five: About, Our Work, Impact, Partners, Contact |
+| Nine strategic pillars | Six interconnected areas of work |
+| Eleven priority sectors | Nine, with leadership, governance, entrepreneurship, research and capacity development moved out into cross-cutting capabilities |
+| Six initiatives including a "HerNext Partnership Forum" | Six, without it, and none described as open |
+| "Each is open to applications" | A *Current opportunities* section that is empty by design and says so |
+| Impact opened on the opportunity gap | Impact opens on what impact means, and carries the Kiambu Chapter as evidence in progress |
+| Seven partner categories | Eight, and a new *How we partner* section |
+| Partnership principle 05, "Innovation" | "Measurable impact" |
+| `info@hernextnetwork.org`, `+00 000 000 000` | Real addresses and Kenyan numbers, see [Contact details](#contact-details) |
+
+Three editorial rules came with the corrections and outlive them. They are the
+reason several sections read more cautiously than a marketing site normally
+would, and they should survive future edits:
+
+1. **Nothing is described as open unless it is open.** No initiative, no
+   programme, no call for applications.
+2. **No result is attributed to an intervention that has not been measured.**
+   The Kiambu Chapter is an example of the process, not proof of impact, and
+   the figures on the home page count structure rather than outcomes.
+3. **Women stay at the centre** of the institutional positioning, not at the
+   edge of it.
+
+The four source documents live outside the repository, in the client's
+`Hernext` folder. `CONTENT.md` is the authoritative record of what they said.
 
 ---
 
@@ -86,23 +128,24 @@ optimising new photographs, as described under [Images](#images).
 docs/                      the published site, this is the deploy root
   index.html               Home
   about.html               About HerNext, story, foundation, values, vision
-  opportunities.html       Strategic pillars, signature initiatives, sectors
-  impact.html              Opportunity gap, approach, outcomes, SDG alignment
-  partners.html            Partnership philosophy, partner types, principles
-  apply.html               Four-step interest registration
-  contact.html             Contact details and enquiry form
+  our-work.html            Six areas of work, the pathway, initiatives, sectors
+  impact.html              What impact means, the model, Kiambu, measurement
+  partners.html            Philosophy, eight partner types, how we partner
+  contact.html             Contact details and the site's only form
   privacy.html             Privacy policy
   terms.html               Terms of use
   accessibility.html       Accessibility statement
   404.html                 Not found, noindex
+  opportunities.html       Stub, redirects to our-work.html, noindex
+  apply.html               Stub, redirects to contact.html, noindex
   robots.txt               permissive, points at the sitemap
-  sitemap.xml              all ten indexable pages
+  sitemap.xml              the nine indexable pages, stubs excluded
   llms.txt                 structured summary for assistants and answer engines
   .nojekyll                tells GitHub Pages to serve the files as they are
   css/style.css            the entire design system, one file
   js/main.js               navigation, scroll reveal, header state, year
-  js/forms.js              validation, the four-step flow, submission
-  assets/images/           logos, favicon, image placeholders
+  js/forms.js              validation and submission for the contact form
+  assets/images/           logos, favicon, photography
 
 tools/
   make.py                  rebuilds every page in docs/, run this after editing
@@ -113,6 +156,7 @@ tools/
     _cta.html              the closing call to action, shared by four pages
     _index_main.html       the body of each page, one file per page
     _about.html            ...
+    _our_work.html         ...
 
 CONTENT.md                 the copy deck, every line of text on the site
 README.md                  this file
@@ -128,7 +172,7 @@ served to a visitor.
 
 ## Regenerating the pages
 
-Eleven pages share one head, one header, one footer and one closing call to
+Ten pages share one head, one header, one footer and one closing call to
 action. Keeping those in step by hand is how sites drift, so the shared chrome
 is assembled instead.
 
@@ -139,9 +183,9 @@ so. Edit the partial, not the page:
 python tools/make.py
 ```
 
-That rewrites all eleven pages, regenerates canonicals, Open Graph tags and
-JSON-LD from `BASE`, and re-attaches `forms.js` to the two pages that need it.
-It takes about a second.
+That rewrites all ten pages, regenerates canonicals, Open Graph tags and
+JSON-LD from `BASE`, writes the two redirect stubs, and re-attaches `forms.js`
+to the contact page. It takes about a second.
 
 | To change | Edit |
 |---|---|
@@ -150,12 +194,14 @@ It takes about a second.
 | The closing call to action on four pages | `tools/partials/_cta.html` |
 | The body of one page | `tools/partials/_<page>.html` |
 | A page title, description, or which pages get the call to action | `tools/make.py` |
+| Where a moved address sends its visitors | the `redirect()` calls in `tools/make.py` |
 | The live origin used by canonicals, tags, JSON-LD | `BASE` in `tools/build.py` |
+| The organisation JSON-LD, including contact details | `ORG` in `tools/build.py` |
 
 This is an authoring convenience, not a build step. Nothing is compiled,
 minified or transformed. The output is the same plain HTML you would write by
 hand, and the deployed site has no idea the tooling exists. You can safely
-ignore it and hand-edit all eleven pages instead, as long as you accept that
+ignore it and hand-edit all ten pages instead, as long as you accept that
 the shared chrome will drift.
 
 ---
@@ -163,7 +209,7 @@ the shared chrome will drift.
 ## Design system
 
 Everything is driven by custom properties at the top of `docs/css/style.css`.
-Change a token there and it updates across all seven pages.
+Change a token there and it updates across all ten pages.
 
 ### Colour
 
@@ -202,13 +248,31 @@ both loaded from Google Fonts. The type scale is fluid, built on `clamp()`, so
 sizes interpolate smoothly between mobile and desktop rather than jumping at
 breakpoints.
 
-Two recurring patterns:
+Three recurring patterns:
 
 - **Micro-label.** `<p class="label">Signature initiatives</p>` renders small,
-  uppercase and letter-spaced, preceded by a short gold rule.
+  uppercase, letter-spaced and gold, sitting flush with the left margin so it
+  aligns with the heading beneath it.
 - **Emphasis word.** A single `<em>` inside a heading renders in Cormorant
   italic in gold, for example
-  `<h2>Turning vision into <em>action</em></h2>`.
+  `<h2>Turning evidence into <em>action</em></h2>`. One per heading, no more:
+  the accent reads as deliberate only while it stays rare.
+- **Pathway chain.** An ordered list of the steps in the HerNext method, with
+  gold arrows drawn between them in CSS:
+
+  ```html
+  <ol class="pathway pathway--framed" data-reveal="self">
+    <li class="pathway__step">Listen</li>
+    <li class="pathway__step">Identify</li>
+  </ol>
+  ```
+
+  The arrow is a `::before` on every step but the first, so a screen reader
+  hears a plain ordered list rather than a string of arrow characters. The
+  chain wraps freely at narrow widths, where a wrapped row simply opens with
+  the arrow. `--framed` adds the hairline rules above and below. It appears on
+  Home, Our Work, Impact and Partners, and the wording of the steps should not
+  drift between them.
 
 ### Motion
 
@@ -216,6 +280,10 @@ Section content reveals on scroll in a stagger. Put `data-reveal` on any
 container and its direct children animate in sequence; `main.js` assigns the
 `--i` index, and the CSS turns that into a `transition-delay`. Use
 `data-reveal="self"` to animate the element itself instead of its children.
+
+The pathway chains use `data-reveal="self"` deliberately. Staggering eight
+short steps at 115ms each takes almost two seconds to settle, which reads as
+broken rather than considered, so the chain arrives as one unit.
 
 Timing is set by three tokens: `--reveal-duration` at 1100ms,
 `--reveal-stagger` at 115ms between siblings, and `--reveal-shift` at 32px of
@@ -234,33 +302,35 @@ safeguards mean content can never be left invisible:
 
 ---
 
-## Connect the forms
+## Connect the form
 
 **This is the one step required before launch.** GitHub Pages serves static
-files and cannot receive a form submission, so both forms post to
-[Formspree](https://formspree.io). Until you supply an ID they are inert, and
+files and cannot receive a form submission, so the contact form posts to
+[Formspree](https://formspree.io). Until you supply an ID it is inert, and
 submitting shows a message saying so rather than failing silently.
 
-1. Create a free Formspree account and add two forms, one for applications and
-   one for general enquiries. Each gets an ID that looks like `xayzbqwe`.
-2. Set the delivery address for each to the relevant HerNext inbox.
-3. Replace `REPLACE_ME` in both files:
+1. Create a free Formspree account and add one form. It gets an ID that looks
+   like `xayzbqwe`.
+2. Set the delivery address to the HerNext inbox.
+3. Replace `REPLACE_ME` in the partial, not in the built page:
 
    | File | Attribute |
    |---|---|
-   | `docs/apply.html` | `<form id="apply-form" data-endpoint="https://formspree.io/f/REPLACE_ME">` |
-   | `docs/contact.html` | `<form id="contact-form" data-endpoint="https://formspree.io/f/REPLACE_ME">` |
+   | `tools/partials/_contact.html` | `<form id="contact-form" data-endpoint="https://formspree.io/f/REPLACE_ME">` |
 
-4. Submit each form once from the live site. Formspree asks you to confirm the
+   Then run `python tools/make.py`.
+4. Submit the form once from the live site. Formspree asks you to confirm the
    destination address the first time.
 
 Submissions arrive by email and are listed in the Formspree dashboard, where
-they can be exported. The free tier allows 50 submissions per month across all
-forms, so consider a paid plan before an application round opens.
+they can be exported. The free tier allows 50 submissions per month, so
+consider a paid plan before an initiative opens and registrations arrive in
+volume.
 
-Field names are already human-readable, so an application arrives as
-`Full name`, `Email`, `Sector`, `Initiative` and so on rather than as terse
-input names.
+Field names are human-readable, so a submission arrives as `Full name`,
+`Email`, `Organisation`, `Subject` and `Message` rather than as terse input
+names. The `Subject` value is what separates a registration of interest from a
+partnership enquiry, so it is worth setting up a Formspree filter on it.
 
 ### Using something else
 
@@ -282,13 +352,13 @@ at 75 KB rather than the 1600 wide file at 164 KB.
 |---|---|---|
 | Hero, full bleed | `hnn-presentation-{700,1000,1600}.webp` | Home |
 | Our story | `hnn-office-{600,900,1400}.webp` | About |
-| Partnership Forum banner, 16:7 | `hnn-forum-{700,1000,1600}.webp` | Partners |
-| Leadership Academy card, 3:2 | `hnn-academy-{350,500,700}.webp` | Opportunities |
-| Opportunity Hub card, 3:2 | `hnn-mentoring-{600,900,1400}.webp` | Opportunities |
-| Global Trade card, 3:2 | `hnn-trade-{350,500,700}.webp` | Opportunities |
-| Measuring success, 3:2 | `hnn-team-{600,900,1400}.webp` | Impact |
+| Partnership philosophy banner, 16:7 | `hnn-forum-{700,1000,1600}.webp` | Partners |
+| Leadership Academy card, 3:2 | `hnn-academy-{350,500,700}.webp` | Our Work |
+| Opportunity Hub card, 3:2 | `hnn-mentoring-{600,900,1400}.webp` | Our Work |
+| Global Trade card, 3:2 | `hnn-trade-{350,500,700}.webp` | Our Work |
+| Impact in action, Kiambu, 3:2 | `hnn-team-{600,900,1400}.webp` | Impact |
 | Contact, 3:2 | `hnn-hall-{600,900,1400}.webp` | Contact |
-| Closing call to action, 4:5 | `hnn-conversation-{400,600,800}.webp` | Home, About, Opportunities, Impact |
+| Closing call to action, 4:5 | `hnn-conversation-{400,600,800}.webp` | Home, About, Our Work, Impact |
 | Social preview | `og-image.jpg`, 1200 x 630 | all pages |
 
 The untouched PNG originals are in `source-images/` at the repository root,
@@ -342,9 +412,10 @@ Two of the seven slots were filled from portrait originals (`hnn books.jpg`,
 `hnn un.jpg`), so their crops are capped at 700 wide. That is enough for a
 card in a three column grid at 2x, but they cannot be reused full bleed.
 
-The impact slot reuses the event hall photograph that also appears on the
-contact page, framed differently. A photograph of a women-led enterprise at
-work would suit that section better whenever one is available.
+The impact slot carries the group photograph beside the Kiambu Chapter
+section. A photograph of the Kiambu livestock farmers themselves would suit
+that section far better whenever one is available and consent has been given,
+since the section describes their baseline assessment specifically.
 
 ### Assets you are replacing
 
@@ -394,7 +465,7 @@ python tools/make.py
 origin in both by hand, or run:
 
 ```bash
-sed -i 's#https://luishowin.github.io/hernext-network-website/#https://www.hernextnetwork.org/#g' docs/robots.txt docs/sitemap.xml docs/llms.txt
+sed -i 's#https://luishowin.github.io/hernext-network-website/#https://www.hernextnetwork.com/#g' docs/robots.txt docs/sitemap.xml docs/llms.txt
 ```
 
 Then submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools.
@@ -423,21 +494,30 @@ The privacy policy names the three third parties that actually see visitor
 data: Formspree, GitHub Pages and Google Fonts. If you drop Google Fonts in
 favour of self-hosting, or add analytics, that section has to change with it.
 
-### Why the application flow says "register your interest"
+### Why the site says "register your interest" and never "apply"
 
-The site previously said applications were open and promised a reply within
-fifteen working days. For a pre-funding organisation whose programmes are still
-in development, that is a representation that would be hard to defend, and the
+The site once said applications were open and promised a reply within fifteen
+working days. For a pre-funding organisation whose initiatives are still in
+development, that is a representation that would be hard to defend, and the
 people it would let down are the exact audience HerNext exists to serve.
 
-The flow now collects the same information through the same four steps, but it
-is framed as registering interest, states plainly that programmes are in
-development, and commits to no timeline. The terms page carries the same
-statement, and adds that no fee is ever charged and how to report anyone
-soliciting payment in the organisation's name.
+The 2026 corrections went further and made this an editorial rule across the
+whole site: do not state that an initiative is open to applications unless
+applications are genuinely open, and do not present an initiative still being
+developed as an established programme with completed outcomes. The Our Work
+page therefore carries a *Current opportunities* section that is empty by
+design, and says so.
 
-If real programmes open later, the copy to revisit is the page hero and the
-notice in `apply.html`, the confirmation text, and the shared call to action.
+Registering interest now goes through the contact form, framed as registering
+interest, stating plainly that initiatives are in development, and committing
+to no timeline. The terms page carries the same statement, and adds that no fee
+is ever charged and how to report anyone soliciting payment in the
+organisation's name.
+
+**When a real opportunity opens**, the places to change are the *Current
+opportunities* section of `tools/partials/_our_work.html`, which carries a
+commented-out card template, and the callout above the initiative grid on the
+same page. Nothing else needs to move.
 
 ---
 
@@ -457,29 +537,41 @@ Two conventions to preserve:
 
 ### Contact details
 
-The Institutional Profile lists contact details as "to be inserted", so the
-site carries placeholders. Replace these everywhere before launch:
+The real details are in place. One placeholder remains.
 
-| Placeholder | Appears in |
-|---|---|
-| `info@hernextnetwork.org` | footer on all pages, contact page |
-| `apply@hernextnetwork.org` | contact page, form error message in `forms.js` |
-| `+00 000 000 000` | footer on all pages, contact page |
-| `https://www.linkedin.com` | footer on all pages, contact page |
+| Detail | Value | Appears in |
+|---|---|---|
+| Primary email | `info@hernextnetwork.com` | footer, contact page, legal pages, JSON-LD, `llms.txt`, `forms.js` error message |
+| Secondary email | `hernextnetwork@gmail.com` | footer, contact page, terms, JSON-LD, `llms.txt` |
+| Telephone | `0780 528 551`, dialling `+254780528551` | footer, contact page, JSON-LD |
+| Telephone | `0734 806 637`, dialling `+254734806637` | footer, contact page, JSON-LD |
+| Instagram | `@hernextnetworkltd` | footer, contact page, terms, JSON-LD, `llms.txt` |
+| LinkedIn | `https://www.linkedin.com` **placeholder** | footer, contact page |
 
-A quick way to find every occurrence:
+Numbers display in Kenyan local format and dial in international format. Change
+the display text and the `tel:` href together, or one will contradict the other.
+
+The email address lives in four places that are easy to miss when changing it:
+`ORG` in `tools/build.py` (JSON-LD), the failure message in `docs/js/forms.js`,
+`docs/llms.txt`, and the official-channels sentence in section 3 of the terms.
+
+A quick way to confirm nothing stale survives:
 
 ```bash
-grep -rn "hernextnetwork.org\|+00 000 000 000" docs/
+grep -rn "hernextnetwork.org\|+00 000 000 000\|apply@" docs/ tools/
 ```
 
 ### The figures on the home page
 
-The statistics band shows structural counts drawn from the Institutional
-Profile: nine strategic pillars, six signature initiatives, eleven priority
-sectors and five Sustainable Development Goals. These are accurate today and
-need no disclaimer. When real impact metrics exist, that band in
-`docs/index.html` is where they belong.
+The statistics band shows structural counts: six areas of work, six signature
+initiatives, nine priority sectors and five Sustainable Development Goals.
+These count structure, not results, so they need no disclaimer.
+
+**They are not a place for impact metrics yet.** The 2026 corrections are
+explicit that no figure may be published before follow-up measurement supports
+it. When verified programme results exist, the band in
+`tools/partials/_index_main.html` is where they belong, and the Impact page
+gains its before-and-after indicators at the same time.
 
 ---
 
@@ -516,7 +608,7 @@ Once the domain is registered:
    nothing else:
 
    ```
-   www.hernextnetwork.org
+   www.hernextnetwork.com
    ```
 
 2. At your DNS provider, add a `CNAME` record pointing `www` to
@@ -529,25 +621,27 @@ Once the domain is registered:
 
 The social sharing tags need no attention here. `og:url` and `og:image` are
 generated from `BASE`, so changing `BASE` and rebuilding updates them on all
-eleven pages at once. The steps for that are under
+ten pages and both redirect stubs at once. The steps for that are under
 [The origin is defined in one place](#the-origin-is-defined-in-one-place).
 
 ---
 
 ## Before launch
 
-- [ ] Formspree IDs added to `apply.html` and `contact.html`, both tested live
-- [ ] Real email address and telephone number in place, LinkedIn URL confirmed
+- [ ] Formspree ID added to `tools/partials/_contact.html`, rebuilt and tested live
+- [ ] LinkedIn URL confirmed and swapped in
 - [ ] Legal placeholders filled in: entity name, address, governing jurisdiction
 - [ ] Privacy policy and terms reviewed by a qualified adviser
 - [ ] Redrawn logo dropped in, and all three logo files plus the favicon regenerated
 - [ ] Final social preview image replacing the interim `og-image.jpg`
 - [ ] `apple-touch-icon.png` added and the line in the `<head>` uncommented
-- [ ] Dedicated photograph for the impact section, replacing the reused hall image
+- [ ] Dedicated photograph for the Kiambu Chapter section on the Impact page
 - [ ] `CNAME` added, HTTPS enforced, `BASE` updated in `tools/build.py` and rebuilt,
       and the origin swapped in `robots.txt`, `sitemap.xml` and `llms.txt`
 - [ ] `sitemap.xml` submitted to Google Search Console
 - [ ] Copy signed off against `CONTENT.md`
+- [ ] Nothing on the site claims an initiative is open, or attributes a result
+      to an intervention that has not yet been measured
 
 ---
 
@@ -569,14 +663,16 @@ Accessibility work already in place:
 - Skip link, semantic landmarks, and `aria-current="page"` on the active nav
 - A visible focus ring on every interactive element
 - Every form control has a bound label, errors are wired through
-  `aria-describedby`, and step changes and submission results are announced
-  through `aria-live`
+  `aria-describedby`, and submission results are announced through `aria-live`
+- The pathway chains are ordered lists. The arrows between steps are drawn in
+  CSS, so a screen reader hears "Listen, Identify, Design" and not a string of
+  stray arrow characters
 - Heading order never skips a level on any page
 - Touch targets meet the 44 pixel minimum
 - `prefers-reduced-motion` is fully honoured
 - Text contrast meets WCAG AA throughout
 
-Verified across all eleven pages: no horizontal scrolling at 375, 768 or 1280
+Verified across all ten pages: no horizontal scrolling at 375, 768 or 1280
 pixels, no console errors, no broken links, no unused assets, no heading level
 skips and no em dashes.
 
@@ -593,6 +689,7 @@ none.
 
 Design and development by [Beben Design](https://beben.design).
 Content adapted from the HerNext Network Institutional Profile, First Edition,
-2026.
+2026, and revised in full against the 2026 correction documents for the About,
+Our Work, Impact, and Partners and Collaboration pages.
 
 Copyright HerNext Network. All rights reserved.

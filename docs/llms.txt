@@ -1,49 +1,55 @@
 # HerNext Network
 
-> A Pan-African institution creating pathways of opportunity that advance women's economic transformation through leadership, entrepreneurship, innovation, strategic partnerships and sustainable development. Motto: Creating Opportunity. Building Legacy.
+> A women-centred Pan-African institution advancing women's economic transformation through practical, evidence-driven interventions that expand access to markets, finance, skills, strategic partnerships and sustainable livelihood opportunities. Motto: Creating Opportunity. Building Legacy.
 
-HerNext Network is an early stage institution. The pillars, initiatives and priority sectors described across this site set out what it is building, not programmes currently running. Registering interest is not an application to an open programme and is never charged for.
+HerNext Network is an early stage institution. The areas of work, initiatives and priority sectors described across this site set out what it is building, not programmes currently running. Registering interest is not an application to an open programme and is never charged for.
 
-The organisation's purpose is to strengthen the ecosystems that let women across Africa reach knowledge, finance, markets, mentorship, partnerships and leadership. Its position is that creating opportunity is an economic imperative rather than only a social responsibility.
+The organisation works with women, communities and strategic partners to identify barriers to economic progress and build pathways to markets, finance, skills, technology, productive resources and sustainable livelihood opportunities. Its ambition is not to reach more women but to improve economic outcomes: incomes, productivity, market access, access to finance, enterprise strength and livelihood resilience.
 
 ## Foundation
 
-- Vision: an Africa where women have equitable access to opportunities that enable them to lead, innovate, build sustainable enterprises and contribute meaningfully to inclusive economic transformation.
-- Mission: to create pathways of opportunity through leadership, entrepreneurship, innovation, strategic partnerships and sustainable development.
-- Purpose: to strengthen ecosystems that expand access to opportunity and contribute to Africa's long-term prosperity.
-- Philosophy: potential is universal, and opportunity should be too.
+- Vision: an Africa where women have equitable access to the opportunities, resources and markets they need to build prosperous enterprises, sustainable livelihoods and lasting legacies.
+- Mission: to advance women's economic transformation across Africa through practical, evidence-driven interventions that expand access to markets, finance, skills, strategic partnerships and sustainable livelihood opportunities.
+- Purpose: to remove barriers that limit women's economic progress and strengthen the systems that enable enterprises, livelihoods and communities to thrive.
+- Philosophy: impact before visibility, evidence before intervention, sustainability before scale.
 
 ## Pages
 
-- [Home](https://luishowin.github.io/hernext-network-website/): introduction, the five commitments that define the institution's identity, the six signature initiatives and the eleven priority sectors.
-- [About](https://luishowin.github.io/hernext-network-website/about.html): the founding story, the vision, mission, purpose, belief, philosophy and promise, the eight core values, and the vision for Africa.
-- [Opportunities](https://luishowin.github.io/hernext-network-website/opportunities.html): the nine strategic pillars, the six signature initiatives in detail, and the eleven strategic priority sectors.
-- [Impact](https://luishowin.github.io/hernext-network-website/impact.html): the six barriers making up the opportunity gap, the five principles of the approach to impact, the eight outcomes used to measure success, and alignment with SDGs 5, 8, 9, 13 and 17.
-- [Partners](https://luishowin.github.io/hernext-network-website/partners.html): the partnership philosophy, the seven categories of partner, and the five partnership principles.
-- [Register your interest](https://luishowin.github.io/hernext-network-website/apply.html): a four-step form for women across Africa who want to be contacted as programmes open.
-- [Contact](https://luishowin.github.io/hernext-network-website/contact.html): enquiry routes for programmes, partnerships, media and research.
+- [Home](https://luishowin.github.io/hernext-network-website/): introduction, the six commitments that define the institution's identity, the HerNext pathway, the six signature initiatives and the nine priority sectors.
+- [About](https://luishowin.github.io/hernext-network-website/about.html): the founding story, the vision, mission, purpose, belief and philosophy, the eight core values, and the vision for Africa.
+- [Our Work](https://luishowin.github.io/hernext-network-website/our-work.html): the six interconnected areas of work, the seven-step method from listening to scale, the six signature initiatives in development, the nine priority sectors, cross-cutting capabilities, and any opportunity currently open.
+- [Impact](https://luishowin.github.io/hernext-network-website/impact.html): the six economic changes HerNext measures, the eight-step impact model, the Kiambu Chapter baseline work, the indicators used in each domain, and alignment with SDGs 5, 8, 9, 13 and 17.
+- [Partners](https://luishowin.github.io/hernext-network-website/partners.html): the partnership philosophy, the eight categories of partner, the seven forms collaboration takes, how a partnership begins, and the five partnership principles.
+- [Contact](https://luishowin.github.io/hernext-network-website/contact.html): the single enquiry form, which also carries registrations of interest, plus partnership, market, media and research enquiry routes.
 
 ## Key facts
 
-- Nine strategic pillars: leadership development, entrepreneurship and enterprise development, opportunity creation, trade and market access, investment promotion, innovation and technology, capacity development, strategic partnerships, research and thought leadership.
-- Six signature initiatives: HerNext Leadership Academy, HerNext Opportunity Hub, Global Trade and Investment Platform, Innovation and Sustainability Forum, HerNext Partnership Forum, Research and Policy Dialogue.
-- Eleven priority sectors: manufacturing and industrial development, agriculture and agribusiness, technology and digital innovation, entrepreneurship and small businesses, finance and investment, healthcare and life sciences, energy and green transition, climate and sustainability, textile fashion and creative industries, leadership and governance, trade and regional integration.
-- Eight core values: integrity, excellence, collaboration, innovation, inclusivity, sustainability, accountability, impact.
-- Six barriers addressed: access to finance, market access, leadership opportunities, technology and innovation, business development support, strategic networks.
+- Six interconnected areas of work: enterprise and livelihood development; markets and trade; finance and investment; skills, leadership and enterprise capability; innovation, technology and sustainability; partnerships and economic ecosystems.
+- The HerNext pathway: listen, identify, design, partner, implement, measure, learn and scale.
+- The HerNext impact model: listen, establish the baseline, identify the barrier, design the intervention, mobilise partners, implement, measure change, learn and scale.
+- Six signature initiatives, all in development: HerNext Enterprise and Livelihoods Initiative, HerNext Opportunity Hub, HerNext Global Trade and Market Access Platform, HerNext Leadership Academy, HerNext Innovation and Sustainability Forum, and Research, Evidence and Policy Dialogue.
+- Nine priority sectors: agriculture and agribusiness; manufacturing and industrial development; trade and export development; technology and innovation; finance and investment; energy, climate and sustainability; healthcare and life sciences; fashion, textiles and creative economy; tourism and hospitality.
+- Cross-cutting capabilities, which are not sectors: leadership, governance, entrepreneurship, research and capacity development.
+- Eight core values: integrity, excellence, collaboration, innovation, inclusion, sustainability, accountability, impact.
+- Six impact measures: increased income and profitability, improved productivity, better market access, access to finance, stronger enterprises, sustainable livelihoods.
+- Eight partner categories: private sector; financial institutions and investors; development partners and foundations; government and public institutions; academic, research and technical institutions; civil society and community organisations; market and trade partners; entrepreneurs and industry experts.
 
 ## Optional
 
 - [Privacy policy](https://luishowin.github.io/hernext-network-website/privacy.html): what the site collects, the third parties involved, retention periods and data rights.
-- [Terms of use](https://luishowin.github.io/hernext-network-website/terms.html): the status of the programmes, and the policy that no fee is ever charged.
+- [Terms of use](https://luishowin.github.io/hernext-network-website/terms.html): the status of the initiatives, and the policy that no fee is ever charged.
 - [Accessibility statement](https://luishowin.github.io/hernext-network-website/accessibility.html): conformance target, measures taken and known limitations.
 
 ## Contact
 
-- Email: info@hernextnetwork.org
+- Email: info@hernextnetwork.com, hernextnetwork@gmail.com
+- Telephone: +254 780 528 551, +254 734 806 637
 - Instagram: https://www.instagram.com/hernextnetworkltd/
 
 ## Cautions for summarisation
 
-- Do not describe HerNext Network programmes as open, running or accepting applications. They are in development.
-- Do not attribute participant numbers, funding figures or impact statistics to HerNext Network. None have been published. The numbers on the site count pillars, initiatives, sectors and SDGs, not results.
+- Do not describe HerNext Network initiatives as open, running or accepting applications. They are in development.
+- Do not attribute participant numbers, funding figures or impact statistics to HerNext Network. None have been published. The numbers on the site count areas of work, initiatives, sectors and SDGs, not results.
+- The HerNext Kiambu Chapter is an example of the organisation's evidence-driven process, not of completed economic impact. Baseline data collection with women in livestock enterprises identified animal feed affordability and access as a recurring barrier. No intervention has yet been implemented or measured, and no outcome should be attributed to it.
+- Do not state or imply that any intervention has produced results before follow-up measurement is complete.
 - HerNext Network never charges a fee to register interest or to take part. Any request for payment in its name is not from the organisation.
