@@ -465,6 +465,7 @@ hr.rule {
    edge, and is capped by viewport height so it never swallows the fold on
    short, wide screens. */
 .hero__figure {
+  position: relative;
   margin-top: clamp(3rem, 7vw, 5.5rem);
   width: 100%;
 }
@@ -475,6 +476,52 @@ hr.rule {
   object-fit: cover;
   object-position: center 40%;
 }
+
+/* The looping clip lies over the photograph rather than replacing it. The
+   photograph keeps its srcset and its fetchpriority, so it is still what
+   paints first and still what carries the alternative text, and every case
+   where the clip does not run leaves the hero exactly as it was.
+
+   An explicit height is needed here. The reset gives video height: auto,
+   which fights inset: 0 in a way it does not for an img, because a video
+   takes its intrinsic size from metadata that arrives later. */
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  opacity: 0;
+  transition: opacity 600ms var(--ease-out);
+}
+.hero__video.is-playing { opacity: 1; }
+
+/* WCAG 2.1 asks for a way to stop anything that moves on its own for more
+   than five seconds. main.js inserts this once the clip is actually running,
+   so the control never appears with nothing to control. Sized to the 44px
+   the accessibility statement commits to, and built like .nav-toggle:
+   square corners, one hairline, no shadow. */
+.hero__toggle {
+  position: absolute;
+  right: var(--gutter);
+  bottom: var(--gutter);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--rule);
+  background: var(--white);
+  color: var(--plum);
+  cursor: pointer;
+}
+.hero__toggle:hover { border-color: var(--plum-soft); }
+.hero__toggle svg { width: 1rem; height: 1rem; fill: currentColor; }
+.hero__toggle .hero__toggle-play { display: none; }
+.hero__toggle[data-paused="true"] .hero__toggle-play { display: block; }
+.hero__toggle[data-paused="true"] .hero__toggle-pause { display: none; }
 
 .page-hero { padding-block: clamp(4rem, 10vh, 7.5rem) clamp(2.5rem, 6vh, 4.5rem); }
 .page-hero__title { margin-block: var(--space-sm) var(--space-md); }
@@ -489,6 +536,10 @@ hr.rule {
 .media--landscape img { aspect-ratio: 3 / 2; object-fit: cover; }
 .media--wide img { aspect-ratio: 16 / 7; object-fit: cover; }
 .media--169 img { aspect-ratio: 16 / 9; object-fit: cover; }
+/* Several frames were shot square and are used at their native ratio rather
+   than cropped into one of the others, which would cut a standing figure off
+   at the knees or the shoulders. */
+.media--square img { aspect-ratio: 1 / 1; object-fit: cover; }
 .media__caption {
   margin-top: var(--space-xs);
   font-size: var(--step-small);

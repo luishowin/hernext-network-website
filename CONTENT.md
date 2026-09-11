@@ -739,28 +739,49 @@ audit yet. Gives a contact route and a ten working day response aim.
 
 ## Image alt text
 
-All ten slots carry client photography. Alt text describes what is in the frame,
-not what the section is about.
+All fourteen slots carry HerNext Network photography from a single community
+gathering. Alt text describes what is in the frame, not what the section is
+about. The same fourteen strings appear in the partials; these two lists move
+together.
 
 | Slot | Alt text |
 |---|---|
-| Home hero | A speaker addressing a full auditorium, with the HerNext Network name projected on the wall behind her |
-| About, our story | A team meeting around a boardroom table beneath the HerNext Network wall mark |
-| Partners banner | Delegates gathering in the hall at a HerNext Network event, the branded screens above the stage |
-| Leadership Academy card | Shelves of engineering and technical titles in a reference library |
-| Opportunity Hub card | Two chairs set for a conversation in front of a HerNext Network media wall |
-| Global Trade card | Delegates walking past a row of national flags at an international institution |
-| Impact, Kiambu Chapter | Four women standing together in front of a HerNext Network banner |
-| Contact | The stage and branded screens at a HerNext Network event, guests arriving |
-| Closing call to action | A woman taking notes in a notebook during a one to one session |
+| Home hero | Women standing among rows of plastic chairs in a community hall, under a high corrugated roof |
+| About, our story | Two people in HerNext Network shirts standing to address a seated group in a community hall |
+| Partners banner | A wide view of a community hall, rows of women seated facing two people standing at a plywood partition |
+| Leadership Academy card | A woman speaking from a sheet of notes while a colleague in a HerNext Network shirt listens |
+| Opportunity Hub card | A man in a HerNext Network shirt standing with folded arms, talking with women seated around him |
+| Global Trade card | A woman standing beside a cloth covered table, addressing people seated in a sunlit hall |
+| Impact, Kiambu Chapter | Rows of women seated in a community hall, seen from the back, facing a speaker at the far end |
+| Contact | Two women in HerNext Network shirts in conversation, one holding a sheet of notes |
+| Closing call to action | A woman standing with a sheet of notes, speaking to women seated around her |
+| Home, why we exist | Three women standing together on a compound path, two of them in HerNext Network shirts |
+| Home, how we work | A woman in a HerNext Network shirt speaking, a sheet of notes in her hand, in front of a plywood wall |
+| Partners, how a partnership begins | Two men shaking hands at a gateway while two women stand alongside them |
+| Impact, from data to action | A woman in a HerNext Network shirt holding a phone, smiling, beside a window |
+| About, the Africa we envision | Three people in HerNext Network shirts standing hand in hand with heads bowed, in a circle with others |
 
-The partners banner alt text used to name "the HerNext Partnership Forum". That
-initiative was removed by the correction, and naming an event that may never
-have run under that name would imply it did. It now describes a HerNext Network
-event without naming a forum.
+The social preview carries the home hero string, in `og:image:alt` and
+`twitter:image:alt`, because `og-image.jpg` is recut from the hero crop. If the
+hero photograph changes, three strings change together.
+
+The previous set described stock and conference imagery that the site no longer
+uses. The rule that produced these is unchanged: describe the frame, and never
+name an initiative or imply that a particular event took place. The partners
+banner once named "the HerNext Partnership Forum", an initiative the
+corrections removed, and naming an event that may never have run under that
+name would imply it did.
 
 The header logo carries an empty `alt` because the brand name sits beside it as
 text. The footer logo carries `alt="HerNext Network"`.
+
+The home hero also carries a looping clip over its photograph. The clip is
+marked `aria-hidden` and carries no alternative text of its own, deliberately:
+it shows nothing the photograph underneath does not already show, and that
+photograph keeps the alt text in the table above. Describing both would make a
+screen reader read the same scene twice. The accessibility statement records
+that the clip is silent, stoppable, and never loaded when reduced motion is
+asked for.
 
 ---
 

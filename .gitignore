@@ -21,8 +21,11 @@ desktop.ini
 /HNN Logo.pdf
 /HNN Logo C/
 
-# Untouched photo originals, kept local. Optimised WebP lives in docs/.
+# Untouched photo originals and the raw hero clip, kept local. The optimised
+# WebP and the encoded MP4 in docs/ are what ship; a multi-megabyte camera file
+# must never be servable to a visitor.
 /source-images/
+/source-media/
 
 # Python cache from the page builder
 __pycache__/

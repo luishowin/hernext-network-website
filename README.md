@@ -46,7 +46,7 @@ launch.
 | Legal placeholders: entity name, address, jurisdiction | `privacy.html`, `terms.html` | **Yes** |
 | Redrawn logo SVG | regenerates `logo-mark`, `logo-light`, `logo-dark`, `favicon` | No, current files are derived from the supplied SVG |
 | LinkedIn URL | footer and contact page | No. Email, telephone and Instagram are live |
-| Final social preview image and `apple-touch-icon.png` | `assets/images/` | No, an interim preview is in place |
+| Final social preview image | `assets/images/` | Recut from the hero photograph |
 
 Each has its own section below, and the full list is repeated as a checklist
 under [Before launch](#before-launch).
@@ -99,14 +99,18 @@ The four source documents live outside the repository, in the client's
 
 ## Quick start
 
-There is nothing to install and nothing to compile. Serve the `docs/` folder
-with any static server:
+There is nothing to install and nothing to compile. Serve the `docs/` folder:
 
 ```bash
-python -m http.server 8123 --directory docs
+python tools/serve.py
 ```
 
 Then open `http://localhost:8123`.
+
+`python -m http.server` also works for everything except the hero clip. It
+answers every request with the whole file and never implements ranges, and a
+browser's media pipeline needs ranges, so the clip hangs with no error and the
+page looks broken for a reason that has nothing to do with the site.
 
 Opening the HTML files directly from the file system also works, though the
 fonts load from Google Fonts and therefore need a network connection.
@@ -143,13 +147,18 @@ docs/                      the published site, this is the deploy root
   llms.txt                 structured summary for assistants and answer engines
   .nojekyll                tells GitHub Pages to serve the files as they are
   css/style.css            the entire design system, one file
-  js/main.js               navigation, scroll reveal, header state, year
+  js/main.js               navigation, scroll reveal, header state, year, hero clip
   js/forms.js              validation and submission for the contact form
   assets/images/           logos, favicon, photography
+  assets/video/            the home hero clip, absent until it is encoded
 
 tools/
   make.py                  rebuilds every page in docs/, run this after editing
   build.py                 assembler, and the one place BASE is defined
+  images.py                cuts every photograph from the originals, crops recorded
+  video.py                 encodes the hero clip into its two renditions
+  serve.py                 local preview, with the range support video needs
+  icons.py                 cuts the favicons and logo marks from the client artwork
   partials/
     _head.html             doctype through to the opening <main>, shared
     _footer.html           footer, scripts, closing tags, shared
@@ -160,12 +169,12 @@ tools/
 
 CONTENT.md                 the copy deck, every line of text on the site
 README.md                  this file
-source-images/             untouched photo originals, gitignored
+source-media/              untouched photo originals and the raw hero clip, gitignored
 ```
 
 The source PDFs and the original logo folder sit at the repository root,
 outside `docs/`, so they are never published with the site. So do the photo
-originals in `source-images/`, which keeps multi-megabyte files from ever being
+originals in `source-media/`, which keeps multi-megabyte files from ever being
 served to a visitor.
 
 ---
@@ -342,43 +351,150 @@ to change.
 
 ---
 
+## The hero clip
+
+The home page hero carries a looping clip over its photograph. It is the
+heaviest thing on the site by a wide margin, and almost all of the code around
+it is about deciding not to play it.
+
+### Adding or replacing it
+
+```bash
+sudo dnf install ffmpeg     # once. RPM Fusion is already enabled
+                            # ffmpeg-free will not do, it has no libx264
+```
+
+Put the camera file in `source-media/`, then:
+
+```bash
+python tools/video.py
+python tools/make.py
+```
+
+`video.py` writes two renditions into `docs/assets/video/`, 1600 wide for
+desktop and 960 for narrow viewports, both ten seconds, both silent. `make.py`
+then adds the `<video>` element to the home hero. It only does that when both
+files exist, so a checkout without a clip ships the photograph alone and no
+browser is ever sent looking for a file that is not there.
+
+| File | Budget |
+|---|---|
+| `hnn-hero-1600.mp4` | 1.6 MB |
+| `hnn-hero-960.mp4` | 600 KB |
+
+Check the loop seam. A clip whose first and last frames disagree jumps visibly
+every ten seconds, and no amount of encoding hides it.
+
+The camera file stays in `source-media/` and is never committed. Git keeps
+every version of a binary it is handed, permanently, and a few rounds of
+re-encoding would weigh more than the entire rest of the repository.
+
+### Why it is built the way it is
+
+The clip does not replace the photograph, it lies over it. The `<img>` keeps
+its `srcset` and its `fetchpriority`, so it is still what paints first, still
+what decides the largest contentful paint, and still what carries the
+alternative text. Every case where the clip does not run leaves the hero
+exactly as it was.
+
+It ships with **no `src` and no `autoplay` attribute**. `main.js` attaches a
+source only after all of these pass, and each one fetches nothing when it
+fails:
+
+- **Reduced motion.** The accessibility statement says all animation is
+  switched off when the system asks for it. A paused video would still be a
+  downloaded video, so this declines before a byte is requested. Turning the
+  setting on mid-visit removes the clip immediately.
+- **A metered connection.** `saveData`, or an `effectiveType` of 2g.
+- **A browser that cannot play H.264.**
+- **Visibility.** The clip runs only while the hero band is on screen and the
+  tab is in front. This is not only courtesy: Chrome stops a video-only element
+  that is scrolled out of view with *"background media was paused to save
+  power"*, so an unconditional `play()` on load is refused every time, because
+  the hero band sits below the fold. Geometry is measured directly rather than
+  through IntersectionObserver, for the same reason `initReveal` does.
+
+A play and pause control is inserted by script once the clip is eligible, never
+before, so it cannot appear with nothing to control. WCAG 2.1 asks for a way to
+stop anything that moves by itself for more than five seconds, and the site
+calls that standard a floor rather than a finish line. The choice is remembered
+for the rest of the visit, and while a pause stands nothing is downloaded at
+all.
+
+There is no audio track, at all. Muting is required for autoplay anyway, and a
+file with no audio stream cannot raise WCAG 1.4.2 however it is embedded.
+
+If `play()` is refused, by a browser policy or a battery saver or a race with
+its own load, that is not treated as a failure. The photograph is untouched
+underneath and the control is left offering to start the clip. Only a real
+decode or network error removes the element.
+
+---
+
 ## Images
 
-Photographs are served as WebP at three widths each, chosen by the browser
-through `srcset`. On a 375 pixel phone at 2x the hero loads the 1000 wide file
-at 75 KB rather than the 1600 wide file at 164 KB.
+Photographs are served as WebP at three or four widths each, chosen by the
+browser through `srcset`. On a 375 pixel phone at 2x the hero loads the 1000
+wide file at 81 KB rather than the 1600 wide file at 169 KB.
+
+All fourteen slots carry photography from a single HerNext Network community
+gathering. The first nine file stems are slot names that predate the
+photographs now in them, so `hnn-office` is not an office and `hnn-trade` is
+not a trade floor: they name a position on the page, not a subject. The five
+added later are named for what they show.
 
 | Slot | Files | Page |
 |---|---|---|
-| Hero, full bleed | `hnn-presentation-{700,1000,1600}.webp` | Home |
-| Our story | `hnn-office-{600,900,1400}.webp` | About |
-| Partnership philosophy banner, 16:7 | `hnn-forum-{700,1000,1600}.webp` | Partners |
-| Leadership Academy card, 3:2 | `hnn-academy-{350,500,700}.webp` | Our Work |
-| Opportunity Hub card, 3:2 | `hnn-mentoring-{600,900,1400}.webp` | Our Work |
-| Global Trade card, 3:2 | `hnn-trade-{350,500,700}.webp` | Our Work |
+| Hero, full bleed, 16:9 | `hnn-presentation-{700,1000,1600}.webp` | Home |
+| Our story, 16:9 | `hnn-office-{600,900,1400}.webp` | About |
+| Partnership philosophy banner, 16:7 | `hnn-forum-{700,1000,1400}.webp` | Partners |
+| Leadership Academy card, 3:2 | `hnn-academy-{400,800,1200}.webp` | Our Work |
+| Opportunity Hub card, 3:2 | `hnn-mentoring-{400,800,1200}.webp` | Our Work |
+| Global Trade card, 3:2 | `hnn-trade-{400,800,1200}.webp` | Our Work |
 | Impact in action, Kiambu, 3:2 | `hnn-team-{600,900,1400}.webp` | Impact |
 | Contact, 3:2 | `hnn-hall-{600,900,1400}.webp` | Contact |
-| Closing call to action, 4:5 | `hnn-conversation-{400,600,800}.webp` | Home, About, Our Work, Impact |
-| Social preview | `og-image.jpg`, 1200 x 630 | all pages |
+| Closing call to action, 4:5 | `hnn-conversation-{400,600,800,1000}.webp` | Home, About, Our Work, Impact |
+| Why we exist, 1:1 | `hnn-together-{400,700,1000}.webp` | Home |
+| How we work, 1:1 | `hnn-facilitator-{400,700,1000}.webp` | Home |
+| How a partnership begins, 1:1 | `hnn-welcome-{400,700,1000}.webp` | Partners |
+| From data to action, 1:1 | `hnn-coordinator-{400,700,1000}.webp` | Impact |
+| The Africa we envision, 3:2 | `hnn-circle-{600,900,1400}.webp` | About |
+| Social preview | `og-image.jpg`, 1200 x 630, recut from the hero | all pages |
 
-The untouched PNG originals are in `source-images/` at the repository root,
-which is gitignored. They stay out of `docs/` so a 2 MB file can never be
+The untouched camera originals are in `source-media/` at the repository root,
+which is gitignored. They stay out of `docs/` so a 7 MB file can never be
 served to a visitor by accident.
 
-### Adding a new photograph
+### Adding or recutting a photograph
+
+Every crop lives in one manifest, `PHOTOS` at the top of `tools/images.py`:
+source file, crop box, output widths. Put the original in `source-media/`, add
+a row, and run:
 
 ```bash
-python - <<'PY'
-from PIL import Image
-im = Image.open("source-images/your-photo.png").convert("RGB")
-for w in (1600, 1000, 700):
-    h = round(im.height * w / im.width)
-    im.resize((w, h), Image.LANCZOS).save(
-        f"docs/assets/images/your-photo-{w}.webp", "WEBP", quality=82, method=6)
-PY
+python tools/images.py
 ```
 
-Then reference all three in one `<img>`, and keep `width` and `height` on the
+It crops, resizes with LANCZOS and writes WebP at each width. Quality is not
+fixed. Each file is encoded at the highest quality that still fits a byte
+ceiling derived from its pixel count, because a busy frame full of people and
+plywood grain costs far more than a calm one at the same dimensions and a
+single setting cannot suit both. A file that cannot reach its ceiling fails
+the run rather than shipping quietly degraded.
+
+A row may carry an optional fifth field, a multiplier on that ceiling, for a
+frame the curve genuinely misjudges. The two outdoor photographs use it: a
+hedge in daylight is about the most expensive thing a photograph can contain,
+every leaf being an edge, and held to the ordinary budget they encode at the
+quality floor, which is where artefacts start showing on skin. Use it sparingly
+and say why in the manifest, or it stops being an exception.
+
+This replaced a snippet that was pasted into a shell and never committed. The
+crop boxes it used were written down nowhere, so when the originals were later
+cleared off the machine the lossy WebP was all that survived and nothing could
+be recut. Keeping the manifest current is what stops that happening twice.
+
+Then reference every width in one `<img>`, and keep `width` and `height` on the
 tag so the page does not shift as it loads:
 
 ```html
@@ -390,8 +506,20 @@ tag so the page does not shift as it loads:
      width="1600" height="900" decoding="async">
 ```
 
-Use `sizes="100vw"` for full width images and `sizes="(max-width: 900px) 100vw, 45vw"`
-for one sitting in a two column split.
+`sizes` has to describe the box the image actually lands in, or the browser
+fetches the wrong file. Measure it rather than estimating: `.container` caps at
+1280px, so above that width a figure stops growing and a `vw` unit stops
+describing it, and `.card` adds 36px of padding on each side. The three in use:
+
+| Layout | `sizes` |
+|---|---|
+| Full bleed hero | `100vw` |
+| Two column split | `(max-width: 900px) 90vw, (max-width: 1280px) 35vw, 450px` |
+| Three up card grid | `(max-width: 640px) 80vw, (max-width: 900px) 36vw, (max-width: 1280px) 23vw, 292px` |
+
+The splits used to claim `45vw` where the figure renders at about `29vw`, and
+the cards `30vw` where they render at `23vw`, so both pulled a file a rung
+larger than they could use.
 
 ### Cropping to the slot
 
@@ -403,19 +531,19 @@ markup matches the ratio in the stylesheet and the page never shifts:
 
 | Class | Ratio | Used by |
 |---|---|---|
+| `media--square` | 1 / 1 | four frames shot square, used at their native ratio |
 | `media--portrait` | 4 / 5 | closing call to action |
 | `media--landscape` | 3 / 2 | initiative cards, impact, contact |
 | `media--wide` | 16 / 7 | partners banner |
 | `media--169` | 16 / 9 | about, our story |
 
-Two of the seven slots were filled from portrait originals (`hnn books.jpg`,
-`hnn un.jpg`), so their crops are capped at 700 wide. That is enough for a
-card in a three column grid at 2x, but they cannot be reused full bleed.
+Two crops are tight on purpose and the manifest says why: `hnn-mentoring` is
+cut hard to the right, and `hnn-team` is taken from the upper band of its
+frame, because the fuller crop of each puts a small child in the foreground.
 
-The impact slot carries the group photograph beside the Kiambu Chapter
-section. A photograph of the Kiambu livestock farmers themselves would suit
-that section far better whenever one is available and consent has been given,
-since the section describes their baseline assessment specifically.
+Consent for these photographs is understood to cover adults for public web
+use. Children are excluded by crop rather than relied upon, so widening either
+of those two boxes needs checking again before it ships.
 
 ### Assets you are replacing
 
@@ -423,8 +551,7 @@ since the section describes their baseline assessment specifically.
 |---|---|
 | `logo-mark.svg`, `logo-light.svg`, `logo-dark.svg` | Derived from the supplied SVG. Regenerate all three when the redrawn logo lands |
 | `favicon.svg` | Currently the emblem cropped from the same source |
-| `og-image.jpg` | Interim, cropped from the presentation photograph |
-| `apple-touch-icon.png` | Not present. Add a 180 x 180 PNG, then uncomment the line in the `<head>` |
+| `og-image.jpg` | Recut from the hero crop by `tools/images.py`, so the preview and the page agree |
 
 ---
 
@@ -634,8 +761,7 @@ ten pages and both redirect stubs at once. The steps for that are under
 - [ ] Privacy policy and terms reviewed by a qualified adviser
 - [ ] Redrawn logo dropped in, and all three logo files plus the favicon regenerated
 - [ ] Final social preview image replacing the interim `og-image.jpg`
-- [ ] `apple-touch-icon.png` added and the line in the `<head>` uncommented
-- [ ] Dedicated photograph for the Kiambu Chapter section on the Impact page
+- [ ] Confirm photo consent covers public web use for everyone shown
 - [ ] `CNAME` added, HTTPS enforced, `BASE` updated in `tools/build.py` and rebuilt,
       and the origin swapped in `robots.txt`, `sitemap.xml` and `llms.txt`
 - [ ] `sitemap.xml` submitted to Google Search Console

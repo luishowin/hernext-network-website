@@ -88,3 +88,37 @@ if "forms.js" not in html:
     html = html.replace(SCRIPT_TAG, SCRIPT_TAG + chr(10) + FORMS_TAG)
     io.open(path, "w", encoding="utf-8", newline=chr(10)).write(html)
     print("wired forms.js into contact.html")
+
+
+# The home hero carries a looping clip behind its photograph, but only once the
+# clip has actually been encoded. Shipping the element before then would have
+# every visitor's browser ask for a file that is not there, so the markup is
+# added here rather than living in the partial.
+#
+# The element deliberately has no src and no autoplay attribute. main.js
+# decides whether to attach one, and declines for reduced motion, for a metered
+# connection, and for any browser that cannot play the file. Without that
+# decision the hero is exactly the photograph it was before.
+HERO_FIGURE = '<figure class="hero__figure" data-reveal="self">'
+HERO_VIDEO = """
+      <video class="hero__video" width="1600" height="900"
+             muted loop playsinline preload="none"
+             aria-hidden="true" tabindex="-1"
+             data-src="assets/video/hnn-hero-1600.mp4"
+             data-src-narrow="assets/video/hnn-hero-960.mp4"></video>"""
+
+VIDEO_DIR = os.path.join(ROOT, "docs", "assets", "video")
+encoded = [os.path.join(VIDEO_DIR, n)
+           for n in ("hnn-hero-1600.mp4", "hnn-hero-960.mp4")]
+
+path = os.path.join(ROOT, "docs", "index.html")
+html = io.open(path, encoding="utf-8").read()
+if all(os.path.exists(p) for p in encoded):
+    if "hero__video" not in html:
+        start = html.index(HERO_FIGURE)
+        close = html.index("</figure>", start)
+        html = html[:close].rstrip() + HERO_VIDEO + chr(10) + "    " + html[close:]
+        io.open(path, "w", encoding="utf-8", newline=chr(10)).write(html)
+        print("wired the hero clip into index.html")
+else:
+    print("hero clip    not encoded yet, the home hero ships the still alone")
