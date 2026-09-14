@@ -42,7 +42,7 @@ launch.
 
 | Outstanding | Where it goes | Blocking launch |
 |---|---|---|
-| Formspree form ID | `contact.html` | **Yes.** The form is inert until then, and says so rather than failing quietly |
+| Live test of the contact form | `contact.html`, connected to Formspree form `mrpgwdpg` | **Yes.** Send one enquiry from the live site and confirm it arrives |
 | Legal placeholders: entity name, address, jurisdiction | `privacy.html`, `terms.html` | **Yes** |
 | Redrawn logo SVG | regenerates `logo-mark`, `logo-light`, `logo-dark`, `favicon` | No, current files are derived from the supplied SVG |
 | LinkedIn URL | footer and contact page | No. Email, telephone and Instagram are live |
@@ -150,13 +150,13 @@ docs/                      the published site, this is the deploy root
   js/main.js               navigation, scroll reveal, header state, year, hero clip
   js/forms.js              validation and submission for the contact form
   assets/images/           logos, favicon, photography
-  assets/video/            the home hero clip, absent until it is encoded
+  assets/video/            the phone hero clip, absent until it is encoded
 
 tools/
   make.py                  rebuilds every page in docs/, run this after editing
   build.py                 assembler, and the one place BASE is defined
   images.py                cuts every photograph from the originals, crops recorded
-  video.py                 encodes the hero clip into its two renditions
+  video.py                 encodes the phone hero clip
   serve.py                 local preview, with the range support video needs
   icons.py                 cuts the favicons and logo marks from the client artwork
   partials/
@@ -313,23 +313,23 @@ safeguards mean content can never be left invisible:
 
 ## Connect the form
 
-**This is the one step required before launch.** GitHub Pages serves static
-files and cannot receive a form submission, so the contact form posts to
-[Formspree](https://formspree.io). Until you supply an ID it is inert, and
-submitting shows a message saying so rather than failing silently.
+GitHub Pages serves static files and cannot receive a form submission, so the
+contact form posts to [Formspree](https://formspree.io). It is connected to
+form `mrpgwdpg`:
 
-1. Create a free Formspree account and add one form. It gets an ID that looks
-   like `xayzbqwe`.
-2. Set the delivery address to the HerNext inbox.
-3. Replace `REPLACE_ME` in the partial, not in the built page:
+| File | Attribute |
+|---|---|
+| `tools/partials/_contact.html` | `<form id="contact-form" data-endpoint="https://formspree.io/f/mrpgwdpg">` |
 
-   | File | Attribute |
-   |---|---|
-   | `tools/partials/_contact.html` | `<form id="contact-form" data-endpoint="https://formspree.io/f/REPLACE_ME">` |
+**Before launch, submit the form once from the live site** and confirm the
+enquiry reaches the HerNext inbox. If Formspree refuses it, check the form's
+settings in the Formspree dashboard: the delivery address, and any reCAPTCHA
+or allowed-domain restriction.
 
-   Then run `python tools/make.py`.
-4. Submit the form once from the live site. Formspree asks you to confirm the
-   destination address the first time.
+To move to a different form, change the ID in the partial, not in the built
+page, and run `python tools/make.py`. `forms.js` still refuses to submit while
+an endpoint reads `REPLACE_ME`, so an unconnected copy of the form says so
+rather than failing silently.
 
 Submissions arrive by email and are listed in the Formspree dashboard, where
 they can be exported. The free tier allows 50 submissions per month, so
@@ -353,16 +353,19 @@ to change.
 
 ## The hero clip
 
-The home page hero carries a looping clip over its photograph. It is the
-heaviest thing on the site by a wide margin, and almost all of the code around
-it is about deciding not to play it.
+On phones, the home page hero carries a looping portrait clip over its
+photograph. It is the heaviest thing on the site by a wide margin, and almost
+all of the code around it is about deciding not to play it.
 
 ### Adding or replacing it
 
 ```bash
-sudo dnf install ffmpeg     # once. RPM Fusion is already enabled
-                            # ffmpeg-free will not do, it has no libx264
+sudo dnf install ffmpeg --allowerasing   # once. RPM Fusion is already enabled
+                                         # ffmpeg-free will not do, it has no libx264
 ```
+
+`--allowerasing` is needed because RPM Fusion's `ffmpeg` replaces Fedora's
+`*-free` libav libraries, which conflict with it.
 
 Put the camera file in `source-media/`, then:
 
@@ -371,19 +374,23 @@ python tools/video.py
 python tools/make.py
 ```
 
-`video.py` writes two renditions into `docs/assets/video/`, 1600 wide for
-desktop and 960 for narrow viewports, both ten seconds, both silent. `make.py`
-then adds the `<video>` element to the home hero. It only does that when both
-files exist, so a checkout without a clip ships the photograph alone and no
-browser is ever sent looking for a file that is not there.
+`video.py` writes one silent rendition, 720 by 1280, into
+`docs/assets/video/`. `make.py` then adds the `<video>` element to the home
+hero. It only does that when the file exists, so a checkout without a clip
+ships the photograph alone and no browser is ever sent looking for a file that
+is not there.
 
 | File | Budget |
 |---|---|
-| `hnn-hero-1600.mp4` | 1.6 MB |
-| `hnn-hero-960.mp4` | 600 KB |
+| `hnn-hero-portrait-720.mp4` | 800 KB |
 
-Check the loop seam. A clip whose first and last frames disagree jumps visibly
-every ten seconds, and no amount of encoding hides it.
+The supplied edit runs five shots, and only the third and fourth are used,
+about 4.3 seconds: a team member who has asked not to be featured on the site
+yet appears in the other three. `START` and `DURATION` at the top of
+`video.py` hold that cut, each end a frame inside its shot. A replacement edit
+needs both revisiting, and its first and last frames checking by eye. The loop
+point falls on a cut in the original edit, so it reads as one more cut rather
+than a jump.
 
 The camera file stays in `source-media/` and is never committed. Git keeps
 every version of a binary it is handed, permanently, and a few rounds of
@@ -397,10 +404,20 @@ what decides the largest contentful paint, and still what carries the
 alternative text. Every case where the clip does not run leaves the hero
 exactly as it was.
 
+The clip is portrait, so it belongs to phones. Up to 700 pixels wide, the
+hero's `<picture>` swaps the 16:9 photograph for a 4:5 cut of the same frame,
+`hnn-hero-portrait`, and the clip lies over that. Wider screens keep the 16:9
+photograph alone, and neither the clip nor its control is displayed there. The
+`(max-width: 700px)` query lives in three places, the `<source>` in
+`_index_main.html`, the hero rules in `style.css` and `initHeroVideo` in
+`main.js`, and the three change together.
+
 It ships with **no `src` and no `autoplay` attribute**. `main.js` attaches a
 source only after all of these pass, and each one fetches nothing when it
 fails:
 
+- **A phone-sized screen.** Above 700 pixels nothing is requested. A window
+  that narrows mid-visit picks the clip up, and one that widens pauses it.
 - **Reduced motion.** The accessibility statement says all animation is
   switched off when the system asks for it. A paused video would still be a
   downloaded video, so this declines before a byte is requested. Turning the
@@ -434,18 +451,19 @@ decode or network error removes the element.
 ## Images
 
 Photographs are served as WebP at three or four widths each, chosen by the
-browser through `srcset`. On a 375 pixel phone at 2x the hero loads the 1000
-wide file at 81 KB rather than the 1600 wide file at 169 KB.
+browser through `srcset`. On a 375 pixel phone at 2x the hero loads its 800
+wide portrait cut at 106 KB rather than the 1080 wide file at 170 KB.
 
 All fourteen slots carry photography from a single HerNext Network community
-gathering. The first nine file stems are slot names that predate the
-photographs now in them, so `hnn-office` is not an office and `hnn-trade` is
-not a trade floor: they name a position on the page, not a subject. The five
-added later are named for what they show.
+gathering. The file stems are slot names, not subjects: they predate the
+photographs now in them, so `hnn-office` is not an office, `hnn-trade` is not a
+trade floor and `hnn-circle` no longer shows a circle. They name a position on
+the page.
 
 | Slot | Files | Page |
 |---|---|---|
 | Hero, full bleed, 16:9 | `hnn-presentation-{700,1000,1600}.webp` | Home |
+| Hero on phones, full bleed, 4:5 | `hnn-hero-portrait-{540,800,1080}.webp` | Home |
 | Our story, 16:9 | `hnn-office-{600,900,1400}.webp` | About |
 | Partnership philosophy banner, 16:7 | `hnn-forum-{700,1000,1400}.webp` | Partners |
 | Leadership Academy card, 3:2 | `hnn-academy-{400,800,1200}.webp` | Our Work |
@@ -494,6 +512,10 @@ crop boxes it used were written down nowhere, so when the originals were later
 cleared off the machine the lossy WebP was all that survived and nothing could
 be recut. Keeping the manifest current is what stops that happening twice.
 
+The rows replaced in September 2026 sit in a commented block below `PHOTOS`,
+crops and all, because a team member asked not to be featured on the site
+yet. Check with HerNext before restoring any of them.
+
 Then reference every width in one `<img>`, and keep `width` and `height` on the
 tag so the page does not shift as it loads:
 
@@ -537,13 +559,16 @@ markup matches the ratio in the stylesheet and the page never shifts:
 | `media--wide` | 16 / 7 | partners banner |
 | `media--169` | 16 / 9 | about, our story |
 
-Two crops are tight on purpose and the manifest says why: `hnn-mentoring` is
-cut hard to the right, and `hnn-team` is taken from the upper band of its
+Several crops are tight on purpose, and the manifest says why. `hnn-mentoring`
+is cut hard to the right, and `hnn-forum` is taken from the upper band of its
 frame, because the fuller crop of each puts a small child in the foreground.
+Both hero cuts start 1400 pixels into the same frame as `hnn-mentoring`, for
+the same reason, and `hnn-together` stops short of the right edge of its frame,
+where two young girls sit.
 
 Consent for these photographs is understood to cover adults for public web
-use. Children are excluded by crop rather than relied upon, so widening either
-of those two boxes needs checking again before it ships.
+use. Children are excluded by crop rather than relied upon, so widening any of
+those boxes needs checking again before it ships.
 
 ### Assets you are replacing
 
@@ -755,7 +780,8 @@ ten pages and both redirect stubs at once. The steps for that are under
 
 ## Before launch
 
-- [ ] Formspree ID added to `tools/partials/_contact.html`, rebuilt and tested live
+- [x] Formspree ID added to `tools/partials/_contact.html` and rebuilt
+- [ ] Contact form tested live: one enquiry sent from the site and received
 - [ ] LinkedIn URL confirmed and swapped in
 - [ ] Legal placeholders filled in: entity name, address, governing jurisdiction
 - [ ] Privacy policy and terms reviewed by a qualified adviser

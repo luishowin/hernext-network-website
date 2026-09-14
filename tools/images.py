@@ -39,34 +39,57 @@ OUT = os.path.join(ROOT, "docs", "assets", "images")
 # IMG_0805, IMG_0807 and IMG_0716 are deliberately tight: the first two exclude
 # a small child sitting in the foreground, and the third drops a bank of empty
 # chairs that swallowed the card at its rendered size.
+#
+# new-home-hero is the same frame as IMG_0805, and both hero cuts of it start
+# 1400 pixels in for the same reason: its left edge holds an infant and two
+# young girls. IMG_0789 stops 459 pixels short of its right edge, where two
+# young girls sit behind the row of women, and gives up the same height of bare
+# wall at the top to stay square.
 PHOTOS = [
     # stem,            source,     crop (l, t, w, h),            widths
-    ("hnn-presentation", "IMG_0713", (0, 560, 5896, 3316), (700, 1000, 1600)),
+    ("hnn-presentation", "new-home-hero", (1400, 600, 3372, 1897), (700, 1000, 1600)),
     ("hnn-office",       "IMG_0825", (0, 500, 6703, 3770), (600, 900, 1400)),
     ("hnn-forum",        "IMG_0807", (0, 380, 6905, 3021), (700, 1000, 1400)),
-    ("hnn-academy",      "IMG_0778", (0, 180, 5627, 3751), (400, 800, 1200)),
+    ("hnn-academy",      "IMG_0882", (1600, 600, 3100, 2067), (400, 800, 1200)),
     ("hnn-mentoring",    "IMG_0805", (1822, 950, 2950, 1967), (400, 800, 1200)),
     ("hnn-trade",        "IMG_0716", (3385, 2250, 3900, 2600), (400, 800, 1200)),
     ("hnn-team",         "IMG_0721", (0, 400, 7285, 4857), (600, 900, 1400)),
-    ("hnn-hall",         "IMG_0780", (1400, 400, 4400, 2933), (600, 900, 1400)),
+    ("hnn-hall",         "IMG_0852", (3246, 1900, 3000, 2000), (600, 900, 1400)),
     ("hnn-conversation", "IMG_0890", (1087, 0, 3260, 4075), (400, 600, 800, 1000)),
 
-    # A second pass of frames, four of them shot square. They are kept square
+    # A second pass of frames, three of them shot square. They are kept square
     # rather than cropped into 3:2 or 4:5, which on a standing figure means
     # cutting it off at the knees or cropping the people at the edges out.
     #
-    # The two outdoor frames carry an allowance. Both are full of foliage, and
-    # a hedge in daylight is about the most expensive thing a photograph can
-    # contain: every leaf is an edge. Held to the ordinary budget they encode
-    # at quality 48, which is where artefacts start showing on skin, and the
-    # faces are the subject. The allowance buys back roughly twenty points of
-    # quality for about fifty kilobytes on the largest rung.
-    ("hnn-together",     "IMG_0693", (0, 0, 5101, 5101), (400, 700, 1000), 1.5),
+    # The outdoor frame carries an allowance. It is full of foliage, and a
+    # hedge in daylight is about the most expensive thing a photograph can
+    # contain: every leaf is an edge. Held to the ordinary budget it encodes at
+    # quality 48, which is where artefacts start showing on skin, and the faces
+    # are the subject. The allowance buys back roughly twenty points of quality
+    # for about fifty kilobytes on the largest rung.
+    ("hnn-together",     "IMG_0789", (0, 459, 3900, 3900), (400, 700, 1000)),
     ("hnn-welcome",      "IMG_0701", (0, 0, 4073, 4073), (400, 700, 1000), 1.5),
     ("hnn-facilitator",  "IMG_0776", (0, 0, 3197, 3197), (400, 700, 1000)),
-    ("hnn-coordinator",  "IMG_0776-2", (0, 0, 2359, 2359), (400, 700, 1000)),
-    ("hnn-circle",       "IMG_0750", (0, 300, 7285, 4857), (600, 900, 1400)),
+    ("hnn-coordinator",  "IMG_0881", (1680, 400, 2900, 2900), (400, 700, 1000)),
+    ("hnn-circle",       "IMG_0852", (0, 260, 6246, 4164), (600, 900, 1400)),
+
+    # The home hero on phones: a 4:5 cut of the same frame as the hero, chosen
+    # by the <source> in the hero markup, so the portrait clip has a portrait
+    # still to lie over. The box is the full screen width, so 800 serves a 375
+    # or 390 pixel phone at 2x and 1080 the 3x screens.
+    ("hnn-hero-portrait", "new-home-hero", (1400, 0, 2863, 3579), (540, 800, 1080)),
 ]
+
+# Rows replaced in September 2026, when a team member asked not to be featured
+# on the site yet. They are kept with the crops they were cut at, so the frames
+# can be recut if that changes. Check with HerNext before restoring any of them.
+#
+#   ("hnn-presentation", "IMG_0713", (0, 560, 5896, 3316), (700, 1000, 1600)),
+#   ("hnn-academy",      "IMG_0778", (0, 180, 5627, 3751), (400, 800, 1200)),
+#   ("hnn-hall",         "IMG_0780", (1400, 400, 4400, 2933), (600, 900, 1400)),
+#   ("hnn-together",     "IMG_0693", (0, 0, 5101, 5101), (400, 700, 1000), 1.5),
+#   ("hnn-coordinator",  "IMG_0776-2", (0, 0, 2359, 2359), (400, 700, 1000)),
+#   ("hnn-circle",       "IMG_0750", (0, 300, 7285, 4857), (600, 900, 1400)),
 
 # The social card is recut from the hero rather than being its own photograph,
 # so the preview and the page a visitor lands on show the same room.
@@ -202,10 +225,20 @@ def main():
                 over.append(name)
 
     # The card is cut from the hero crop rather than the original, so it frames
-    # the same moment the page does, only wider.
-    wide = hero.height * OG_SIZE[0] / OG_SIZE[1]
-    inset = round((hero.width - wide) / 2)
-    card = hero.crop((inset, 0, hero.width - inset, hero.height))
+    # the same moment the page does. At 1200 x 630 the card is wider than a
+    # 16:9 hero, so it gives up a band at the top and bottom. It cannot gain
+    # sides instead: PIL does not reject a box that runs past the edge of an
+    # image, it fills the overhang with black, and the previous card shipped
+    # with a 39 pixel black bar down each side for exactly that reason.
+    ratio = OG_SIZE[0] / OG_SIZE[1]
+    if hero.width / hero.height > ratio:
+        wide = round(hero.height * ratio)
+        left = (hero.width - wide) // 2
+        card = hero.crop((left, 0, left + wide, hero.height))
+    else:
+        tall = round(hero.width / ratio)
+        top = (hero.height - tall) // 2
+        card = hero.crop((0, top, hero.width, top + tall))
     card = card.resize(OG_SIZE, Image.LANCZOS)
     path = os.path.join(OUT, "og-image.jpg")
     card.save(path, "JPEG", quality=82, optimize=True, progressive=True)

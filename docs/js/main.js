@@ -174,8 +174,8 @@
   /* ------------------------------------------------------------------
      Hero video
 
-     A decorative clip layered over the hero photograph. Everything here is
-     about deciding NOT to play it. The element ships with no src and no
+     A decorative clip layered over the hero photograph on phones. Everything
+     here is about deciding NOT to play it. The element ships with no src and no
      autoplay attribute, so until this function attaches one the browser has
      asked for nothing, and the hero is the photograph it has always been.
      That is also what happens if this script never runs at all.
@@ -222,9 +222,14 @@
     if (!video.canPlayType ||
         !video.canPlayType('video/mp4; codecs="avc1.42E01E"')) { drop(); return; }
 
-    var narrow = window.matchMedia("(max-width: 700px)").matches;
-    var src = video.getAttribute(narrow ? "data-src-narrow" : "data-src");
+    var src = video.getAttribute("data-src");
     if (!src) { drop(); return; }
+
+    // The clip is portrait, so it belongs only in the portrait hero that phones
+    // get. The same query sits on the hero's <source> in the markup and on the
+    // hero rules in style.css; change all three together. A wider screen keeps
+    // the element, unloaded and hidden, in case the window narrows.
+    var phone = window.matchMedia("(max-width: 700px)");
 
     function label(paused) {
       toggle.setAttribute("data-paused", paused ? "true" : "false");
@@ -310,7 +315,7 @@
     function sync() {
       if (!video.parentNode) return;
       if (remembered(PAUSED_KEY)) return;   // the visitor's choice outranks this
-      if (document.hidden || !onScreen()) {
+      if (!phone.matches || document.hidden || !onScreen()) {
         if (!video.paused) video.pause();
       } else if (video.paused) {
         start();
@@ -327,6 +332,7 @@
     window.addEventListener("scroll", request, { passive: true });
     window.addEventListener("resize", request);
     document.addEventListener("visibilitychange", sync);
+    phone.addEventListener("change", sync);
     sync();
 
     // Turning reduced motion on mid-visit has to take effect at once.

@@ -5,8 +5,8 @@
      #contact-form  the enquiry form, which also carries registrations of
                     interest through its subject field
 
-   It submits to a Formspree endpoint declared on the form as data-endpoint.
-   Replace REPLACE_ME with your form ID before launch.
+   It submits to the Formspree endpoint declared on the form as data-endpoint,
+   which is set in tools/partials/_contact.html.
    See the README section "Connect the form".
    ========================================================================== */
 

@@ -469,6 +469,7 @@ hr.rule {
   margin-top: clamp(3rem, 7vw, 5.5rem);
   width: 100%;
 }
+.hero__figure picture { display: block; }
 .hero__figure img {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -522,6 +523,21 @@ hr.rule {
 .hero__toggle .hero__toggle-play { display: none; }
 .hero__toggle[data-paused="true"] .hero__toggle-play { display: block; }
 .hero__toggle[data-paused="true"] .hero__toggle-pause { display: none; }
+
+/* Phones get a portrait hero: a 4:5 cut of the photograph, chosen by the
+   <source> in the hero markup, with the portrait clip over it. The breakpoint
+   is shared with that <source> and with main.js; change all three together.
+   Everywhere wider keeps the 16:9 photograph alone, so the clip and its
+   control are not displayed, and main.js never loads the file. The second
+   query is the exact negation of the first, so no fractional width can fall
+   between them. */
+@media (max-width: 700px) {
+  .hero__figure img { aspect-ratio: 4 / 5; }
+}
+@media not all and (max-width: 700px) {
+  .hero__video,
+  .hero__toggle { display: none; }
+}
 
 .page-hero { padding-block: clamp(4rem, 10vh, 7.5rem) clamp(2.5rem, 6vh, 4.5rem); }
 .page-hero__title { margin-block: var(--space-sm) var(--space-md); }

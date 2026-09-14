@@ -3,18 +3,20 @@
 Run from anywhere:   python tools/video.py
 
 Put the camera file in "source-media/" at the repository root, which is
-gitignored, and this writes two web renditions into docs/assets/video/. Those
-are committed; the camera file never is. A ten second clip off an R5 is several
-hundred megabytes, and git keeps every version of a binary it is given forever.
+gitignored, and this writes one web rendition into docs/assets/video/. That is
+committed; the camera file never is. Git keeps every version of a binary it is
+given, forever.
 
-Two renditions, chosen in main.js by viewport width, because this is the single
-heaviest thing on the site and a phone on mobile data should not pay desktop
-weight for a decorative band. There is no audio track at all. The clip carries
-no information in sound, muting is required for autoplay anyway, and a file
-with no audio stream cannot raise WCAG 1.4.2 no matter how it is embedded.
+The clip is portrait, so it plays only where the hero is portrait too: on
+phone-sized screens, where main.js lays it over a 4:5 cut of the hero
+photograph. Wider screens keep the photograph alone and never request the file.
+
+There is no audio track at all. The clip carries no information in sound,
+muting is required for autoplay anyway, and a file with no audio stream cannot
+raise WCAG 1.4.2 no matter how it is embedded.
 
 H.264 in MP4 only. WebM would save some bytes on some browsers, but the site
-holds itself to shipping no unused assets, and a second set of files that most
+holds itself to shipping no unused assets, and a second file that most
 visitors never touch is hard to square with that.
 """
 import os, shutil, subprocess, sys
@@ -26,18 +28,19 @@ OUT = os.path.join(ROOT, "docs", "assets", "video")
 
 CLIP_EXTENSIONS = (".mov", ".mp4", ".m4v", ".mkv", ".avi", ".mts", ".m2ts")
 
-# Seconds. Long enough to read as a scene, short enough that the loop is not
-# the heaviest asset on the site by an order of magnitude.
-DURATION = 10
-FPS = 25
+# Seconds. The supplied clip is an edit of five shots, and a team member who
+# has asked not to be featured on the site yet appears in the first, second and
+# fifth. Only the third and fourth are used. Their cuts fall at 2.836s and
+# 7.241s, and each end is held a frame inside its cut, so rounding can never
+# let a frame of a neighbouring shot through. A replacement edit needs both
+# values revisiting, and the first and last frames of the output checking.
+START = 2.87
+DURATION = 4.33
 
-# width, crf, h264 profile, byte ceiling in KB
+# name, width, crf, h264 profile, byte ceiling in KB
 RENDITIONS = [
-    ("hnn-hero-1600.mp4", 1600, 27, "high", 1600),
-    ("hnn-hero-960.mp4", 960, 30, "main", 600),
+    ("hnn-hero-portrait-720.mp4", 720, 28, "high", 800),
 ]
-
-POSTER_FRAME = "hero-frame.png"
 
 
 def ffmpeg():
@@ -47,9 +50,10 @@ def ffmpeg():
         raise SystemExit(
             "ffmpeg is not installed.\n\n"
             "RPM Fusion is already enabled on this machine, so:\n"
-            "    sudo dnf install ffmpeg\n\n"
-            "Fedora's ffmpeg-free will not do: it has no libx264, and H.264 is\n"
-            "what every browser can actually play.")
+            "    sudo dnf install ffmpeg --allowerasing\n\n"
+            "--allowerasing lets it replace Fedora's *-free libav libraries,\n"
+            "which conflict with it. Fedora's ffmpeg-free will not do: it has no\n"
+            "libx264, and H.264 is what every browser can actually play.")
     return found
 
 
@@ -105,24 +109,32 @@ def main():
     info = probe(source)
     print("source  %s" % os.path.basename(source))
     if info:
-        print("        %s x %s, %.1fs, %s"
+        print("        %s x %s, %.2fs, %s"
               % (info["width"], info["height"], info["duration"],
                  "has audio (dropped)" if info["audio"] else "no audio"))
-        if info["duration"] < DURATION:
-            print("        shorter than %ds, so the whole clip is used" % DURATION)
+        if info["duration"] < START + DURATION:
+            raise SystemExit(
+                "The clip is %.2fs long, shorter than the %.2fs to %.2fs this keeps.\n"
+                "A different edit needs START and DURATION revisiting."
+                % (info["duration"], START, START + DURATION))
+    print("        keeping %.2fs to %.2fs" % (START, START + DURATION))
 
     over = []
     for name, width, crf, profile, cap in RENDITIONS:
         path = os.path.join(OUT, name)
         run([
-            binary, "-y", "-i", source,
-            "-an",                       # no audio stream at all
+            binary, "-y",
+            "-ss", str(START),           # before -i, so the seek is frame accurate
+            "-i", source,
             "-t", str(DURATION),
-            "-vf", "scale=%d:-2:flags=lanczos,fps=%d" % (width, FPS),
+            "-an",                       # no audio stream at all
+            # No fps filter. The source runs at 29.97, and resampling it to 25
+            # drops one frame in six, which judders on a moving camera.
+            "-vf", "scale=%d:-2:flags=lanczos" % width,
             "-c:v", "libx264", "-profile:v", profile,
             "-pix_fmt", "yuv420p",       # the only chroma format Safari will decode
             "-crf", str(crf), "-preset", "slow",
-            "-g", str(FPS * 2),
+            "-g", "60",                  # a keyframe every two seconds
             "-movflags", "+faststart",   # moov atom first, so it starts on first bytes
             path,
         ])
@@ -135,23 +147,15 @@ def main():
         if result and result["audio"]:
             raise SystemExit("%s came out with an audio stream. That should be impossible "
                              "with -an; check the ffmpeg build." % name)
-        print("  %-22s %4dw  crf %d  %7.1f KB%s" % (name, width, crf, size, flag))
-
-    # The still behind the video is the first frame, so the crossfade from the
-    # poster to the clip has nothing to cross. Feed this through images.py as
-    # the hero source if you want them to agree exactly.
-    frame = os.path.join(SRC, POSTER_FRAME)
-    run([binary, "-y", "-i", os.path.join(OUT, RENDITIONS[0][0]),
-         "-frames:v", "1", frame])
-    print("  %-22s first frame, for use as the hero still" % POSTER_FRAME)
+        print("  %-26s %4dw  crf %d  %7.1f KB%s" % (name, width, crf, size, flag))
 
     print("\nNow run:  python tools/make.py")
-    print("The home hero picks the clip up automatically once both files exist.")
+    print("The home hero picks the clip up automatically once the file exists.")
 
     if over:
         raise SystemExit(
             "\n%d rendition(s) came in over budget. Raise the crf in RENDITIONS\n"
-            "and run again, or shorten the clip: %s"
+            "and run again: %s"
             % (len(over), ", ".join("%s at crf %d" % o for o in over)))
 
 

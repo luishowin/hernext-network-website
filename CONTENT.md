@@ -746,20 +746,20 @@ together.
 
 | Slot | Alt text |
 |---|---|
-| Home hero | Women standing among rows of plastic chairs in a community hall, under a high corrugated roof |
+| Home hero | A man in a HerNext Network shirt, arms folded, smiles at a woman standing among seated women in a community hall |
 | About, our story | Two people in HerNext Network shirts standing to address a seated group in a community hall |
 | Partners banner | A wide view of a community hall, rows of women seated facing two people standing at a plywood partition |
-| Leadership Academy card | A woman speaking from a sheet of notes while a colleague in a HerNext Network shirt listens |
+| Leadership Academy card | A woman in a HerNext Network shirt speaking, a colleague in a cap standing beside her |
 | Opportunity Hub card | A man in a HerNext Network shirt standing with folded arms, talking with women seated around him |
 | Global Trade card | A woman standing beside a cloth covered table, addressing people seated in a sunlit hall |
 | Impact, Kiambu Chapter | Rows of women seated in a community hall, seen from the back, facing a speaker at the far end |
-| Contact | Two women in HerNext Network shirts in conversation, one holding a sheet of notes |
+| Contact | Women seated in rows in a sunlit hall, listening, one wrapped in a white shawl |
 | Closing call to action | A woman standing with a sheet of notes, speaking to women seated around her |
-| Home, why we exist | Three women standing together on a compound path, two of them in HerNext Network shirts |
+| Home, why we exist | A row of older women in cardigans and head wraps seated on plastic chairs, listening |
 | Home, how we work | A woman in a HerNext Network shirt speaking, a sheet of notes in her hand, in front of a plywood wall |
 | Partners, how a partnership begins | Two men shaking hands at a gateway while two women stand alongside them |
-| Impact, from data to action | A woman in a HerNext Network shirt holding a phone, smiling, beside a window |
-| About, the Africa we envision | Three people in HerNext Network shirts standing hand in hand with heads bowed, in a circle with others |
+| Impact, from data to action | Two people in HerNext Network shirts turned towards the room, the woman gesturing as she speaks |
+| About, the Africa we envision | A man in a HerNext Network shirt speaking to a hall full of women seated on plastic chairs |
 
 The social preview carries the home hero string, in `og:image:alt` and
 `twitter:image:alt`, because `og-image.jpg` is recut from the hero crop. If the
@@ -775,13 +775,13 @@ name would imply it did.
 The header logo carries an empty `alt` because the brand name sits beside it as
 text. The footer logo carries `alt="HerNext Network"`.
 
-The home hero also carries a looping clip over its photograph. The clip is
-marked `aria-hidden` and carries no alternative text of its own, deliberately:
-it shows nothing the photograph underneath does not already show, and that
-photograph keeps the alt text in the table above. Describing both would make a
-screen reader read the same scene twice. The accessibility statement records
-that the clip is silent, stoppable, and never loaded when reduced motion is
-asked for.
+On phones, the home hero also carries a looping clip over its photograph. The
+clip is marked `aria-hidden` and carries no alternative text of its own,
+deliberately: it is decoration, a few seconds from the same gathering the
+photograph shows, and that photograph keeps the alt text in the table above.
+Describing the clip as well would have a screen reader narrate the room twice.
+The accessibility statement records that the clip is silent, stoppable, and
+never loaded when reduced motion is asked for.
 
 ---
 
