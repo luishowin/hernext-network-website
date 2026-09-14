@@ -37,13 +37,16 @@ of `docs/` are the deployed site exactly as served.
 ## Status
 
 The site is complete, verified and deployed. The 2026 content corrections have
-been applied in full. Five things are still outstanding, and two of them block
-launch.
+been applied in full. In September 2026 the home hero and five photographs
+were replaced, the contact form was connected to Formspree, and phones gained
+a portrait hero with a looping clip. Six things are still outstanding, and two
+of them block launch.
 
 | Outstanding | Where it goes | Blocking launch |
 |---|---|---|
 | Live test of the contact form | `contact.html`, connected to Formspree form `mrpgwdpg` | **Yes.** Send one enquiry from the live site and confirm it arrives |
 | Legal placeholders: entity name, address, jurisdiction | `privacy.html`, `terms.html` | **Yes** |
+| Hero clip watched on a real phone | home page | No. Encoded, wired and tested in a desktop browser, but starting on scroll has not been seen on a phone |
 | Redrawn logo SVG | regenerates `logo-mark`, `logo-light`, `logo-dark`, `favicon` | No, current files are derived from the supplied SVG |
 | LinkedIn URL | footer and contact page | No. Email, telephone and Instagram are live |
 | Final social preview image | `assets/images/` | Recut from the hero photograph |
@@ -782,6 +785,8 @@ ten pages and both redirect stubs at once. The steps for that are under
 
 - [x] Formspree ID added to `tools/partials/_contact.html` and rebuilt
 - [ ] Contact form tested live: one enquiry sent from the site and received
+- [ ] Hero clip watched on a real phone: starts when the photograph scrolls into
+      view, pauses when scrolled away, and its button stops it
 - [ ] LinkedIn URL confirmed and swapped in
 - [ ] Legal placeholders filled in: entity name, address, governing jurisdiction
 - [ ] Privacy policy and terms reviewed by a qualified adviser
