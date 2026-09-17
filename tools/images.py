@@ -69,7 +69,7 @@ PHOTOS = [
     # for about fifty kilobytes on the largest rung.
     ("hnn-together",     "IMG_0789", (0, 459, 3900, 3900), (400, 700, 1000)),
     ("hnn-welcome",      "IMG_0701", (0, 0, 4073, 4073), (400, 700, 1000), 1.5),
-    ("hnn-facilitator",  "IMG_0776", (0, 0, 3197, 3197), (400, 700, 1000)),
+    ("hnn-facilitator",  "IMG_0782", (1192, 300, 3400, 3400), (400, 700, 1000)),
     ("hnn-coordinator",  "IMG_0881", (1680, 400, 2900, 2900), (400, 700, 1000)),
     ("hnn-circle",       "IMG_0852", (0, 260, 6246, 4164), (600, 900, 1400)),
 
@@ -137,13 +137,14 @@ def box(crop):
 
 def load(name):
     """The original, EXIF rotation applied, in plain RGB."""
-    path = os.path.join(SRC, name + ".jpg")
-    if not os.path.exists(path):
-        raise SystemExit(
-            "%s is missing from source-media/.\n"
-            "The originals are gitignored and kept local. Restore them before "
-            "recutting, or the crops in this file cannot be reproduced." % name)
-    return ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+    for ext in (".jpg", ".webp"):
+        path = os.path.join(SRC, name + ext)
+        if os.path.exists(path):
+            return ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+    raise SystemExit(
+        "%s is missing from source-media/.\n"
+        "The originals are gitignored and kept local. Restore them before "
+        "recutting, or the crops in this file cannot be reproduced." % name)
 
 
 def encoded(im, quality):
