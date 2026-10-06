@@ -37,10 +37,16 @@ of `docs/` are the deployed site exactly as served.
 ## Status
 
 The site is complete, verified and deployed. The 2026 content corrections have
-been applied in full. In September 2026 the home hero and five photographs
-were replaced, the contact form was connected to Formspree, and phones gained
-a portrait hero with a looping clip. Six things are still outstanding, and two
-of them block launch.
+been applied in full. Since then the home page has been rebuilt to the
+approved Pan-African-institution direction (institution → rationale → work
+areas → programmes → approach → impact → partnerships → CTA), replacing the
+commitments, initiatives, philosophy band, sectors and where-we-work
+sections; the footer now lists the fuller Explore/Engage structure with Our
+Programmes and Resources deliberately unlinked until those routes exist, and
+the brand line reads HerNext Network Ltd. In September 2026 the home hero
+and five photographs were replaced, the contact form was connected to
+Formspree, and phones gained a portrait hero with a looping clip. Six things
+are still outstanding, and two of them block launch.
 
 | Outstanding | Where it goes | Blocking launch |
 |---|---|---|
@@ -474,9 +480,9 @@ the page.
 | Global Trade card, 3:2 | `hnn-trade-{400,800,1200}.webp` | Our Work |
 | Impact in action, Kiambu, 3:2 | `hnn-team-{600,900,1400}.webp` | Impact |
 | Contact, 3:2 | `hnn-hall-{600,900,1400}.webp` | Contact |
-| Closing call to action, 4:5 | `hnn-conversation-{400,600,800,1000}.webp` | Home, About, Our Work, Impact |
-| Why we exist, 1:1 | `hnn-together-{400,700,1000}.webp` | Home |
-| How we work, 1:1 | `hnn-facilitator-{400,700,1000}.webp` | Home |
+| Closing call to action, 4:5 | `hnn-conversation-{400,600,800,1000}.webp` | About, Our Work, Impact (the shared block; Home carries its own text-only final CTA) |
+| Why HerNext, 1:1 | `hnn-together-{400,700,1000}.webp` | Home |
+| Retired home slot, 1:1 | `hnn-facilitator-{400,700,1000}.webp` | Currently unreferenced; kept on disk |
 | How a partnership begins, 1:1 | `hnn-welcome-{400,700,1000}.webp` | Partners |
 | From data to action, 1:1 | `hnn-coordinator-{400,700,1000}.webp` | Impact |
 | The Africa we envision, 3:2 | `hnn-circle-{600,900,1400}.webp` | About |
@@ -716,17 +722,22 @@ A quick way to confirm nothing stale survives:
 grep -rn "hernextnetwork.org\|+00 000 000 000\|apply@" docs/ tools/
 ```
 
-### The figures on the home page
+### The figures band (removed from the home page)
 
-The statistics band shows structural counts: six areas of work, six signature
-initiatives, nine priority sectors and five Sustainable Development Goals.
-These count structure, not results, so they need no disclaimer.
+The home page used to carry a statistics band showing structural counts:
+six areas of work, six signature initiatives, nine priority sectors and five
+Sustainable Development Goals. These counted structure, not results, so they
+needed no disclaimer.
 
-**They are not a place for impact metrics yet.** The 2026 corrections are
-explicit that no figure may be published before follow-up measurement supports
-it. When verified programme results exist, the band in
-`tools/partials/_index_main.html` is where they belong, and the Impact page
-gains its before-and-after indicators at the same time.
+The home rebuild removed that band entirely, along with the commitments,
+initiatives, sectors and where-we-work sections it summarised. There is
+currently no statistics band anywhere on the site.
+
+**That absence is intentional, and the rule behind it stands.** The 2026
+corrections are explicit that no figure may be published before follow-up
+measurement supports it. When verified programme results exist, the Impact
+page gains its before-and-after indicators, and only then does a home
+summary become appropriate again.
 
 ---
 

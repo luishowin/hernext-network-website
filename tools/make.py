@@ -15,7 +15,7 @@ PAGES = [
  (D+"index.html", "_index_main.html", "",
   "HerNext Network | Creating Opportunity. Building Legacy.",
   "A Pan-African institution creating pathways of opportunity that advance women's economic transformation across Africa. Creating Opportunity. Building Legacy.",
-  True, "Home", "Creating Opportunity. Building Legacy."),
+  False, "Home", "Creating Opportunity. Building Legacy."),
 
  (D+"about.html", "_about.html", "about.html",
   "About Us | HerNext Network",

@@ -41,18 +41,23 @@ form, so a sixth item would only duplicate Contact.
 
 ### Footer
 - **Motto line:** Creating Opportunity. Building Legacy.
-- **Explore:** About HerNext · Our Work · Impact · Partners
-- **Engage:** Current opportunities · Become a partner · Contact us
+- **Brand line:** HerNext Network Ltd.
+- **Explore:** About · Our Work · Impact · Partners · Opportunities
+  (`our-work.html#current-opportunities`) · Contact. *Our Programmes and
+  Resources have no standalone routes yet and are deliberately unlinked;
+  see the open questions below.*
+- **Engage:** Partner With HerNext · Register Your Interest ·
+  Current opportunities
 - **Contact:** info@hernextnetwork.com · hernextnetwork@gmail.com ·
   0780 528 551 · 0734 806 637 · Instagram @hernextnetworkltd ·
   LinkedIn *(still a placeholder)*
 - **Legal line:** Privacy · Terms · Accessibility
-- **Legal:** Copyright HerNext Network. All rights reserved.
+- **Legal:** Copyright HerNext Network Ltd. All rights reserved.
 
 Telephone numbers display in Kenyan local format and dial in international
 format, `tel:+254780528551` and `tel:+254734806637`.
 
-### Closing call to action *(repeated on Home, About, Our Work, Impact)* **[new]**
+### Closing call to action *(shared by About, Our Work, Impact)* **[new]**
 - **Label:** Take the next step
 - **Heading:** Tell us what you are *building*
 - **Body:** Whether you are a woman building an enterprise, an organisation
@@ -60,6 +65,9 @@ format, `tel:+254780528551` and `tel:+254734806637`.
   development partner, we welcome the conversation. Registering your interest
   tells us what to build, and means you hear from us as initiatives open.
 - **Buttons:** Register your interest · Partner with us
+
+*Home carries its own final call to action instead (see Home below), so the
+shared block is switched off there in `tools/make.py`.*
 
 ### The HerNext pathway
 The eight-step chain appears on Home, Our Work and, in its longer form, on
@@ -71,89 +79,123 @@ Impact. It is the spine of the whole site and its wording should not drift.
 
 ## Home
 
+Rebuilt to the approved client direction: institution → rationale → work
+areas → programmes → approach → impact → partnerships → CTA. The earlier
+structure (six commitments, signature initiatives, operating philosophy and
+figures band, priority sectors, where we work) is replaced, not duplicated.
+
+Copy below is the approved client wording, preserved exactly. Two
+deliberate exceptions to the house style above: the brief uses ampersands
+(*Enterprise & Livelihood Development*, etc.) and one em dash in Why
+HerNext, and both are kept as supplied.
+
 ### Hero
 - **Label:** Pan-African institution
-- **Heading:** Creating opportunity. Building *legacy*.
-- **Lead:** HerNext Network is a women-centred Pan-African institution advancing
-  women's economic transformation through practical, evidence-driven
-  interventions that expand access to markets, finance, skills, strategic
-  partnerships and sustainable livelihood opportunities.
-- **Buttons:** Register your interest · Explore our work
-- **Meta strip:** Six areas of work · Six signature initiatives ·
-  Nine priority sectors
+- **Heading:** Creating Opportunity. Building *Legacy*.
+- **Lead paragraph 1:** HerNext Network is a women-centred Pan-African
+  institution advancing inclusive economic transformation through practical,
+  evidence-driven interventions that expand access to skills, enterprise
+  opportunities, markets, finance, technology, productive resources and
+  strategic partnerships.
+- **Lead paragraph 2:** We work with women, young people, entrepreneurs,
+  smallholder farmers, communities and institutions to turn skills and
+  opportunity into stronger enterprises, sustainable livelihoods and
+  measurable economic impact.
+- **Buttons:** Explore our work (→ `our-work.html`) · Partner with HerNext
+  (→ `partners.html`)
+- Hero reuses the existing `hnn-presentation` / `hnn-hero-portrait` crops:
+  a community-hall frame, no agriculture, livestock or feed imagery. A
+  premium leadership/business photograph is still wanted; see open questions.
 
-### Why we exist
-- **Label:** Why we exist
-- **Statement:** Our ambition is not simply to reach more women. It is to
-  improve economic *outcomes*.
-- **Body:** Across the continent, women build businesses, strengthen
-  agricultural value chains, lead organisations, create employment and drive
-  innovation. Yet many remain constrained by barriers to markets, finance,
-  technology, productive resources, skills and strategic networks. HerNext
-  Network was established to help bridge these gaps.
-- **Link:** Read our story
+### Why HerNext
+- **Label:** Why HerNext
+- **Heading:** Opportunity should lead to economic *transformation*.
+- **Body:** Economic opportunity is not created by training alone. It is
+  created when people can access the right skills, resources, markets,
+  finance, technology, networks and partnerships — and turn them into
+  sustainable economic activity.
+- **Body:** HerNext exists to help close these gaps.
+- **Body:** We listen to real needs, identify barriers, design practical
+  responses, bring the right partners together and measure whether our
+  interventions create meaningful change.
+- **Link:** Learn more about HerNext (→ `about.html`)
 
-### Our identity **[new]**
-- **Heading:** Six commitments that shape *everything* we do
-- **Lead:** HerNext serves as a platform for collaboration, where evidence
-  becomes partnerships, partnerships become interventions, and interventions
-  produce measurable economic change.
+### Our work
+- **Label:** Our work
+- **Heading:** Turning opportunity into *action*.
+- **Lead:** HerNext develops practical, evidence-driven interventions that
+  address barriers to economic opportunity across Africa.
+- **Button:** Explore our work (→ `our-work.html`)
 
 | # | Card | Text |
 |---|---|---|
-| 01 | Women-centred | Women stay at the centre of our positioning, our design and our measurement, not at the edge of it. |
-| 02 | Evidence-driven | We listen before prescribing, and build interventions around demonstrated needs rather than assumptions. |
-| 03 | Impact-focused | We measure success by what changed in enterprises, incomes and livelihoods, not by activities completed. |
-| 04 | Partnership-driven | Complex economic barriers cannot be solved alone. We organise, connect, coordinate and measure. |
-| 05 | Africa-centred | Our work reflects Africa's own realities and priorities while embracing global partnerships. |
-| + | Built for the long term | We prioritise solutions capable of creating value beyond a single activity or funding cycle. |
+| 01 | Enterprise & Livelihood Development | We support women, entrepreneurs and communities to build stronger enterprises and sustainable livelihoods through business development, technical support, productivity and access to productive resources. |
+| 02 | Markets & Trade | We connect producers and enterprises to buyers, value chains, domestic and international markets, trade opportunities and B2B relationships. |
+| 03 | Finance & Investment | We strengthen financial capability, investment readiness and access to appropriate finance and investment opportunities. |
+| 04 | Skills, Leadership & Enterprise Capability | We build practical technical, vocational, digital, business and leadership capabilities that create pathways to economic opportunity. |
+| 05 | Innovation, Technology & Sustainability | We promote innovation, appropriate technology and sustainable practices that improve productivity, resilience and long-term value. |
+| 06 | Partnerships & Economic Ecosystems | We bring together businesses, governments, financial institutions, development partners, academia, technical experts and communities around practical economic challenges. |
 
-The first three are the client's own strapline: women-centred, evidence-driven,
-impact-focused.
+### Our programmes
+- **Label:** Our programmes
+- **Heading:** From priorities to practical *programmes*.
+- **Lead:** Our programmes translate HerNext’s priorities into practical
+  interventions designed around real economic needs.
+- Each card carries a **Learn more** link. No dedicated programme routes
+  exist yet, so each links to `our-work.html` and carries a
+  `data-programme="<slug>"` hook for clean rewiring later. Do not invent
+  programme pages or copy.
 
-### How we work **[new]**
-- **Heading:** We listen before we *intervene*
-- **Body:** Every HerNext intervention follows the same path, from the first
-  conversation with a woman about her enterprise through to the measurement that
-  shows whether anything actually changed.
+| Programme | Text |
+|---|---|
+| Women & Enterprise Development | Strengthening women-led enterprises, livelihoods, business capability, productivity and growth. |
+| Youth Skills & Employability | Building practical skills and pathways from learning to employment, entrepreneurship and economic participation. |
+| Skills, TVET & Industry Partnerships | Connecting TVET institutions, industry experts and employers to practical skills, enterprise and opportunity pathways. |
+| Agriculture & Farmer Development | Supporting smallholder farmers with practical knowledge, productive systems, organisation, markets and climate-resilient livelihoods. |
+| Animal Nutrition & Feed Systems | Developing quality animal nutrition alongside farmer capacity building, organisation and market systems. |
+| Trade & Market Access | Connecting women entrepreneurs, producers and enterprises to buyers, trade missions, exhibitions, B2B opportunities and new markets. |
+
+### Our approach (How we work)
+- **Label:** Our approach
+- **Heading:** We listen. We learn. We build. We *measure*.
+- **Body:** We begin by understanding the challenge, collecting evidence and
+  identifying the capabilities required to respond effectively. We then work
+  with the right partners to implement practical solutions and measure what
+  changes.
 - **Pathway:** Listen → Identify → Design → Partner → Implement → Measure →
   Learn → Scale
-- **Link:** See how we work
 
-### Signature initiatives
-- **Heading:** Turning evidence into *action*
-- **Lead:** Six initiatives translate our mission into practical action. Each is
-  developed and launched on the basis of demonstrated need, strategic
-  partnerships and the resources required to deliver meaningful outcomes.
-- Six entries, wording as on Our Work below.
-- **Link:** Explore our work
+### Our impact
+- **Label:** Our impact
+- **Heading:** We measure what *changes*.
+- **Body:** Our ambition is not simply to reach more people. It is to improve
+  economic outcomes.
+- Seven outcomes, shown as a scannable card grid (home adds *Skills &
+  enterprise capability* to the six measured on the Impact page; no figures
+  or results are claimed): Increased income & profitability · Improved
+  productivity · Better market access · Access to finance · Stronger
+  enterprises · Sustainable livelihoods · Skills & enterprise capability
+- **Button:** See our impact (→ `impact.html`)
 
-### Our operating philosophy
-- **Statement:** Impact before visibility. Evidence before intervention.
-  Sustainability before *scale*.
-- **Body:** Creating opportunity is not simply a social responsibility. It is an
-  economic imperative. We do not create programmes simply to create activity: we
-  build interventions around demonstrated needs and measure whether they create
-  meaningful change.
+### Partnerships
+- **Label:** Partnerships
+- **Heading:** No single institution can do it *alone*.
+- **Body:** Complex economic challenges require complementary capabilities.
+  HerNext works with businesses, governments, financial institutions,
+  development partners, training institutions, researchers, technical
+  experts, market actors and communities to build practical solutions.
+- **Capability strip:** FUND · TRAIN · BUY · FINANCE · PROVIDE TECHNOLOGY ·
+  RESEARCH · CONNECT · IMPLEMENT
+- **Button:** Partner with HerNext (→ `partners.html`)
 
-### Figures
-| Value | Label |
-|---|---|
-| 06 | Interconnected areas of work |
-| 06 | Signature initiatives in development |
-| 09 | Priority sectors across Africa's growth economy |
-| 05 | Sustainable Development Goals supported |
-
-These count structure, not results. No participant number, funding figure or
-impact statistic belongs in this band until follow-up measurement supports it.
-
-### Where we work
-- **Heading:** Where opportunity *compounds*
-- **Body:** We work across economic sectors where women are building
-  enterprises, creating employment and contributing to Africa's economic
-  transformation, guided by demonstrated need, partnership opportunities and the
-  potential to create measurable economic impact.
-- Nine sector tags, wording as on Our Work below.
+### Final call to action *(home only, replaces the shared block here)*
+- **Heading:** Tell us what you are *building*.
+- **Body:** Whether you are a business, funder, training institution,
+  government agency, technical expert, buyer, investor or community
+  organisation, we welcome opportunities to build practical solutions
+  together.
+- **Buttons:** Partner with HerNext (→ `partners.html`) · Contact us
+  (→ `contact.html`)
 
 ---
 
@@ -756,7 +798,7 @@ together.
 | Contact | Women seated in rows in a sunlit hall, listening, one wrapped in a white shawl |
 | Closing call to action | A woman standing with a sheet of notes, speaking to women seated around her |
 | Home, why we exist | A row of older women in cardigans and head wraps seated on plastic chairs, listening |
-| Home, how we work | A woman in a HerNext Network shirt speaking, a sheet of notes in her hand, in front of a plywood wall |
+| Home, how we work *(retired with the home rebuild; files kept on disk, currently unreferenced)* | A woman in a HerNext Network shirt speaking, a sheet of notes in her hand, in front of a plywood wall |
 | Partners, how a partnership begins | Two men shaking hands at a gateway while two women stand alongside them |
 | Impact, from data to action | Two people in HerNext Network shirts turned towards the room, the woman gesturing as she speaks |
 | About, the Africa we envision | A man in a HerNext Network shirt speaking to a hall full of women seated on plastic chairs |
@@ -790,8 +832,9 @@ never loaded when reduced motion is asked for.
 1. Registered entity name, registered address and governing jurisdiction, for
    the privacy policy and the terms.
 2. The LinkedIn URL. Instagram is confirmed as @hernextnetworkltd.
-3. Real impact figures, when available, for the statistics band on the home
-   page and for the Impact page. Nothing goes up before follow-up measurement.
+3. Real impact figures, when available. Nothing goes up before follow-up
+   measurement. (The home figures band was removed in the home rebuild, so
+   there is currently no statistics band anywhere on the site.)
 4. Whether the Kiambu livestock intervention has a named partner set yet, and
    whether it may be described.
 5. Whether to publish an indicative timeline for the first initiative, once
@@ -799,3 +842,11 @@ never loaded when reduced motion is asked for.
 6. Whether the structured four-step intake should return once initiatives open.
    It was removed in 2026 and is recoverable from git history at commit
    `d7fd658`.
+7. A premium hero photograph for the home page: African business/leadership
+   showing women and/or diverse African professionals. The current hero
+   reuses the community-hall crop; agriculture, livestock and feed imagery
+   must not become the hero.
+8. Destinations for the six programme Learn more links (new with the home
+   rebuild, currently all pointing at `our-work.html` with `data-programme`
+   hooks), and for the footer Our Programmes and Resources links (currently
+   deliberately unlinked).

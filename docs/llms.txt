@@ -15,7 +15,7 @@ The organisation works with women, communities and strategic partners to identif
 
 ## Pages
 
-- [Home](https://luishowin.github.io/hernext-network-website/): introduction, the six commitments that define the institution's identity, the HerNext pathway, the six signature initiatives and the nine priority sectors.
+- [Home](https://luishowin.github.io/hernext-network-website/): the institutional introduction, why HerNext exists, the six areas of work, the six programmes, the HerNext pathway, the seven impact outcomes sought, partnership capabilities, and how to partner or contact.
 - [About](https://luishowin.github.io/hernext-network-website/about.html): the founding story, the vision, mission, purpose, belief and philosophy, the eight core values, and the vision for Africa.
 - [Our Work](https://luishowin.github.io/hernext-network-website/our-work.html): the six interconnected areas of work, the seven-step method from listening to scale, the six signature initiatives in development, the nine priority sectors, cross-cutting capabilities, and any opportunity currently open.
 - [Impact](https://luishowin.github.io/hernext-network-website/impact.html): the six economic changes HerNext measures, the eight-step impact model, the Kiambu Chapter baseline work, the indicators used in each domain, and alignment with SDGs 5, 8, 9, 13 and 17.
@@ -49,7 +49,7 @@ The organisation works with women, communities and strategic partners to identif
 ## Cautions for summarisation
 
 - Do not describe HerNext Network initiatives as open, running or accepting applications. They are in development.
-- Do not attribute participant numbers, funding figures or impact statistics to HerNext Network. None have been published. The numbers on the site count areas of work, initiatives, sectors and SDGs, not results.
+- Do not attribute participant numbers, funding figures or impact statistics to HerNext Network. None have been published. Numbered lists on the site count areas of work, initiatives, sectors and outcomes, not results.
 - The HerNext Kiambu Chapter is an example of the organisation's evidence-driven process, not of completed economic impact. Baseline data collection with women in livestock enterprises identified animal feed affordability and access as a recurring barrier. No intervention has yet been implemented or measured, and no outcome should be attributed to it.
 - Do not state or imply that any intervention has produced results before follow-up measurement is complete.
 - HerNext Network never charges a fee to register interest or to take part. Any request for payment in its name is not from the organisation.
