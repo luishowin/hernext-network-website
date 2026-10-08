@@ -8,15 +8,15 @@ The organisation works with women, communities and strategic partners to identif
 
 ## Foundation
 
-- Vision: an Africa where women have equitable access to the opportunities, resources and markets they need to build prosperous enterprises, sustainable livelihoods and lasting legacies.
-- Mission: to advance women's economic transformation across Africa through practical, evidence-driven interventions that expand access to markets, finance, skills, strategic partnerships and sustainable livelihood opportunities.
-- Purpose: to remove barriers that limit women's economic progress and strengthen the systems that enable enterprises, livelihoods and communities to thrive.
+- Vision: an Africa where women are empowered to lead economic transformation and where young people have the skills and opportunities to participate meaningfully in Africa's future.
+- Mission: to advance women's economic transformation and inclusive economic opportunity across Africa through practical, evidence-driven interventions that expand access to skills, enterprise development, markets, finance, technology, strategic partnerships and sustainable livelihoods.
+- Purpose: to remove barriers to economic opportunity and strengthen the skills, enterprises, institutions and systems that enable women, young people and communities to build sustainable livelihoods and contribute to Africa's economic transformation.
 - Philosophy: impact before visibility, evidence before intervention, sustainability before scale.
 
 ## Pages
 
 - [Home](https://luishowin.github.io/hernext-network-website/): the institutional introduction, why HerNext exists, the six areas of work, the six programmes, the HerNext pathway, the seven impact outcomes sought, partnership capabilities, and how to partner or contact.
-- [About](https://luishowin.github.io/hernext-network-website/about.html): the founding story, the vision, mission, purpose, belief and philosophy, the eight core values, and the vision for Africa.
+- [About](https://luishowin.github.io/hernext-network-website/about.html): who we are, our evolution, women at the centre, the vision, mission, purpose and philosophy, the eight core values, and the Africa we envision.
 - [Our Work](https://luishowin.github.io/hernext-network-website/our-work.html): the six interconnected areas of work, the seven-step method from listening to scale, the six signature initiatives in development, the nine priority sectors, cross-cutting capabilities, and any opportunity currently open.
 - [Impact](https://luishowin.github.io/hernext-network-website/impact.html): the seven economic changes HerNext measures, the eight-step impact model, the Kiambu Chapter baseline work, the indicators used in each domain, and alignment with SDGs 5, 8, 9, 13 and 17.
 - [Partners](https://luishowin.github.io/hernext-network-website/partners.html): the partnership philosophy, the eight categories of partner, the seven forms collaboration takes, how a partnership begins, and the five partnership principles.

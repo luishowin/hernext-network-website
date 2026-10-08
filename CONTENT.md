@@ -205,92 +205,129 @@ HerNext, and both are kept as supplied.
 
 ## About
 
+Rebuilt to the Lydia direction: platform for collaboration, who we are,
+evolution, women at the centre, vision, mission, purpose, philosophy, values,
+the Africa we envision, and an About-only closing call to action. Our story,
+Our foundation, Our belief and the HerNext perspective quote are retired on
+this page. The shared closing call to action is switched off here in
+`tools/make.py`; About carries its own.
+
 ### Hero
 - **Label:** About HerNext
 - **Heading:** A platform for *collaboration*
-- **Lead:** HerNext Network is a women-centred Pan-African institution advancing
-  women's economic transformation through practical, evidence-driven
-  interventions.
+- **Lead paragraph 1:** HerNext Network is a women-centred Pan-African
+  institution advancing inclusive economic transformation through practical,
+  evidence-driven interventions.
+- **Lead paragraph 2:** We work across enterprise, skills, agriculture,
+  markets, finance, innovation and strategic partnerships to expand economic
+  opportunity and create lasting impact.
 
-### Our story
-- **Heading:** Every institution begins with a *purpose*
-- We work with women, communities and strategic partners to identify barriers to
-  economic progress and build pathways to markets, finance, skills, technology,
-  productive resources and sustainable livelihood opportunities. Our work is
-  driven by a simple commitment: to turn opportunity into measurable and lasting
-  economic impact.
-- HerNext began with a simple but important belief: Africa's future will be
-  stronger when more women have access to the opportunities, resources and
-  systems that enable them to thrive.
-- Across the continent, women build businesses, strengthen agricultural value
-  chains, lead organisations, create employment and drive innovation. Yet many
-  remain constrained by barriers to markets, finance, technology, productive
-  resources, skills and strategic networks. HerNext Network was established to
-  help bridge these gaps.
-- **Rather than assuming what women need, we listen first.** We use evidence to
-  understand the barriers affecting their economic progress, build partnerships
-  around those needs and develop practical interventions whose impact can be
-  measured.
-- Our ambition is not simply to reach more women. It is to help create
-  measurable improvements in enterprises, livelihoods, incomes and economic
-  opportunity.
+### Who we are
+- **Label:** Who we are
+- **Heading:** Building pathways to economic *opportunity*
+- **Body:** HerNext was built around a simple conviction: economic opportunity
+  becomes transformative when people have access to the skills, resources,
+  markets, finance, technology and relationships needed to turn potential into
+  sustainable economic activity.
+- **Body:** We work with women, young people, entrepreneurs, farmers,
+  communities and strategic partners to identify barriers and develop practical
+  responses.
+- **Body:** Rather than assuming what people need, we listen first. We seek to
+  understand the context, identify gaps and bring together the right
+  capabilities to design interventions that can be implemented, measured and
+  improved.
 
-### Our foundation
-- **Heading:** The direction that shapes every *decision*
-- **Lead:** Our vision, mission, purpose and philosophy guide how we identify
-  needs, design interventions, build partnerships and measure impact.
+### Our evolution
+- **Label:** Our evolution
+- **Heading:** From opportunity to economic *transformation*
+- **Body:** As our work has evolved, we have recognised that economic
+  transformation requires more than individual capability.
+- **Body:** It requires strong skills systems, productive enterprises, capable
+  young people, resilient agricultural livelihoods, access to markets and
+  finance, and institutions willing to collaborate around real challenges.
+- **Body:** This is why HerNext brings together people, programmes and partners
+  across different parts of the economic ecosystem, while keeping women at the
+  centre of our work.
 
-| Term | Text |
-|---|---|
-| Vision | An Africa where women have equitable access to the opportunities, resources and markets they need to build prosperous enterprises, sustainable livelihoods and lasting legacies. |
-| Mission | To advance women's economic transformation across Africa through practical, evidence-driven interventions that expand access to markets, finance, skills, strategic partnerships and sustainable livelihood opportunities. |
-| Purpose | To remove barriers that limit women's economic progress and strengthen the systems that enable enterprises, livelihoods and communities to thrive. |
-| Our belief | Opportunity has the power to transform lives, strengthen enterprises, build resilient communities and accelerate economic development. When women have equitable access to markets, finance, knowledge, technology and productive resources, they become powerful drivers of enterprise, innovation, employment and sustainable growth. |
-| Our philosophy | Impact before visibility. Evidence before intervention. Sustainability before scale. We listen before prescribing solutions. We use evidence to understand the barriers women face, develop interventions around real needs, measure what changes and scale approaches that demonstrate meaningful and sustainable impact. |
+### Women at the centre
+- **Label:** Women at the centre
+- **Heading:** Women are at the *heart* of HerNext
+- **Body:** Women remain at the centre of HerNext because women's economic
+  participation is fundamental to stronger households, enterprises, communities
+  and economies.
+- **Body:** At the same time, economic transformation does not happen in
+  isolation. Young people, farmers, entrepreneurs, communities and institutions
+  are part of the wider ecosystem that creates opportunity.
+- **Body:** We therefore work across these interconnected groups where
+  collaboration can create stronger and more sustainable outcomes.
 
-*"Our promise" was dropped by the 2026 correction and is not to be restored.*
+### Vision
+- **Label:** Our vision
+- **Heading:** An Africa where opportunity is accessible and economic potential
+  can *thrive*
+- **Statement:** An Africa where women are empowered to lead economic
+  transformation and where young people have the skills and opportunities to
+  participate meaningfully in Africa's future.
 
-### Our core values
+### Mission
+- **Label:** Our mission
+- **Heading:** Turning access into *opportunity*
+- **Statement:** To advance women's economic transformation and inclusive
+  economic opportunity across Africa through practical, evidence-driven
+  interventions that expand access to skills, enterprise development, markets,
+  finance, technology, strategic partnerships and sustainable livelihoods.
+
+### Purpose
+- **Label:** Our purpose
+- **Heading:** Removing barriers. Strengthening *opportunity*
+- **Statement:** To remove barriers to economic opportunity and strengthen the
+  skills, enterprises, institutions and systems that enable women, young people
+  and communities to build sustainable livelihoods and contribute to Africa's
+  economic transformation.
+
+### Philosophy
+- **Label:** Our philosophy
+- **Statement:** Impact before visibility. Evidence before intervention.
+  Sustainability before *scale*.
+- **Body:** We believe meaningful change requires more than activity. We focus
+  on understanding the challenge, designing responsibly, measuring results and
+  building solutions that can endure.
+
+### Our values
+- **Label:** Our values
 - **Heading:** Values define who we are and guide how we *work*
-- **Lead:** They influence every partnership we build, every intervention we
-  design and every decision we make.
 
 | # | Value | Text |
 |---|---|---|
-| 01 | Integrity | We uphold the highest standards of honesty, transparency and accountability in everything we do. |
-| 02 | Excellence | We pursue quality, professionalism and continuous improvement in our work. |
-| 03 | Collaboration | We build partnerships around shared challenges, complementary strengths and measurable outcomes. |
-| 04 | Innovation | We embrace new ideas, technologies and approaches that can unlock economic opportunity. |
-| 05 | Inclusion | We work to ensure opportunity is accessible and equitable, particularly for women who remain underserved by existing systems. |
-| 06 | Sustainability | We develop approaches designed to create lasting economic, social and environmental value. |
-| 07 | Accountability | We take responsibility for our commitments, resources and results. |
-| 08 | Impact | We measure success not simply by activities completed or people reached, but by the lasting economic difference created through our work. |
-
-*Value 05 was "Inclusivity" before the correction and is now "Inclusion".*
+| 01 | Integrity | We act honestly, responsibly and transparently. |
+| 02 | Excellence | We pursue high standards in how we design, implement and learn. |
+| 03 | Collaboration | We believe stronger outcomes come from complementary capabilities. |
+| 04 | Innovation | We remain open to better ways of solving real problems. |
+| 05 | Inclusion | We work to expand meaningful economic opportunity. |
+| 06 | Sustainability | We design for resilience and long-term value. |
+| 07 | Accountability | We take responsibility for our commitments and results. |
+| 08 | Impact | We focus on whether our work creates meaningful change. |
 
 ### The Africa we envision
-- **Heading:** A future built on *opportunity*
-- Africa is a continent of extraordinary potential, home to dynamic economies,
-  expanding markets, abundant resources and a new generation of entrepreneurs,
-  innovators and leaders.
-- Yet Africa's future will depend not simply on the potential of its people, but
-  on whether that potential can access the systems and opportunities required to
-  flourish. We envision an Africa where women are able to participate fully in
-  economic life, as producers, entrepreneurs, innovators, investors, employers
-  and leaders.
+- **Label:** The Africa we envision
+- **Heading:** Prosperity that creates lasting *opportunity*
 
 | Column | Text |
 |---|---|
-| Women leading | Women building thriving enterprises, strengthening agricultural and industrial value chains, creating employment, advancing innovation and participating in economic decision-making across every sector. |
-| Institutions collaborating | Governments, businesses, financial institutions, academia, development partners and communities working together to remove barriers and create functioning pathways to economic opportunity. |
-| Prosperity that endures | Economic transformation that increases incomes, strengthens enterprises, creates employment and builds resilient communities for present and future generations. |
+| Women leading | Women participating fully in enterprise, leadership, trade, innovation and economic decision-making. |
+| Young people equipped | Young people with practical skills, pathways and opportunities to participate meaningfully in the economy. |
+| Institutions collaborating | Businesses, governments, training institutions, funders, researchers and communities working together around real challenges. |
+| Prosperity that endures | Economic opportunities and livelihoods that are productive, resilient and sustainable. |
 
-### HerNext perspective
-> Opportunity creates possibility. Evidence shows us where to act. Impact tells
-> us whether we *succeeded*.
-
-*The same quotation closes the Impact page. Both correction documents specify
-it, and it is the site's single most repeated line. Keep the two in sync.*
+### Final call to action *(about only, replaces the shared block here)*
+- **Label:** Partner with HerNext
+- **Heading:** Let us build what comes *next*
+- **Body:** HerNext works with organisations and individuals who believe that
+  opportunity can create lasting economic transformation.
+- **Buttons:** Partner with HerNext
+  (→ `contact.html?subject=partnership#contact-form`, lands on the contact
+  form with *Partnership enquiry* pre-selected) · Explore our work
+  (→ `our-work.html`)
 
 ---
 

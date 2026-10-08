@@ -19,8 +19,8 @@ PAGES = [
 
  (D+"about.html", "_about.html", "about.html",
   "About Us | HerNext Network",
-  "The story behind HerNext Network, our vision, mission and eight core values, and the Africa we are working to help build.",
-  True, "About", "About HerNext Network"),
+  "About HerNext Network: who we are, our evolution, vision, mission, purpose, philosophy, values and the Africa we envision.",
+  False, "About", "About HerNext Network"),
 
  (D+"our-work.html", "_our_work.html", "our-work.html",
   "Our Work | HerNext Network",
