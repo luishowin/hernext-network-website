@@ -860,7 +860,10 @@ never loaded when reduced motion is asked for.
    showing women and/or diverse African professionals. The current hero
    reuses the community-hall crop; agriculture, livestock and feed imagery
    must not become the hero.
-8. Destinations for the six programme Learn more links (new with the home
-   rebuild, currently all pointing at `our-work.html` with `data-programme`
-   hooks), and for the footer Our Programmes and Resources links (currently
-   deliberately unlinked).
+8. Destinations for the six programme Learn more links and nav dropdown
+   entries (still all pointing at `our-work.html` with `data-programme`
+   hooks from the single `PROGRAMMES` list in `tools/build.py`, so each can
+   be rewired to a dedicated page later). Resolved alongside: the Resources
+   route now exists as an intentional placeholder page, the footer Explore
+   list carries all eight items in nav order, and Our Programmes links to
+   the programmes overview on Home (`index.html#programmes`).

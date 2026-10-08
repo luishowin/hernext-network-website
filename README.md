@@ -41,11 +41,16 @@ been applied in full. Since then the home page has been rebuilt to the
 approved Pan-African-institution direction (institution → rationale → work
 areas → programmes → approach → impact → partnerships → CTA), replacing the
 commitments, initiatives, philosophy band, sectors and where-we-work
-sections; the footer now lists the fuller Explore/Engage structure with Our
-Programmes and Resources deliberately unlinked until those routes exist, and
+sections; the footer now lists the fuller Explore/Engage structure, and
 the brand line reads HerNext Network Ltd. In September 2026 the home hero
 and five photographs were replaced, the contact form was connected to
-Formspree, and phones gained a portrait hero with a looping clip. Six things
+Formspree, and phones gained a portrait hero with a looping clip. In October
+2026 the navigation moved to the eight-item institutional structure (About,
+Our Work, Our Programmes, Impact, Partners, Opportunities, Resources,
+Contact) with a programmes dropdown driven by one list in `tools/build.py`,
+a Resources placeholder page was added, partner buttons were pointed at the
+contact form with the subject pre-selected, and the Impact page was aligned
+to the same seven outcomes as Home. Six things
 are still outstanding, and two of them block launch.
 
 | Outstanding | Where it goes | Blocking launch |
