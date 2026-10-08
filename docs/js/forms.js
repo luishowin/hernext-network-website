@@ -170,10 +170,38 @@
     }, true);
   }
 
+  /* ------------------------------------------------------------------
+     Subject pre-selection from partner buttons
+
+     Every "Partner with HerNext" button points at
+     contact.html?subject=partnership#contact-form. The hash scrolls to the
+     site's only form; this selects "Partnership enquiry" so the visitor
+     lands directly in the partnership route with no duplicate form.
+     Without scripting the link still lands on the right page.
+     ------------------------------------------------------------------ */
+
+  function initSubjectPreselect() {
+    var select = document.getElementById("c-subject");
+    if (!select) return;
+    var subject = null;
+    try {
+      subject = new URLSearchParams(window.location.search).get("subject");
+    } catch (e) { return; }
+    if (subject !== "partnership") return;
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].text === "Partnership enquiry") {
+        select.selectedIndex = i;
+        setError(select, validate(select, select.form || document));
+        break;
+      }
+    }
+  }
+
   /* ------------------------------------------------------------------ */
 
   function init() {
     initContactForm();
+    initSubjectPreselect();
   }
 
   if (document.readyState === "loading") {

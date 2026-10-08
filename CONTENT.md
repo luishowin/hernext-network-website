@@ -34,18 +34,21 @@ First Edition 2026, is marked **[profile]** where it survives unchanged.
 - **Descriptor:** A women-centred Pan-African institution
 
 ### Navigation
-About · Our Work · Impact · Partners · Contact
+About · Our Work · Our Programmes (dropdown of the six programmes below) · Impact · Partners · Opportunities (`our-work.html#current-opportunities`) · Resources · Contact
 
-Five links, no call to action button. Registration goes through the contact
-form, so a sixth item would only duplicate Contact.
+Eight links in that order, desktop and mobile, from the single `NAV` list in
+`tools/build.py`. Programme entries share one `PROGRAMMES` list driving both
+the desktop dropdown and the mobile submenu. No dedicated programme routes
+exist yet, so each programme links to `our-work.html` with a
+`data-programme` slug for clean rewiring later. Our Programmes itself links
+to the programmes overview on Home (`index.html#programmes`).
 
 ### Footer
 - **Motto line:** Creating Opportunity. Building Legacy.
 - **Brand line:** HerNext Network Ltd.
-- **Explore:** About · Our Work · Impact · Partners · Opportunities
-  (`our-work.html#current-opportunities`) · Contact. *Our Programmes and
-  Resources have no standalone routes yet and are deliberately unlinked;
-  see the open questions below.*
+- **Explore:** About · Our Work · Our Programmes
+  (`index.html#programmes`) · Impact · Partners · Opportunities
+  (`our-work.html#current-opportunities`) · Resources · Contact
 - **Engage:** Partner With HerNext · Register Your Interest ·
   Current opportunities
 - **Contact:** info@hernextnetwork.com · hernextnetwork@gmail.com ·
@@ -102,7 +105,8 @@ HerNext, and both are kept as supplied.
   opportunity into stronger enterprises, sustainable livelihoods and
   measurable economic impact.
 - **Buttons:** Explore our work (→ `our-work.html`) · Partner with HerNext
-  (→ `partners.html`)
+  (→ `contact.html?subject=partnership#contact-form`, lands on the contact
+  form with *Partnership enquiry* pre-selected)
 - Hero reuses the existing `hnn-presentation` / `hnn-hero-portrait` crops:
   a community-hall frame, no agriculture, livestock or feed imagery. A
   premium leadership/business photograph is still wanted; see open questions.
@@ -186,7 +190,7 @@ HerNext, and both are kept as supplied.
   experts, market actors and communities to build practical solutions.
 - **Capability strip:** FUND · TRAIN · BUY · FINANCE · PROVIDE TECHNOLOGY ·
   RESEARCH · CONNECT · IMPLEMENT
-- **Button:** Partner with HerNext (→ `partners.html`)
+- **Button:** Partner with HerNext (→ `contact.html?subject=partnership#contact-form`)
 
 ### Final call to action *(home only, replaces the shared block here)*
 - **Heading:** Tell us what you are *building*.
@@ -194,7 +198,7 @@ HerNext, and both are kept as supplied.
   government agency, technical expert, buyer, investor or community
   organisation, we welcome opportunities to build practical solutions
   together.
-- **Buttons:** Partner with HerNext (→ `partners.html`) · Contact us
+- **Buttons:** Partner with HerNext (→ `contact.html?subject=partnership#contact-form`) · Contact us
   (→ `contact.html`)
 
 ---
@@ -440,7 +444,7 @@ far demonstrates.
 - **Callout:** **Our ambition is not simply to reach more women. It is to
   improve economic outcomes.** Numbers matter, but numbers alone do not tell the
   whole story. The number of women attending a programme tells us about reach.
-  What happens afterwards tells us about impact. These are the six changes we
+  What happens afterwards tells us about impact. These are the seven changes we
   look for.
 
 | # | Change | Text |
@@ -451,6 +455,7 @@ far demonstrates.
 | 04 | Access to finance | Whether women become better positioned to access appropriate financing, investment or other productive capital. |
 | 05 | Stronger enterprises | Whether participating businesses improve their operations, resilience, financial management and capacity for sustainable growth. |
 | 06 | Sustainable livelihoods | Whether interventions contribute to stronger and more resilient sources of income for women and their households. |
+| 07 | Skills and enterprise capability | Whether women gain practical skills, leadership and enterprise capabilities that open pathways to economic opportunity. |
 
 ### Our impact model
 - **Heading:** Evidence before *intervention*
@@ -556,7 +561,7 @@ the opportunity gap" section, which About now covers; the five principles
 (Creating Opportunities, Strengthening Institutions, Building Partnerships,
 Promoting Innovation, Advancing Sustainable Development), which the new About
 philosophy and the Our Work method supersede; and "Outcomes, not activities",
-whose eight-item list is replaced by the six changes and the five measurement
+whose eight-item list is replaced by the seven changes and the five measurement
 domains above.
 
 ---
@@ -706,6 +711,15 @@ registration flow that used to live at `apply.html`.
 | Form not yet connected | This form is not connected yet. Add your Formspree form ID to the data-endpoint attribute, as described in the README. |
 | Sending | Sending, one moment. |
 | Submission failed | Your message could not be sent. Please try again, or email us directly at info@hernextnetwork.com. |
+
+---
+
+## Resources *(resources.html)*
+
+New top-level page, empty by design. A library shelf for future reports,
+publications, guides and downloads, with category shells and a callout
+stating nothing is published yet. No fake items, no dead download links.
+Register-interest and partner buttons reuse the contact form.
 
 ---
 

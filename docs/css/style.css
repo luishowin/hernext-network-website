@@ -313,14 +313,15 @@ hr.rule {
   color: var(--plum-soft);
 }
 
-.nav { display: flex; align-items: center; gap: clamp(1rem, 2.2vw, 2.25rem); }
+.nav { display: flex; align-items: center; gap: clamp(0.9rem, 1.7vw, 1.4rem); }
 
 .nav__link {
   position: relative;
   font-size: 0.82rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: var(--plum);
   padding-block: 0.5rem;
   transition: color 200ms var(--ease-out);
@@ -340,6 +341,90 @@ hr.rule {
 .nav__link:hover::after,
 .nav__link[aria-current="page"]::after { transform: scaleX(1); }
 .nav__link[aria-current="page"] { color: var(--gold-text); }
+
+/* Programmes dropdown. One data source (PROGRAMMES in tools/build.py) renders
+   both this desktop dropdown and the mobile submenu, so future programmes are
+   added in one place. Dropdown items stay sentence case: the titles are long
+   and uppercase would wrap badly. */
+.nav__item { position: relative; display: flex; align-items: center; }
+
+.nav__caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.nav__caret::after {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  border-right: 1px solid var(--plum);
+  border-bottom: 1px solid var(--plum);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 220ms var(--ease-out);
+}
+.nav__item.is-open .nav__caret::after { transform: rotate(225deg); }
+
+.nav__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 120;
+  min-width: 19rem;
+  margin: 0;
+  padding: 0.5rem 0;
+  list-style: none;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1.25rem 2.5rem rgba(42, 26, 60, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  transition:
+    opacity 220ms var(--ease-out),
+    transform 220ms var(--ease-out),
+    visibility 220ms;
+}
+/* Mouse, keyboard (focus-within) and touch/click (.is-open) all reveal it,
+   and top:100% sits flush so the pointer never crosses a gap. */
+.nav__item:hover > .nav__dropdown,
+.nav__item:focus-within > .nav__dropdown,
+.nav__item.is-open > .nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.nav__dropdown-link {
+  display: block;
+  padding: 0.7rem 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--plum);
+  transition: background-color 200ms var(--ease-out);
+}
+.nav__dropdown-link:hover { background: var(--plum-tint); }
+
+/* Eight top-level items are tighter than five were: ease the gap and the
+   uppercase sizing on mid-width desktop so nothing wraps before 900px. */
+@media (max-width: 1250px) and (min-width: 901px) {
+  .nav { gap: 0.9rem; }
+  .nav__link { font-size: 0.75rem; letter-spacing: 0.05em; }
+  .nav__dropdown { min-width: 17rem; }
+}
+/* Narrow desktop keeps the logo mark, as phones already do, so the eight
+   items fit without wrapping or spilling. */
+@media (max-width: 1150px) and (min-width: 901px) {
+  .brand__text { display: none; }
+}
+
+/* Anchored destinations sit below the sticky header, not under it. */
+section[id],
+form[id] { scroll-margin-top: 5.5rem; }
 
 .nav-toggle {
   display: none;
@@ -928,6 +1013,46 @@ hr.rule {
     border-bottom: 1px solid var(--rule);
   }
   .nav__link::after { display: none; }
+
+  /* Mobile programmes submenu: same source data, accordion behaviour. The
+     parent row keeps the panel's typography; the caret is a full-height
+     touch target that toggles without navigating. */
+  .nav__item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav__item > .nav__link { border-bottom: 0; }
+  .nav__caret {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  .nav__caret::after {
+    width: 0.55rem;
+    height: 0.55rem;
+  }
+  .nav__dropdown {
+    grid-column: 1 / -1;
+    position: static;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid var(--rule);
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+  .nav__item:not(.is-open) > .nav__dropdown { display: none; }
+  .nav__dropdown-link {
+    padding: 0.9rem 0 0.9rem 1rem;
+    font-size: 1.05rem;
+    font-family: var(--font-display);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav__dropdown li:last-child .nav__dropdown-link { border-bottom: 0; }
 
   .hero__grid,
   .split,

@@ -42,6 +42,11 @@ PAGES = [
   "Register your interest, or contact HerNext Network about partnerships, market and trade connections, media requests and research collaboration.",
   False, "Contact", "Contact"),
 
+ (D+"resources.html", "_resources.html", "resources.html",
+  "Resources | HerNext Network",
+  "Reports, publications, guides and downloads from HerNext Network, published here as they become available.",
+  False, "Resources", "Resources"),
+
  (D+"privacy.html", "_privacy.html", "",
   "Privacy Policy | HerNext Network",
   "How HerNext Network collects, uses, shares and protects the information you provide through this website.",
@@ -69,9 +74,9 @@ build(D+"404.html", "_404.html", "", "Page Not Found | HerNext Network",
 
 # Addresses that have moved keep a stub, so a link already shared still lands
 # on the right page rather than on the 404.
-redirect(D+"opportunities.html", "our-work.html", "Opportunities is now Our Work",
-         "This page was renamed. Everything that was here, and a good deal more, "
-         "now lives on Our Work.")
+redirect(D+"opportunities.html", "our-work.html#current-opportunities", "Opportunities is now Our Work",
+         "Open calls appear under current opportunities on Our Work. "
+         "Nothing is open at the moment.")
 redirect(D+"apply.html", "contact.html", "Registering your interest moved",
          "Registration now goes through the contact form. Choose "
          "\u201cRegister your interest\u201d as the subject and tell us what you are building.")

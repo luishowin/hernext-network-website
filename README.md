@@ -145,25 +145,26 @@ docs/                      the published site, this is the deploy root
   impact.html              What impact means, the model, Kiambu, measurement
   partners.html            Philosophy, eight partner types, how we partner
   contact.html             Contact details and the site's only form
+  resources.html           Library shelf, empty by design until items are ready
   privacy.html             Privacy policy
   terms.html               Terms of use
   accessibility.html       Accessibility statement
   404.html                 Not found, noindex
-  opportunities.html       Stub, redirects to our-work.html, noindex
+  opportunities.html       Stub, redirects to our-work.html#current-opportunities, noindex
   apply.html               Stub, redirects to contact.html, noindex
   robots.txt               permissive, points at the sitemap
-  sitemap.xml              the nine indexable pages, stubs excluded
+  sitemap.xml              the ten indexable pages, stubs excluded
   llms.txt                 structured summary for assistants and answer engines
   .nojekyll                tells GitHub Pages to serve the files as they are
   css/style.css            the entire design system, one file
-  js/main.js               navigation, scroll reveal, header state, year, hero clip
-  js/forms.js              validation and submission for the contact form
+  js/main.js               navigation, programmes dropdown, scroll reveal, header state, year, hero clip
+  js/forms.js              validation, submission and subject pre-selection for the contact form
   assets/images/           logos, favicon, photography
   assets/video/            the phone hero clip, absent until it is encoded
 
 tools/
   make.py                  rebuilds every page in docs/, run this after editing
-  build.py                 assembler, and the one place BASE is defined
+  build.py                 assembler; BASE, and the NAV and PROGRAMMES lists driving the header, footer and sitemap, live here
   images.py                cuts every photograph from the originals, crops recorded
   video.py                 encodes the phone hero clip
   serve.py                 local preview, with the range support video needs
@@ -190,7 +191,7 @@ served to a visitor.
 
 ## Regenerating the pages
 
-Ten pages share one head, one header, one footer and one closing call to
+Eleven pages share one head, one header, one footer and one closing call to
 action. Keeping those in step by hand is how sites drift, so the shared chrome
 is assembled instead.
 
@@ -201,13 +202,13 @@ so. Edit the partial, not the page:
 python tools/make.py
 ```
 
-That rewrites all ten pages, regenerates canonicals, Open Graph tags and
+That rewrites all eleven pages, regenerates canonicals, Open Graph tags and
 JSON-LD from `BASE`, writes the two redirect stubs, and re-attaches `forms.js`
 to the contact page. It takes about a second.
 
 | To change | Edit |
 |---|---|
-| Anything in the `<head>`, or the header and navigation | `tools/partials/_head.html` |
+| Anything in the `<head>`, or the header and navigation | `tools/partials/_head.html` for chrome, `NAV` and `PROGRAMMES` in `tools/build.py` for the links |
 | The footer, including contact details and legal links | `tools/partials/_footer.html` |
 | The closing call to action on four pages | `tools/partials/_cta.html` |
 | The body of one page | `tools/partials/_<page>.html` |
@@ -219,7 +220,7 @@ to the contact page. It takes about a second.
 This is an authoring convenience, not a build step. Nothing is compiled,
 minified or transformed. The output is the same plain HTML you would write by
 hand, and the deployed site has no idea the tooling exists. You can safely
-ignore it and hand-edit all ten pages instead, as long as you accept that
+ignore it and hand-edit all eleven pages instead, as long as you accept that
 the shared chrome will drift.
 
 ---
@@ -227,7 +228,7 @@ the shared chrome will drift.
 ## Design system
 
 Everything is driven by custom properties at the top of `docs/css/style.css`.
-Change a token there and it updates across all ten pages.
+Change a token there and it updates across all eleven pages.
 
 ### Colour
 
@@ -787,7 +788,7 @@ Once the domain is registered:
 
 The social sharing tags need no attention here. `og:url` and `og:image` are
 generated from `BASE`, so changing `BASE` and rebuilding updates them on all
-ten pages and both redirect stubs at once. The steps for that are under
+eleven pages and both redirect stubs at once. The steps for that are under
 [The origin is defined in one place](#the-origin-is-defined-in-one-place).
 
 ---
@@ -840,7 +841,7 @@ Accessibility work already in place:
 - `prefers-reduced-motion` is fully honoured
 - Text contrast meets WCAG AA throughout
 
-Verified across all ten pages: no horizontal scrolling at 375, 768 or 1280
+Verified across all eleven pages: no horizontal scrolling at 375, 768 or 1280
 pixels, no console errors, no broken links, no unused assets, no heading level
 skips and no em dashes.
 

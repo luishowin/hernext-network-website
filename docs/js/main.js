@@ -22,6 +22,7 @@
       nav.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
       document.body.style.removeProperty("overflow");
+      collapseSubmenus();
     }
 
     function open() {
@@ -29,6 +30,38 @@
       toggle.setAttribute("aria-expanded", "true");
       document.body.style.overflow = "hidden";
     }
+
+    /* Programmes submenu. One control serves desktop click/touch users (who
+       get no :hover) and the mobile accordion. Hover and keyboard focus are
+       handled in CSS (:hover, :focus-within); this only tracks the explicit
+       toggle state, which the same CSS also honours via .is-open. */
+    function collapseSubmenus() {
+      Array.prototype.forEach.call(nav.querySelectorAll(".nav__item.is-open"),
+        function (item) {
+          item.classList.remove("is-open");
+          var caret = item.querySelector(".nav__caret");
+          if (caret) caret.setAttribute("aria-expanded", "false");
+        });
+    }
+
+    Array.prototype.forEach.call(nav.querySelectorAll(".nav__item"), function (item) {
+      var caret = item.querySelector(".nav__caret");
+      if (!caret) return;
+      caret.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var willOpen = !item.classList.contains("is-open");
+        collapseSubmenus();
+        if (willOpen) {
+          item.classList.add("is-open");
+          caret.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    // A clicked-open dropdown closes when the pointer moves elsewhere.
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".nav__item")) collapseSubmenus();
+    });
 
     toggle.addEventListener("click", function () {
       if (toggle.getAttribute("aria-expanded") === "true") close();

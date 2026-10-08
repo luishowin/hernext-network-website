@@ -4,7 +4,7 @@
 
 HerNext Network is an early stage institution. The areas of work, initiatives and priority sectors described across this site set out what it is building, not programmes currently running. Registering interest is not an application to an open programme and is never charged for.
 
-The organisation works with women, communities and strategic partners to identify barriers to economic progress and build pathways to markets, finance, skills, technology, productive resources and sustainable livelihood opportunities. Its ambition is not to reach more women but to improve economic outcomes: incomes, productivity, market access, access to finance, enterprise strength and livelihood resilience.
+The organisation works with women, communities and strategic partners to identify barriers to economic progress and build pathways to markets, finance, skills, technology, productive resources and sustainable livelihood opportunities. Its ambition is not to reach more women but to improve economic outcomes: incomes, productivity, market access, access to finance, enterprise strength, skills and enterprise capability, and livelihood resilience.
 
 ## Foundation
 
@@ -18,9 +18,10 @@ The organisation works with women, communities and strategic partners to identif
 - [Home](https://luishowin.github.io/hernext-network-website/): the institutional introduction, why HerNext exists, the six areas of work, the six programmes, the HerNext pathway, the seven impact outcomes sought, partnership capabilities, and how to partner or contact.
 - [About](https://luishowin.github.io/hernext-network-website/about.html): the founding story, the vision, mission, purpose, belief and philosophy, the eight core values, and the vision for Africa.
 - [Our Work](https://luishowin.github.io/hernext-network-website/our-work.html): the six interconnected areas of work, the seven-step method from listening to scale, the six signature initiatives in development, the nine priority sectors, cross-cutting capabilities, and any opportunity currently open.
-- [Impact](https://luishowin.github.io/hernext-network-website/impact.html): the six economic changes HerNext measures, the eight-step impact model, the Kiambu Chapter baseline work, the indicators used in each domain, and alignment with SDGs 5, 8, 9, 13 and 17.
+- [Impact](https://luishowin.github.io/hernext-network-website/impact.html): the seven economic changes HerNext measures, the eight-step impact model, the Kiambu Chapter baseline work, the indicators used in each domain, and alignment with SDGs 5, 8, 9, 13 and 17.
 - [Partners](https://luishowin.github.io/hernext-network-website/partners.html): the partnership philosophy, the eight categories of partner, the seven forms collaboration takes, how a partnership begins, and the five partnership principles.
-- [Contact](https://luishowin.github.io/hernext-network-website/contact.html): the single enquiry form, which also carries registrations of interest, plus partnership, market, media and research enquiry routes.
+- [Contact](https://luishowin.github.io/hernext-network-website/contact.html): the single enquiry form, which also carries registrations of interest, plus partnership, market, media and research enquiry routes. Partner buttons across the site link here with the subject pre-selected to partnership enquiry.
+- [Resources](https://luishowin.github.io/hernext-network-website/resources.html): the library shelf for reports, publications, guides and downloads. Empty by design until verified material is ready to publish.
 
 ## Key facts
 
@@ -31,7 +32,7 @@ The organisation works with women, communities and strategic partners to identif
 - Nine priority sectors: agriculture and agribusiness; manufacturing and industrial development; trade and export development; technology and innovation; finance and investment; energy, climate and sustainability; healthcare and life sciences; fashion, textiles and creative economy; tourism and hospitality.
 - Cross-cutting capabilities, which are not sectors: leadership, governance, entrepreneurship, research and capacity development.
 - Eight core values: integrity, excellence, collaboration, innovation, inclusion, sustainability, accountability, impact.
-- Six impact measures: increased income and profitability, improved productivity, better market access, access to finance, stronger enterprises, sustainable livelihoods.
+- Seven impact measures: increased income and profitability, improved productivity, better market access, access to finance, stronger enterprises, sustainable livelihoods, and skills and enterprise capability.
 - Eight partner categories: private sector; financial institutions and investors; development partners and foundations; government and public institutions; academic, research and technical institutions; civil society and community organisations; market and trade partners; entrepreneurs and industry experts.
 
 ## Optional

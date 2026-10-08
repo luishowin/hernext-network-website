@@ -138,11 +138,25 @@
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
       <span class="nav-toggle__bars"></span>
     </button>
-    <nav class="nav" id="primary-nav" aria-label="Primary">
+<nav class="nav" id="primary-nav" aria-label="Primary">
       <a class="nav__link" href="about.html">About</a>
       <a class="nav__link" href="our-work.html">Our Work</a>
+      <div class="nav__item">
+        <a class="nav__link" href="index.html#programmes">Our Programmes</a>
+        <button class="nav__caret" type="button" aria-expanded="false" aria-controls="nav-programmes" aria-label="Show Our Programmes submenu"></button>
+        <ul class="nav__dropdown" id="nav-programmes" aria-label="Our Programmes">
+          <li><a class="nav__dropdown-link" href="our-work.html" data-programme="women-enterprise-development">Women &amp; Enterprise Development</a></li>
+          <li><a class="nav__dropdown-link" href="our-work.html" data-programme="youth-skills-employability">Youth Skills &amp; Employability</a></li>
+          <li><a class="nav__dropdown-link" href="our-work.html" data-programme="skills-tvet-industry-partnerships">Skills, TVET &amp; Industry Partnerships</a></li>
+          <li><a class="nav__dropdown-link" href="our-work.html" data-programme="agriculture-farmer-development">Agriculture &amp; Farmer Development</a></li>
+          <li><a class="nav__dropdown-link" href="our-work.html" data-programme="animal-nutrition-feed-systems">Animal Nutrition &amp; Feed Systems</a></li>
+          <li><a class="nav__dropdown-link" href="our-work.html" data-programme="trade-market-access">Trade &amp; Market Access</a></li>
+        </ul>
+      </div>
       <a class="nav__link" href="impact.html" aria-current="page">Impact</a>
       <a class="nav__link" href="partners.html">Partners</a>
+      <a class="nav__link" href="our-work.html#current-opportunities">Opportunities</a>
+      <a class="nav__link" href="resources.html">Resources</a>
       <a class="nav__link" href="contact.html">Contact</a>
     </nav>
   </div>
@@ -173,7 +187,7 @@
       </div>
       <div class="callout" data-reveal>
         <p><strong>Our ambition is not simply to reach more women. It is to improve economic outcomes.</strong></p>
-        <p>Numbers matter, but numbers alone do not tell the whole story. The number of women attending a programme tells us about reach. What happens afterwards tells us about impact. These are the six changes we look for.</p>
+        <p>Numbers matter, but numbers alone do not tell the whole story. The number of women attending a programme tells us about reach. What happens afterwards tells us about impact. These are the seven changes we look for.</p>
       </div>
       <div class="grid grid--3" data-reveal>
         <article class="card">
@@ -205,6 +219,11 @@
           <p class="card__num">06</p>
           <h3 class="card__title">Sustainable livelihoods</h3>
           <p class="card__text">Whether interventions contribute to stronger and more resilient sources of income for women and their households.</p>
+        </article>
+        <article class="card">
+          <p class="card__num">07</p>
+          <h3 class="card__title">Skills and enterprise capability</h3>
+          <p class="card__text">Whether women gain practical skills, leadership and enterprise capabilities that open pathways to economic opportunity.</p>
         </article>
       </div>
     </div>
@@ -465,18 +484,18 @@
         <ul class="site-footer__links">
           <li><a href="about.html">About</a></li>
           <li><a href="our-work.html">Our Work</a></li>
-          <!-- Unresolved: Our Programmes has no standalone route yet. Do not link until it exists. -->
-          <li><a href="impact.html">Impact</a></li>
+          <li><a href="index.html#programmes">Our Programmes</a></li>
+          <li><a href="impact.html" aria-current="page">Impact</a></li>
           <li><a href="partners.html">Partners</a></li>
-          <!-- Unresolved: Resources has no standalone route yet. Do not link until it exists. -->
           <li><a href="our-work.html#current-opportunities">Opportunities</a></li>
+          <li><a href="resources.html">Resources</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div>
         <h3>Engage</h3>
         <ul class="site-footer__links">
-          <li><a href="partners.html">Partner With HerNext</a></li>
+          <li><a href="contact.html?subject=partnership#contact-form">Partner With HerNext</a></li>
           <li><a href="contact.html">Register Your Interest</a></li>
           <li><a href="our-work.html#current-opportunities">Current Opportunities</a></li>
         </ul>

@@ -65,6 +65,98 @@ ORG = {
 }
 
 
+# ---------------------------------------------------------------------------
+# Navigation, single source of truth.
+#
+# The header nav (desktop dropdown + mobile menu), the footer Explore list
+# and the sitemap all read from here, so adding a future programme or page
+# means editing one list, not multiple templates.
+#
+# Programme destinations are temporary: no dedicated programme routes exist
+# yet, so every programme points at our-work.html and carries a slug in
+# data-programme for clean rewiring later. Do not invent programme pages.
+# ---------------------------------------------------------------------------
+PROGRAMMES = [
+    {"title": "Women &amp; Enterprise Development",
+     "href": "our-work.html", "slug": "women-enterprise-development"},
+    {"title": "Youth Skills &amp; Employability",
+     "href": "our-work.html", "slug": "youth-skills-employability"},
+    {"title": "Skills, TVET &amp; Industry Partnerships",
+     "href": "our-work.html", "slug": "skills-tvet-industry-partnerships"},
+    {"title": "Agriculture &amp; Farmer Development",
+     "href": "our-work.html", "slug": "agriculture-farmer-development"},
+    {"title": "Animal Nutrition &amp; Feed Systems",
+     "href": "our-work.html", "slug": "animal-nutrition-feed-systems"},
+    {"title": "Trade &amp; Market Access",
+     "href": "our-work.html", "slug": "trade-market-access"},
+]
+
+# Top-level nav in display order. "Our Programmes" links to the programmes
+# overview section on Home until a dedicated landing route exists; its
+# children come from PROGRAMMES above.
+NAV = [
+    {"title": "About", "href": "about.html"},
+    {"title": "Our Work", "href": "our-work.html"},
+    {"title": "Our Programmes", "href": "index.html#programmes",
+     "children": PROGRAMMES},
+    {"title": "Impact", "href": "impact.html"},
+    {"title": "Partners", "href": "partners.html"},
+    {"title": "Opportunities", "href": "our-work.html#current-opportunities"},
+    {"title": "Resources", "href": "resources.html"},
+    {"title": "Contact", "href": "contact.html"},
+]
+
+PARTNER_FORM = "contact.html?subject=partnership#contact-form"
+
+
+def nav_html(active):
+    """Render the primary nav from NAV, marking the current page."""
+    parts = ['<nav class="nav" id="primary-nav" aria-label="Primary">']
+    for item in NAV:
+        children = item.get("children")
+        if children:
+            parts.append('      <div class="nav__item">')
+            parts.append(
+                '        <a class="nav__link" href="%s">%s</a>'
+                % (item["href"], item["title"]))
+            parts.append(
+                '        <button class="nav__caret" type="button" '
+                'aria-expanded="false" aria-controls="nav-programmes" '
+                'aria-label="Show Our Programmes submenu"></button>')
+            parts.append(
+                '        <ul class="nav__dropdown" id="nav-programmes" '
+                'aria-label="Our Programmes">')
+            for child in children:
+                # Children share a temporary destination, so they never take
+                # aria-current; the top-level link carries it instead.
+                parts.append(
+                    '          <li><a class="nav__dropdown-link" href="%s" '
+                    'data-programme="%s">%s</a></li>'
+                    % (child["href"], child["slug"], child["title"]))
+            parts.append('        </ul>')
+            parts.append('      </div>')
+        else:
+            current = (' aria-current="page"'
+                       if item["href"] == active else "")
+            parts.append(
+                '      <a class="nav__link" href="%s"%s>%s</a>'
+                % (item["href"], current, item["title"]))
+    parts.append('    </nav>')
+    return "\n".join(parts)
+
+
+def footer_nav_html(active):
+    """Footer Explore list, same order and destinations as the header."""
+    parts = []
+    for item in NAV:
+        current = (' aria-current="page"'
+                   if item["href"] == active else "")
+        parts.append(
+            '          <li><a href="%s"%s>%s</a></li>'
+            % (item["href"], current, item["title"]))
+    return "\n".join(parts)
+
+
 def jsonld(slug, title):
     """Organization plus WebSite on the home page, breadcrumbs elsewhere."""
     if slug in ("", "index.html"):
@@ -106,6 +198,7 @@ def build(out_path, body_file, active, title, desc, with_cta,
                 .replace("@@DESC@@", desc)
                 .replace("@@CANONICAL@@", canonical)
                 .replace("@@BASE@@", BASE)
+                .replace("@@NAV@@", nav_html(active))
                 .replace("@@JSONLD@@", "" if noindex else jsonld(slug, crumb or title)))
 
     if noindex:
@@ -113,14 +206,12 @@ def build(out_path, body_file, active, title, desc, with_cta,
             '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">',
             '<meta name="robots" content="noindex, follow">')
 
-    if active:
-        needle = 'class="nav__link" href="%s"' % active
-        head = head.replace(needle, needle + ' aria-current="page"')
-
     parts = [head, read(body_file)]
     if with_cta:
         parts.append(read("_cta.html"))
-    parts.append(read("_footer.html"))
+    footer = read("_footer.html").replace("@@FOOTER_NAV@@",
+                                          footer_nav_html(active))
+    parts.append(footer)
 
     with io.open(out_path, "w", encoding="utf-8", newline="\n") as f:
         f.write("".join(parts))
@@ -135,6 +226,7 @@ def redirect(out_path, target, title, note):
     the three things a redirect would: it tells crawlers where the content
     really lives, keeps itself out of the index, and moves the visitor along.
     The visible link is the fallback for anyone whose browser blocks refreshes.
+    A target fragment is kept for the visitor but stripped from the canonical.
     """
     html = """<!DOCTYPE html>
 <!-- Generated file. This address moved; see tools/make.py. -->
@@ -143,7 +235,7 @@ def redirect(out_path, target, title, note):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%(title)s</title>
-<link rel="canonical" href="%(base)s%(target)s">
+<link rel="canonical" href="%(canonical)s">
 <meta name="robots" content="noindex, follow">
 <meta http-equiv="refresh" content="0; url=%(target)s">
 <link rel="icon" href="assets/images/favicon.ico" sizes="32x32">
@@ -164,7 +256,8 @@ def redirect(out_path, target, title, note):
 </main>
 </body>
 </html>
-""" % {"title": title, "target": target, "note": note, "base": BASE}
+""" % {"title": title, "target": target, "note": note,
+        "canonical": BASE + target.split("#")[0]}
 
     with io.open(out_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(html)
