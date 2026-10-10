@@ -24,8 +24,8 @@ PAGES = [
 
  (D+"our-work.html", "_our_work.html", "our-work.html",
   "Our Work | HerNext Network",
-  "Six interconnected areas of work, the pathway from listening to scale, six signature initiatives in development and nine priority sectors across Africa.",
-  True, "Our Work", "Our Work"),
+  "Turning evidence into action: six areas of work, our model, how we work and six practical programmes.",
+  False, "Our Work", "Our Work"),
 
  (D+"impact.html", "_impact.html", "impact.html",
   "Our Impact | HerNext Network",
