@@ -147,6 +147,7 @@ docs/                      the published site, this is the deploy root
   index.html               Home
   about.html               About HerNext, story, foundation, values, vision
   our-work.html            Six areas of work, the pathway, initiatives, sectors
+  our-programmes.html      Six programme families, status, partners, CTA
   impact.html              What impact means, the model, Kiambu, measurement
   partners.html            Philosophy, eight partner types, how we partner
   contact.html             Contact details and the site's only form
@@ -158,7 +159,7 @@ docs/                      the published site, this is the deploy root
   opportunities.html       Stub, redirects to our-work.html#current-opportunities, noindex
   apply.html               Stub, redirects to contact.html, noindex
   robots.txt               permissive, points at the sitemap
-  sitemap.xml              the ten indexable pages, stubs excluded
+  sitemap.xml              the eleven indexable pages, stubs excluded
   llms.txt                 structured summary for assistants and answer engines
   .nojekyll                tells GitHub Pages to serve the files as they are
   css/style.css            the entire design system, one file
@@ -181,6 +182,7 @@ tools/
     _index_main.html       the body of each page, one file per page
     _about.html            ...
     _our_work.html         ...
+    _our_programmes.html   ...
 
 CONTENT.md                 the copy deck, every line of text on the site
 README.md                  this file
@@ -196,7 +198,7 @@ served to a visitor.
 
 ## Regenerating the pages
 
-Eleven pages share one head, one header, one footer and one closing call to
+Twelve pages share one head, one header, one footer and one closing call to
 action. Keeping those in step by hand is how sites drift, so the shared chrome
 is assembled instead.
 
@@ -207,7 +209,7 @@ so. Edit the partial, not the page:
 python tools/make.py
 ```
 
-That rewrites all eleven pages, regenerates canonicals, Open Graph tags and
+That rewrites all twelve pages, regenerates canonicals, Open Graph tags and
 JSON-LD from `BASE`, writes the two redirect stubs, and re-attaches `forms.js`
 to the contact page. It takes about a second.
 
@@ -225,7 +227,7 @@ to the contact page. It takes about a second.
 This is an authoring convenience, not a build step. Nothing is compiled,
 minified or transformed. The output is the same plain HTML you would write by
 hand, and the deployed site has no idea the tooling exists. You can safely
-ignore it and hand-edit all eleven pages instead, as long as you accept that
+ignore it and hand-edit all twelve pages instead, as long as you accept that
 the shared chrome will drift.
 
 ---
@@ -233,7 +235,7 @@ the shared chrome will drift.
 ## Design system
 
 Everything is driven by custom properties at the top of `docs/css/style.css`.
-Change a token there and it updates across all eleven pages.
+Change a token there and it updates across all twelve pages.
 
 ### Colour
 
@@ -469,8 +471,9 @@ Photographs are served as WebP at three or four widths each, chosen by the
 browser through `srcset`. On a 375 pixel phone at 2x the hero loads its 800
 wide portrait cut at 106 KB rather than the 1080 wide file at 170 KB.
 
-All fourteen slots carry photography from a single HerNext Network community
-gathering. The file stems are slot names, not subjects: they predate the
+Fourteen slots carry photography from a single HerNext Network community
+gathering, and six programme cards carry licensed Unsplash frames. The older
+file stems are slot names, not subjects: they predate the
 photographs now in them, so `hnn-office` is not an office, `hnn-trade` is not a
 trade floor and `hnn-circle` no longer shows a circle. They name a position on
 the page.
@@ -492,7 +495,18 @@ the page.
 | How a partnership begins, 1:1 | `hnn-welcome-{400,700,1000}.webp` | Partners |
 | From data to action, 1:1 | `hnn-coordinator-{400,700,1000}.webp` | Impact |
 | The Africa we envision, 3:2 | `hnn-circle-{600,900,1400}.webp` | About |
+| Programme card, women and enterprise, 3:2 | `hnn-prog-women-{400,800,1200}.webp` | Our Programmes |
+| Programme card, youth skills, 3:2 | `hnn-prog-youth-{400,800,1200}.webp` | Our Programmes |
+| Programme card, TVET and industry, 3:2 | `hnn-prog-tvet-{400,800,1200}.webp` | Our Programmes |
+| Programme card, agriculture, 3:2 | `hnn-prog-agri-{400,800,1200}.webp` | Our Programmes |
+| Programme card, animal nutrition, 3:2 | `hnn-prog-feed-{400,800,1200}.webp` | Our Programmes |
+| Programme card, trade, 3:2 | `hnn-prog-trade-{400,800,1200}.webp` | Our Programmes |
 | Social preview | `og-image.jpg`, 1200 x 630, recut from the hero | all pages |
+
+The six programme frames are licensed Unsplash work (commercial use
+permitted), credited per frame in `tools/images.py` and `CONTENT.md`.
+All other slots carry photography from a single HerNext Network community
+gathering.
 
 The untouched camera originals are in `source-media/` at the repository root,
 which is gitignored. They stay out of `docs/` so a 7 MB file can never be
@@ -793,7 +807,7 @@ Once the domain is registered:
 
 The social sharing tags need no attention here. `og:url` and `og:image` are
 generated from `BASE`, so changing `BASE` and rebuilding updates them on all
-eleven pages and both redirect stubs at once. The steps for that are under
+twelve pages and both redirect stubs at once. The steps for that are under
 [The origin is defined in one place](#the-origin-is-defined-in-one-place).
 
 ---
@@ -846,7 +860,7 @@ Accessibility work already in place:
 - `prefers-reduced-motion` is fully honoured
 - Text contrast meets WCAG AA throughout
 
-Verified across all eleven pages: no horizontal scrolling at 375, 768 or 1280
+Verified across all twelve pages: no horizontal scrolling at 375, 768 or 1280
 pixels, no console errors, no broken links, no unused assets, no heading level
 skips and no em dashes.
 

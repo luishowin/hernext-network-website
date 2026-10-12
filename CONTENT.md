@@ -38,16 +38,16 @@ About · Our Work · Our Programmes (dropdown of the six programmes below) · Im
 
 Eight links in that order, desktop and mobile, from the single `NAV` list in
 `tools/build.py`. Programme entries share one `PROGRAMMES` list driving both
-the desktop dropdown and the mobile submenu. No dedicated programme routes
-exist yet, so each programme links to `our-work.html` with a
-`data-programme` slug for clean rewiring later. Our Programmes itself links
-to the programmes overview on Home (`index.html#programmes`).
+the desktop dropdown and the mobile submenu. Our Programmes links to the
+dedicated overview page (`our-programmes.html`); each dropdown entry jumps to
+its anchored card on that page (`our-programmes.html#programme-<slug>`) and
+carries a `data-programme` slug for clean rewiring when detail pages land.
 
 ### Footer
 - **Motto line:** Creating Opportunity. Building Legacy.
 - **Brand line:** HerNext Network Ltd.
 - **Explore:** About · Our Work · Our Programmes
-  (`index.html#programmes`) · Impact · Partners · Opportunities
+  (`our-programmes.html`) · Impact · Partners · Opportunities
   (`our-work.html#current-opportunities`) · Resources · Contact
 - **Engage:** Partner With HerNext · Register Your Interest ·
   Current opportunities
@@ -146,10 +146,10 @@ HerNext, and both are kept as supplied.
 - **Heading:** From priorities to practical *programmes*.
 - **Lead:** Our programmes translate HerNext’s priorities into practical
   interventions designed around real economic needs.
-- Each card carries a **Learn more** link. No dedicated programme routes
-  exist yet, so each links to `our-work.html` and carries a
-  `data-programme="<slug>"` hook for clean rewiring later. Do not invent
-  programme pages or copy.
+- Each card carries a **Learn more** link to its anchored section on the
+  dedicated Our Programmes page (`our-programmes.html#programme-<slug>`) and
+  carries a `data-programme="<slug>"` hook for clean rewiring when detail
+  pages land.
 
 | Programme | Text |
 |---|---|
@@ -407,10 +407,9 @@ kept as supplied (re-typeset as `&amp;` and `&#8212;` in the partial).
 - Six text-only cards, visually equal. No card is featured; Animal Nutrition
   & Feed Systems is one programme among six, not the institutional identity.
   Descriptions reuse the approved Home programme wording. Each card carries a
-  **Learn more** link. No dedicated programme routes exist yet, so each links
-  to `contact.html` (registrations of interest) and carries a
-  `data-programme="<slug>"` hook for clean rewiring later. Do not invent
-  programme pages or copy.
+  **Learn more** link to its anchored section on the dedicated Our Programmes
+  page (`our-programmes.html#programme-<slug>`) and carries a
+  `data-programme="<slug>"` hook for clean rewiring when detail pages land.
 
 | Programme | Text |
 |---|---|
@@ -449,6 +448,83 @@ opportunity. Remove a card the moment its deadline passes.
 
 *The shared closing call to action is switched off on Our Work in
 `tools/make.py`; this page carries its own, as Home and About do.*
+
+---
+
+## Our Programmes *(our-programmes.html)*
+
+Dedicated overview page, October 2026: hero → portfolio introduction → six
+programme families → how our programmes work → who we work with → programme
+status → partner with HerNext → final CTA. Matches the Our Work page
+patterns (`page-hero`, `section-head`, `grid grid--3`, `card`, `tags`,
+`pathway`, `callout`, `section--invert`).
+
+### Hero
+- **Label:** Our programmes
+- **Heading:** Programmes that turn opportunity into *action*
+- **Lead paragraph 1:** HerNext translates economic needs into practical programmes that strengthen capabilities, enterprises, livelihoods and connections to opportunity.
+- **Lead paragraph 2:** We work with women, young people, farmers, entrepreneurs, institutions and strategic partners to develop responses grounded in real challenges and designed for meaningful, measurable outcomes.
+- **Buttons:** Explore our programmes (→ `#portfolio` on this page) · Partner with HerNext (→ `contact.html?subject=partnership#contact-form`)
+
+### Programme portfolio introduction `#portfolio`
+- **Label:** Our portfolio
+- **Heading:** Practical programmes. Connected *opportunities*
+- **Lead:** HerNext brings together complementary programmes across enterprise development, skills, agriculture, markets and partnerships. Each programme responds to a distinct area of opportunity while contributing to our wider purpose: advancing women's economic transformation and inclusive economic opportunity across Africa.
+- **Lead:** Our programmes are developed with attention to local needs, practical implementation, collaboration and measurable results. Programme activities and availability may vary according to development stage, partnerships and resources.
+
+### Six programme families `#programmes`
+- **Label:** Six programme families
+- **Heading:** One institution, six complementary *programmes*
+- **Lead:** The six programmes below are complementary parts of one institution, not six unrelated businesses. Women remain at the centre of our purpose, while young people, farmers, entrepreneurs, communities and institutions form the wider ecosystem in which opportunity grows.
+- Six image cards (`media--landscape` 3:2, widths 400/800/1200), visually equal. No card is featured; Animal Nutrition & Feed Systems is one programme among six, not the institutional identity. Each card carries its number, an **In development** status pill, supporting line, description, potential areas as tags, and an **Enquire about this programme** link to `contact.html` with a `data-programme="<slug>"` hook for clean rewiring when detail pages land. Card anchors are `#programme-<slug>` and are the targets of the nav dropdown.
+
+| # | Programme | Supporting line |
+|---|---|---|
+| 01 | Women & Enterprise Development | Stronger enterprises. More sustainable livelihoods. |
+| 02 | Youth Skills & Employability | Skills that connect young people to opportunity. |
+| 03 | Skills, TVET & Industry Partnerships | Connecting training with the world of work. |
+| 04 | Agriculture & Farmer Development | Stronger farmers. More resilient livelihoods. |
+| 05 | Animal Nutrition & Feed Systems | Quality inputs. Practical knowledge. Stronger farmers. |
+| 06 | Trade & Market Access | Connecting enterprises to buyers and markets. |
+
+- Photography is licensed Unsplash work (commercial use permitted), one frame per card, consistent 3:2 treatment: women in discussion (Christina @ wocintechchat.com); young woman at a laptop (JEaLiFe Pictures); hands at a workshop machine (Vatsal Tyagi); farm worker in vegetable rows (Nel Ranoko); hens at a feeder, this card only (Arisa Chattasa); young woman at a coffee machine (Mugabi Owen). Sources and crops are recorded in `tools/images.py`.
+
+### How our programmes work
+- **Label:** How our programmes work
+- **Heading:** From capability to measurable *opportunity*
+- **Lead:** HerNext designs programmes around the needs of the people and communities involved. We listen, identify barriers, develop practical responses with appropriate partners, implement responsibly and measure what changes. What we learn helps us strengthen programmes and guide future development.
+- **Pathway:** Skills → Capability → Connections → Opportunity → Measurable impact
+
+### Who we work with
+- **Label:** Who we work with
+- **Heading:** Collaboration makes opportunity *stronger*
+- **Lead:** Our programmes may involve women, young people, farmers, entrepreneurs, communities, TVET and training institutions, employers, businesses, buyers, financial institutions, technical experts, researchers, government institutions and development partners.
+- **Lead:** The mix of participants and partners depends on the programme's objectives, location, development stage and confirmed partnerships.
+- Shown as a tag strip of the fourteen groups above.
+
+### Programme status
+- **Label:** Programme status
+- **Heading:** Clear information about where each programme *stands*
+- **Lead:** We use consistent status labels on programme cards. Only activities currently being delivered with open participation are ever described as active.
+- **Active:** Activities are currently being delivered and participation is open or underway.
+- **Upcoming:** An activity is planned, with launch or participation details to be announced.
+- **In development:** The programme is being designed, tested or prepared with potential participants and partners.
+- **Callout:** **All six programmes are currently in development.** Nothing on this page is open for applications. Register your interest and we will contact you as opportunities open. HerNext never charges a fee to register or to take part.
+- **Buttons:** Register your interest (→ `contact.html`) · Current opportunities (→ `our-work.html#current-opportunities`)
+
+### Partner with HerNext
+- **Label:** Partner with HerNext
+- **Heading:** Help turn opportunity into *action*
+- **Body:** We welcome collaboration with organisations and individuals who can contribute expertise, training, funding, technology, market access, research, finance or implementation capacity. Together, we can develop practical programmes that respond to real needs and create measurable economic outcomes.
+- **Buttons:** Partner with HerNext (→ `contact.html?subject=partnership#contact-form`) · Contact HerNext (→ `contact.html`)
+
+### Final call to action *(our-programmes only, replaces the shared block here)*
+- **Heading:** Let's build opportunities *together*
+- **Body:** Whether you are seeking to collaborate, contribute expertise, connect people to markets or support a programme, we invite you to start a conversation with HerNext.
+- **Buttons:** Partner with HerNext (→ `contact.html?subject=partnership#contact-form`) · Explore our work (→ `our-work.html`)
+
+*The shared closing call to action is switched off on Our Programmes in
+`tools/make.py`; this page carries its own, as Home, About and Our Work do.*
 
 ---
 
@@ -825,10 +901,10 @@ audit yet. Gives a contact route and a ten working day response aim.
 
 ## Image alt text
 
-All fourteen slots carry HerNext Network photography from a single community
-gathering. Alt text describes what is in the frame, not what the section is
-about. The same fourteen strings appear in the partials; these two lists move
-together.
+All fourteen community-gathering slots plus six licensed Unsplash frames for
+the Our Programmes cards. Alt text describes what is in the frame, not what
+the section is about. The same twenty strings appear in the partials; these
+two lists move together.
 
 | Slot | Alt text |
 |---|---|
@@ -846,6 +922,12 @@ together.
 | Partners, how a partnership begins | Two men shaking hands at a gateway while two women stand alongside them |
 | Impact, from data to action | Two people in HerNext Network shirts turned towards the room, the woman gesturing as she speaks |
 | About, the Africa we envision | A man in a HerNext Network shirt speaking to a hall full of women seated on plastic chairs |
+| Programmes, women and enterprise | Three women seated around a wooden table in a meeting room, smiling during a discussion (Unsplash, Christina @ wocintechchat.com) |
+| Programmes, youth skills | A young woman with braided hair working on a laptop at a wooden desk (Unsplash, JEaLiFe Pictures) |
+| Programmes, TVET and industry | A craft worker's hands guiding a plank of wood through a workshop cutting machine (Unsplash, Vatsal Tyagi) |
+| Programmes, agriculture | A farm worker in blue overalls and red gloves tending vegetable rows beside a wheelbarrow (Unsplash, Nel Ranoko) |
+| Programmes, animal nutrition | Brown hens gathered around a hanging feeder filled with feed pellets (Unsplash, Arisa Chattasa) |
+| Programmes, trade | A smiling young woman in a yellow headwrap preparing coffee at an espresso machine in a small shop (Unsplash, Mugabi Owen) |
 
 The social preview carries the home hero string, in `og:image:alt` and
 `twitter:image:alt`, because `og-image.jpg` is recut from the hero crop. If the
@@ -890,10 +972,11 @@ never loaded when reduced motion is asked for.
    showing women and/or diverse African professionals. The current hero
    reuses the community-hall crop; agriculture, livestock and feed imagery
    must not become the hero.
-8. Destinations for the six programme Learn more links and nav dropdown
-   entries (still all pointing at `our-work.html` with `data-programme`
-   hooks from the single `PROGRAMMES` list in `tools/build.py`, so each can
-   be rewired to a dedicated page later). Resolved alongside: the Resources
-   route now exists as an intentional placeholder page, the footer Explore
-   list carries all eight items in nav order, and Our Programmes links to
-   the programmes overview on Home (`index.html#programmes`).
+8. Programme detail pages for the six programmes. The overview page now
+   exists (`our-programmes.html`) with anchored cards
+   (`#programme-<slug>`) carrying licensed imagery and In development
+   statuses; Home, Our Work and the nav dropdown all point at those
+   anchors with `data-programme` hooks from the single `PROGRAMMES` list
+   in `tools/build.py`, so each can be rewired to a dedicated page later.
+   Until then, card enquire links point at `contact.html` rather than at
+   broken or invented pages.

@@ -669,6 +669,25 @@ form[id] { scroll-margin-top: 5.5rem; }
   color: var(--gold-text);
   letter-spacing: 0.02em;
 }
+/* Programme card image, bled to the card edges so all six cards share one
+   visual treatment. No card receives special emphasis. */
+.card__media {
+  margin: calc(-1 * clamp(1.5rem, 2.5vw, 2.25rem)) calc(-1 * clamp(1.5rem, 2.5vw, 2.25rem)) 0;
+}
+.card__media img { display: block; }
+/* Programme status label. Plum on tint, never gold, and never colour alone:
+   the text always names the status. */
+.status {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--plum);
+  background: var(--plum-tint);
+  border: 1px solid var(--plum-line);
+}
 
 .section--invert .card { background: transparent; border-color: rgba(255, 255, 255, 0.18); }
 .section--invert .card:hover { border-color: var(--gold); }

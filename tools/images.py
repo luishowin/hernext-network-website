@@ -78,6 +78,22 @@ PHOTOS = [
     # still to lie over. The box is the full screen width, so 800 serves a 375
     # or 390 pixel phone at 2x and 1080 the 3x screens.
     ("hnn-hero-portrait", "new-home-hero", (1400, 0, 2863, 3579), (540, 800, 1080)),
+
+    # Our Programmes cards, October 2026. Six Unsplash originals, Unsplash
+    # License (commercial use permitted). Centre 3:2 crops, card widths
+    # 400/800/1200 like hnn-academy/mentoring/trade.
+    # prog-women: Christina @ wocintechchat.com, https://unsplash.com/photos/c6wbSBaYxkY
+    ("hnn-prog-women", "prog-women", (0, 3, 6016, 4010), (400, 800, 1200)),
+    # prog-youth: JEaLiFe Pictures, https://unsplash.com/photos/XE4fjzsMm6Q
+    ("hnn-prog-youth", "prog-youth", (468, 0, 5064, 3376), (400, 800, 1200)),
+    # prog-tvet: Vatsal Tyagi, https://unsplash.com/photos/ZrJh5YCSadI
+    ("hnn-prog-tvet", "prog-tvet", (0, 0, 3508, 2338), (400, 800, 1200)),
+    # prog-agri: Nel Ranoko, https://unsplash.com/photos/CXKk4zU7anE
+    ("hnn-prog-agri", "prog-agri", (83, 0, 4890, 3260), (400, 800, 1200)),
+    # prog-feed: Arisa Chattasa, https://unsplash.com/photos/mJ7ghTbKXYo
+    ("hnn-prog-feed", "prog-feed", (468, 0, 5056, 3371), (400, 800, 1200)),
+    # prog-trade: Mugabi Owen, https://unsplash.com/photos/g0-VSbPrOnc
+    ("hnn-prog-trade", "prog-trade", (0, 0, 6000, 4000), (400, 800, 1200)),
 ]
 
 # Rows replaced in September 2026, when a team member asked not to be featured

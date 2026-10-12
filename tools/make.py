@@ -27,6 +27,11 @@ PAGES = [
   "Turning evidence into action: six areas of work, our model, how we work and six practical programmes.",
   False, "Our Work", "Our Work"),
 
+ (D+"our-programmes.html", "_our_programmes.html", "our-programmes.html",
+  "Our Programmes | HerNext Network",
+  "Six practical programmes turning opportunity into action: enterprise, youth skills, TVET, agriculture, animal nutrition and market access.",
+  False, "Our Programmes", "Our Programmes"),
+
  (D+"impact.html", "_impact.html", "impact.html",
   "Our Impact | HerNext Network",
   "What impact means to HerNext, the eight-step model from listening to scale, the Kiambu Chapter baseline work, and the indicators we measure against.",

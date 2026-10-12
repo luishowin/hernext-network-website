@@ -72,32 +72,31 @@ ORG = {
 # and the sitemap all read from here, so adding a future programme or page
 # means editing one list, not multiple templates.
 #
-# Programme destinations are temporary: no dedicated programme routes exist
-# yet, so every programme points at our-work.html and carries a slug in
-# data-programme for clean rewiring later. Do not invent programme pages.
+# Programme destinations: the overview page carries one anchored section per
+# programme, so the dropdown jumps to the card and each card enquire link
+# carries a data-programme slug for clean rewiring when detail pages land.
 # ---------------------------------------------------------------------------
 PROGRAMMES = [
     {"title": "Women &amp; Enterprise Development",
-     "href": "our-work.html", "slug": "women-enterprise-development"},
+     "href": "our-programmes.html#programme-women-enterprise-development", "slug": "women-enterprise-development"},
     {"title": "Youth Skills &amp; Employability",
-     "href": "our-work.html", "slug": "youth-skills-employability"},
+     "href": "our-programmes.html#programme-youth-skills-employability", "slug": "youth-skills-employability"},
     {"title": "Skills, TVET &amp; Industry Partnerships",
-     "href": "our-work.html", "slug": "skills-tvet-industry-partnerships"},
+     "href": "our-programmes.html#programme-skills-tvet-industry-partnerships", "slug": "skills-tvet-industry-partnerships"},
     {"title": "Agriculture &amp; Farmer Development",
-     "href": "our-work.html", "slug": "agriculture-farmer-development"},
+     "href": "our-programmes.html#programme-agriculture-farmer-development", "slug": "agriculture-farmer-development"},
     {"title": "Animal Nutrition &amp; Feed Systems",
-     "href": "our-work.html", "slug": "animal-nutrition-feed-systems"},
+     "href": "our-programmes.html#programme-animal-nutrition-feed-systems", "slug": "animal-nutrition-feed-systems"},
     {"title": "Trade &amp; Market Access",
-     "href": "our-work.html", "slug": "trade-market-access"},
+     "href": "our-programmes.html#programme-trade-market-access", "slug": "trade-market-access"},
 ]
 
-# Top-level nav in display order. "Our Programmes" links to the programmes
-# overview section on Home until a dedicated landing route exists; its
-# children come from PROGRAMMES above.
+# Top-level nav in display order. "Our Programmes" links to the dedicated
+# overview page; its children come from PROGRAMMES above.
 NAV = [
     {"title": "About", "href": "about.html"},
     {"title": "Our Work", "href": "our-work.html"},
-    {"title": "Our Programmes", "href": "index.html#programmes",
+    {"title": "Our Programmes", "href": "our-programmes.html",
      "children": PROGRAMMES},
     {"title": "Impact", "href": "impact.html"},
     {"title": "Partners", "href": "partners.html"},
