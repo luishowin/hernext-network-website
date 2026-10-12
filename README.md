@@ -55,11 +55,8 @@ are still outstanding, and two of them block launch.
 
 | Outstanding | Where it goes | Blocking launch |
 |---|---|---|
-| Live test of the contact form | `contact.html`, connected to Formspree form `mrpgwdpg` | **Yes.** Send one enquiry from the live site and confirm it arrives |
-| Legal placeholders: entity name, address, jurisdiction | `privacy.html`, `terms.html` | **Yes** |
 | Hero clip watched on a real phone | home page | No. Encoded, wired and tested in a desktop browser, but starting on scroll has not been seen on a phone |
 | Redrawn logo SVG | regenerates `logo-mark`, `logo-light`, `logo-dark`, `favicon` | No, current files are derived from the supplied SVG |
-| LinkedIn URL | footer and contact page | No. Email, telephone and Instagram are live |
 | Final social preview image | `assets/images/` | Recut from the hero photograph |
 
 Each has its own section below, and the full list is repeated as a checklist
@@ -727,7 +724,7 @@ The real details are in place. One placeholder remains.
 | Telephone | `0780 528 551`, dialling `+254780528551` | footer, contact page, JSON-LD |
 | Telephone | `0734 806 637`, dialling `+254734806637` | footer, contact page, JSON-LD |
 | Instagram | `@hernextnetworkltd` | footer, contact page, terms, JSON-LD, `llms.txt` |
-| LinkedIn | `https://www.linkedin.com` **placeholder** | footer, contact page |
+| LinkedIn | `https://www.linkedin.com/company/hernext-network/` | footer, contact page |
 
 Numbers display in Kenyan local format and dial in international format. Change
 the display text and the `tel:` href together, or one will contradict the other.
@@ -815,11 +812,11 @@ twelve pages and both redirect stubs at once. The steps for that are under
 ## Before launch
 
 - [x] Formspree ID added to `tools/partials/_contact.html` and rebuilt
-- [ ] Contact form tested live: one enquiry sent from the site and received
+- [x] Contact form tested live: one enquiry sent from the site and received
 - [ ] Hero clip watched on a real phone: starts when the photograph scrolls into
       view, pauses when scrolled away, and its button stops it
-- [ ] LinkedIn URL confirmed and swapped in
-- [ ] Legal placeholders filled in: entity name, address, governing jurisdiction
+- [x] LinkedIn URL confirmed and swapped in
+- [x] Legal placeholders filled in: entity name, address, governing jurisdiction
 - [ ] Privacy policy and terms reviewed by a qualified adviser
 - [ ] Redrawn logo dropped in, and all three logo files plus the favicon regenerated
 - [ ] Final social preview image replacing the interim `og-image.jpg`

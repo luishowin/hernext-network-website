@@ -53,7 +53,7 @@ carries a `data-programme` slug for clean rewiring when detail pages land.
   Current opportunities
 - **Contact:** info@hernextnetwork.com · hernextnetwork@gmail.com ·
   0780 528 551 · 0734 806 637 · Instagram @hernextnetworkltd ·
-  LinkedIn *(still a placeholder)*
+  LinkedIn `https://www.linkedin.com/company/hernext-network/`
 - **Legal line:** Privacy · Terms · Accessibility
 - **Legal:** Copyright HerNext Network Ltd. All rights reserved.
 
@@ -788,7 +788,7 @@ registration flow that used to live at `apply.html`.
   or requesting information about our work, we would be glad to hear from you.
 - **Contact details:** info@hernextnetwork.com · hernextnetwork@gmail.com ·
   0780 528 551 · 0734 806 637
-- **Follow:** Instagram @hernextnetworkltd · LinkedIn *(placeholder)*
+- **Follow:** Instagram @hernextnetworkltd · LinkedIn `https://www.linkedin.com/company/hernext-network/`
 - **Registering your interest:** Our initiatives are in development and none is
   currently accepting applications. Choose *Register your interest* below and
   tell us what you are building, the sector you work in and where you are based,
@@ -957,7 +957,7 @@ never loaded when reduced motion is asked for.
 
 1. Registered entity name, registered address and governing jurisdiction, for
    the privacy policy and the terms.
-2. The LinkedIn URL. Instagram is confirmed as @hernextnetworkltd.
+2. The LinkedIn URL, confirmed as `https://www.linkedin.com/company/hernext-network/`. Instagram is confirmed as @hernextnetworkltd.
 3. Real impact figures, when available. Nothing goes up before follow-up
    measurement. (The home figures band was removed in the home rebuild, so
    there is currently no statistics band anywhere on the site.)
