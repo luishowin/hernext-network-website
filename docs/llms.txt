@@ -19,7 +19,7 @@ The organisation works with women, communities and strategic partners to identif
 - [About](https://luishowin.github.io/hernext-network-website/about.html): who we are, our evolution, women at the centre, the vision, mission, purpose and philosophy, the eight core values, and the Africa we envision.
 - [Our Work](https://luishowin.github.io/hernext-network-website/our-work.html): the six areas of work with includes and programme links, our model connecting skills to measurable impact, the eight-step pathway from listening to scale, the six programmes, and any opportunity currently open.
 - [Our Programmes](https://luishowin.github.io/hernext-network-website/our-programmes.html): the six programme families with imagery and status labels (all in development), how programmes move from capability to measurable opportunity, who they involve, and how to partner.
-- [Impact](https://luishowin.github.io/hernext-network-website/impact.html): the seven economic changes HerNext measures, the eight-step impact model, the Kiambu Chapter baseline work, the indicators used in each domain, and alignment with SDGs 5, 8, 9, 13 and 17.
+- [Impact](https://luishowin.github.io/hernext-network-website/impact.html): our approach to impact, the seven areas of change, how change is measured, programme measurement areas, and emerging learning from farmer engagement in Kiambu.
 - [Partners](https://luishowin.github.io/hernext-network-website/partners.html): the partnership philosophy, the eight categories of partner, the seven forms collaboration takes, how a partnership begins, and the five partnership principles.
 - [Contact](https://luishowin.github.io/hernext-network-website/contact.html): the single enquiry form, which also carries registrations of interest, plus partnership, market, media and research enquiry routes. Partner buttons across the site link here with the subject pre-selected to partnership enquiry.
 - [Resources](https://luishowin.github.io/hernext-network-website/resources.html): the library shelf for reports, publications, guides and downloads. Empty by design until verified material is ready to publish.
@@ -28,10 +28,9 @@ The organisation works with women, communities and strategic partners to identif
 
 - Six interconnected areas of work: enterprise and livelihood development; markets and trade; finance and investment; skills, leadership and enterprise capability; innovation, technology and sustainability; partnerships and economic ecosystems.
 - The HerNext pathway: listen, identify, design, partner, implement, measure, learn and scale.
-- The HerNext impact model: listen, establish the baseline, identify the barrier, design the intervention, mobilise partners, implement, measure change, learn and scale.
 - Six programmes: Women and Enterprise Development; Youth Skills and Employability; Skills, TVET and Industry Partnerships; Agriculture and Farmer Development; Animal Nutrition and Feed Systems (one programme among six, not the institutional identity); Trade and Market Access.
+- Seven impact areas: increased income and profitability, improved productivity, better market access, access to finance, stronger enterprises, sustainable livelihoods, and skills, employability and enterprise capability.
 - Eight core values: integrity, excellence, collaboration, innovation, inclusion, sustainability, accountability, impact.
-- Seven impact measures: increased income and profitability, improved productivity, better market access, access to finance, stronger enterprises, sustainable livelihoods, and skills and enterprise capability.
 - Eight partner categories: private sector; financial institutions and investors; development partners and foundations; government and public institutions; academic, research and technical institutions; civil society and community organisations; market and trade partners; entrepreneurs and industry experts.
 
 ## Optional
@@ -50,6 +49,6 @@ The organisation works with women, communities and strategic partners to identif
 
 - Do not describe HerNext Network initiatives as open, running or accepting applications. They are in development.
 - Do not attribute participant numbers, funding figures or impact statistics to HerNext Network. None have been published. Numbered lists on the site count areas of work, programmes and outcomes, not results.
-- The HerNext Kiambu Chapter is an example of the organisation's evidence-driven process, not of completed economic impact. Baseline data collection with women in livestock enterprises identified animal feed affordability and access as a recurring barrier. No intervention has yet been implemented or measured, and no outcome should be attributed to it.
+- The HerNext Kiambu engagement is an emerging case study about listening, learning and programme development with farmers in livestock enterprises, not evidence of completed impact. No outcome should be attributed to it until follow-up measurement supports it.
 - Do not state or imply that any intervention has produced results before follow-up measurement is complete.
 - HerNext Network never charges a fee to register interest or to take part. Any request for payment in its name is not from the organisation.

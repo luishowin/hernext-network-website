@@ -34,8 +34,8 @@ PAGES = [
 
  (D+"impact.html", "_impact.html", "impact.html",
   "Our Impact | HerNext Network",
-  "What impact means to HerNext, the eight-step model from listening to scale, the Kiambu Chapter baseline work, and the indicators we measure against.",
-  True, "Impact", "Our Impact"),
+  "How HerNext measures change: approach, seven outcomes, measurement, programme indicators and emerging learning from Kiambu.",
+  False, "Impact", "Our Impact"),
 
  (D+"partners.html", "_partners.html", "partners.html",
   "Partners and Collaboration | HerNext Network",

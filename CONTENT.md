@@ -530,6 +530,429 @@ patterns (`page-hero`, `section-head`, `grid grid--3`, `card`, `tags`,
 
 ## Impact
 
+Page 5 rebuild, October 2026: hero -> approach -> seven outcomes -> how we measure -> impact across programmes -> impact in action (Kiambu emerging case study) -> commitment to evidence -> final CTA. Retired on this page: Stories of change, From data to action, SDG alignment and the shared closing call to action (Impact now carries its own).
+
+### Hero
+- **Label:** Our impact
+- **Heading:** We measure what *changes*
+- **Lead paragraph 1:** At HerNext, impact is more than participation, activities or visibility. It is the meaningful change that our work helps create in people's lives, enterprises and livelihoods.
+- **Lead paragraph 2:** We aim to understand the challenges, measure progress and use evidence to improve how opportunities are designed and delivered.
+- **Buttons:** Explore our approach (→ `#approach`) · Partner with HerNext (→ `contact.html?subject=partnership#contact-form`)
+
+### Our approach to impact `#approach`
+- **Heading:** Meaningful change matters more than *activity*
+- **Body:** HerNext seeks to understand whether its programmes contribute to stronger enterprises, improved capabilities, better market connections and more sustainable livelihoods. We begin by listening and establishing a clear understanding of the starting point. We then identify relevant indicators, work with appropriate partners, track progress and use the findings to strengthen our approach.
+- **Callout:** We distinguish between activities delivered, outputs achieved and outcomes observed. We report results only when evidence is available and avoid attributing change to our work without a reasonable basis.
+- **Pathway:** Listen → Identify → Design → Partner → Implement → Measure → Learn → Scale
+
+### The outcomes we work towards
+- **Heading:** Seven areas of *change*
+
+| # | Change | Text |
+|---|---|---|
+| 01 | Increased income and profitability | Supporting women, entrepreneurs and farmers to strengthen income generation, manage costs and build more financially sustainable enterprises and livelihoods. |
+| 02 | Improved productivity | Strengthening the knowledge, practices, tools and systems that can help people and enterprises use resources more effectively and improve performance. |
+| 03 | Better market access | Expanding connections to buyers, commercial partners and relevant domestic, regional and international market opportunities. |
+| 04 | Access to finance | Supporting financial capability, investment readiness and connections to appropriate financial services and investment opportunities. |
+| 05 | Stronger enterprises | Building business capability, resilience, planning and the practical foundations needed for enterprises to sustain and grow. |
+| 06 | Sustainable livelihoods | Supporting more resilient economic activity and livelihoods that can withstand challenges and create longer term value. |
+| 07 | Skills, employability and enterprise capability | Strengthening practical, technical, vocational, digital, entrepreneurial and leadership capabilities that help women and young people participate meaningfully in the economy. |
+
+### How we measure impact
+- **Heading:** From a clear starting point to evidence of *change*
+- **Lead:** HerNext aims to use proportionate, programme-specific monitoring, evaluation and learning. Depending on the programme, this may include baseline information, participant and enterprise records, follow-up assessments, partner feedback and documented evidence of progress.
+
+| Domain | Indicators |
+|---|---|
+| Enterprise development | Revenue, profitability, business continuity, jobs and enterprise growth. |
+| Agriculture and livestock | Input and feed costs, production, productivity, mortality where relevant, feeding-practice adoption and farmer income. |
+| Skills and employability | Skills acquired, completion, practical competency, progression to employment or enterprise and use of skills. |
+| Markets and trade | Buyer connections, market entry, sales activity, commercial agreements and export opportunities converted into business. |
+| Finance | Financial capability, investment readiness, access to appropriate financial services and finance secured where verified. |
+| Inclusion and participation | Participation by women and young people, leadership opportunities and access to programme benefits. |
+
+- **Callout:** Indicators are selected according to each programme's objectives and data that can be collected responsibly. HerNext seeks to protect participant information and report findings accurately.
+
+### Impact across our programmes
+- **Heading:** Different programmes. A shared commitment to *results*
+- **Lead:** Each HerNext programme has its own objectives and indicators, while contributing to our wider commitment to inclusive economic opportunity.
+
+| Programme | Measurement areas |
+|---|---|
+| Women and Enterprise Development | Enterprise capability, business performance, income and resilience. |
+| Youth Skills and Employability | Skills gained, practical competency and pathways to employment or entrepreneurship. |
+| Skills, TVET and Industry Partnerships | Relevance of training, industry engagement and progression from learning to work or enterprise. |
+| Agriculture and Farmer Development | Adoption of improved practices, productivity, input costs, market participation and farmer livelihoods. |
+| Animal Nutrition and Feed Systems | Feeding-practice adoption, feed and input costs, livestock productivity and farmer outcomes, where reliable data can be collected. |
+| Trade and Market Access | Buyer engagement, market connections, commercial opportunities and verified business generated. |
+
+- **Callout:** These are intended measurement areas, not claims of results already achieved. Specific indicators will be confirmed for each programme.
+
+### Impact in action
+- **Heading:** Listening to farmers. Understanding real *challenges*
+- **Emerging case study, Kiambu.** Through community-level engagement in Kiambu, HerNext has been exploring the experiences and needs of farmers involved in livestock enterprises, including dairy and poultry. This engagement has helped identify questions around animal-feed affordability, access to reliable inputs and the practical knowledge farmers need to manage their enterprises.
+- The learning is informing the development of a targeted agriculture and livestock response and the identification of appropriate technical, commercial and development partners. The next step is to establish suitable baseline information and define how progress will be measured.
+- **Callout:** This is an emerging case study about listening, learning and programme development. It should not be presented as evidence of improved income, productivity or other outcomes until follow-up data supports those claims.
+- **Link:** Explore agriculture and farmer development (→ `our-programmes.html#programme-agriculture-farmer-development`)
+
+### Our commitment to evidence
+- **Statement:** No figure appears on this page until follow-up measurement supports *it*.
+- **Body:** We are committed to reporting responsibly, learning from experience and being transparent about what is known, what is still being tested and what needs to improve. Credible impact takes time, consistent measurement and a willingness to learn.
+
+### Final call to action *(impact only, replaces the shared block here)*
+- **Label:** Partner with HerNext
+- **Heading:** Let's create measurable change *together*
+- **Body:** Whether you bring technical expertise, funding, research, market connections, training or implementation capacity, we welcome partnerships that help turn practical action into meaningful and measurable outcomes.
+- **Buttons:** Partner with HerNext (→ `contact.html?subject=partnership#contact-form`) · Explore our programmes (→ `our-programmes.html`)
+
+## Partnerships
+- **Label:** Partnerships
+- **Heading:** No single institution can do it *alone*.
+- **Body:** Complex economic challenges require complementary capabilities.
+  HerNext works with businesses, governments, financial institutions,
+  development partners, training institutions, researchers, technical
+  experts, market actors and communities to build practical solutions.
+- **Capability strip:** FUND · TRAIN · BUY · FINANCE · PROVIDE TECHNOLOGY ·
+  RESEARCH · CONNECT · IMPLEMENT
+- **Button:** Partner with HerNext (→ `contact.html?subject=partnership#contact-form`)
+
+### Final call to action *(home only, replaces the shared block here)*
+- **Heading:** Tell us what you are *building*.
+- **Body:** Whether you are a business, funder, training institution,
+  government agency, technical expert, buyer, investor or community
+  organisation, we welcome opportunities to build practical solutions
+  together.
+- **Buttons:** Partner with HerNext (→ `contact.html?subject=partnership#contact-form`) · Contact us
+  (→ `contact.html`)
+
+---
+
+## About
+
+Rebuilt to the Lydia direction: platform for collaboration, who we are,
+evolution, women at the centre, vision, mission, purpose, philosophy, values,
+the Africa we envision, and an About-only closing call to action. Our story,
+Our foundation, Our belief and the HerNext perspective quote are retired on
+this page. The shared closing call to action is switched off here in
+`tools/make.py`; About carries its own.
+
+### Hero
+- **Label:** About HerNext
+- **Heading:** A platform for *collaboration*
+- **Lead paragraph 1:** HerNext Network is a women-centred Pan-African
+  institution advancing inclusive economic transformation through practical,
+  evidence-driven interventions.
+- **Lead paragraph 2:** We work across enterprise, skills, agriculture,
+  markets, finance, innovation and strategic partnerships to expand economic
+  opportunity and create lasting impact.
+
+### Who we are
+- **Label:** Who we are
+- **Heading:** Building pathways to economic *opportunity*
+- **Body:** HerNext was built around a simple conviction: economic opportunity
+  becomes transformative when people have access to the skills, resources,
+  markets, finance, technology and relationships needed to turn potential into
+  sustainable economic activity.
+- **Body:** We work with women, young people, entrepreneurs, farmers,
+  communities and strategic partners to identify barriers and develop practical
+  responses.
+- **Body:** Rather than assuming what people need, we listen first. We seek to
+  understand the context, identify gaps and bring together the right
+  capabilities to design interventions that can be implemented, measured and
+  improved.
+
+### Our evolution
+- **Label:** Our evolution
+- **Heading:** From opportunity to economic *transformation*
+- **Body:** As our work has evolved, we have recognised that economic
+  transformation requires more than individual capability.
+- **Body:** It requires strong skills systems, productive enterprises, capable
+  young people, resilient agricultural livelihoods, access to markets and
+  finance, and institutions willing to collaborate around real challenges.
+- **Body:** This is why HerNext brings together people, programmes and partners
+  across different parts of the economic ecosystem, while keeping women at the
+  centre of our work.
+
+### Women at the centre
+- **Label:** Women at the centre
+- **Heading:** Women are at the *heart* of HerNext
+- **Body:** Women remain at the centre of HerNext because women's economic
+  participation is fundamental to stronger households, enterprises, communities
+  and economies.
+- **Body:** At the same time, economic transformation does not happen in
+  isolation. Young people, farmers, entrepreneurs, communities and institutions
+  are part of the wider ecosystem that creates opportunity.
+- **Body:** We therefore work across these interconnected groups where
+  collaboration can create stronger and more sustainable outcomes.
+
+### Vision
+- **Label:** Our vision
+- **Heading:** An Africa where opportunity is accessible and economic potential
+  can *thrive*
+- **Statement:** An Africa where women are empowered to lead economic
+  transformation and where young people have the skills and opportunities to
+  participate meaningfully in Africa's future.
+
+### Mission
+- **Label:** Our mission
+- **Heading:** Turning access into *opportunity*
+- **Statement:** To advance women's economic transformation and inclusive
+  economic opportunity across Africa through practical, evidence-driven
+  interventions that expand access to skills, enterprise development, markets,
+  finance, technology, strategic partnerships and sustainable livelihoods.
+
+### Purpose
+- **Label:** Our purpose
+- **Heading:** Removing barriers. Strengthening *opportunity*
+- **Statement:** To remove barriers to economic opportunity and strengthen the
+  skills, enterprises, institutions and systems that enable women, young people
+  and communities to build sustainable livelihoods and contribute to Africa's
+  economic transformation.
+
+### Philosophy
+- **Label:** Our philosophy
+- **Statement:** Impact before visibility. Evidence before intervention.
+  Sustainability before *scale*.
+- **Body:** We believe meaningful change requires more than activity. We focus
+  on understanding the challenge, designing responsibly, measuring results and
+  building solutions that can endure.
+
+### Our values
+- **Label:** Our values
+- **Heading:** Values define who we are and guide how we *work*
+
+| # | Value | Text |
+|---|---|---|
+| 01 | Integrity | We act honestly, responsibly and transparently. |
+| 02 | Excellence | We pursue high standards in how we design, implement and learn. |
+| 03 | Collaboration | We believe stronger outcomes come from complementary capabilities. |
+| 04 | Innovation | We remain open to better ways of solving real problems. |
+| 05 | Inclusion | We work to expand meaningful economic opportunity. |
+| 06 | Sustainability | We design for resilience and long-term value. |
+| 07 | Accountability | We take responsibility for our commitments and results. |
+| 08 | Impact | We focus on whether our work creates meaningful change. |
+
+### The Africa we envision
+- **Label:** The Africa we envision
+- **Heading:** Prosperity that creates lasting *opportunity*
+
+| Column | Text |
+|---|---|
+| Women leading | Women participating fully in enterprise, leadership, trade, innovation and economic decision-making. |
+| Young people equipped | Young people with practical skills, pathways and opportunities to participate meaningfully in the economy. |
+| Institutions collaborating | Businesses, governments, training institutions, funders, researchers and communities working together around real challenges. |
+| Prosperity that endures | Economic opportunities and livelihoods that are productive, resilient and sustainable. |
+
+### Final call to action *(about only, replaces the shared block here)*
+- **Label:** Partner with HerNext
+- **Heading:** Let us build what comes *next*
+- **Body:** HerNext works with organisations and individuals who believe that
+  opportunity can create lasting economic transformation.
+- **Buttons:** Partner with HerNext
+  (→ `contact.html?subject=partnership#contact-form`, lands on the contact
+  form with *Partnership enquiry* pre-selected) · Explore our work
+  (→ `our-work.html`)
+
+---
+
+## Our Work *(our-work.html)*
+
+Rebuilt to the approved Page 3 direction: hero → six areas of work →
+our model → how we work → our programmes → final CTA. Current
+opportunities is retained as a compact subsection after the programmes
+(because the Opportunities nav item and the `opportunities.html` redirect
+target `#current-opportunities`), but it is not part of the main flow.
+The signature initiatives, nine priority sectors, cross-cutting
+capabilities and operating philosophy sections are retired on this page.
+
+Copy below is the approved client wording, preserved exactly. Deliberate
+exception to the house style above, as on Home: the brief uses ampersands
+(*Enterprise & Livelihood Development*, etc.) and em dashes, and both are
+kept as supplied (re-typeset as `&amp;` and `&#8212;` in the partial).
+
+### Hero
+- **Label:** Our work
+- **Heading:** Turning evidence into *action*
+- **Lead paragraph 1:** HerNext develops practical, evidence-driven
+  interventions that address barriers to economic opportunity.
+- **Lead paragraph 2:** We work across enterprise, skills, agriculture,
+  markets, finance, innovation and partnerships — connecting people and
+  institutions to the resources, capabilities and opportunities they need
+  to create sustainable economic outcomes.
+
+### Six areas of work `#areas`
+- **Label:** What we do
+- **Heading:** Six areas of *work*
+- **Lead:** Our work is organised around six interconnected areas,
+  connecting people and institutions to the resources, capabilities and
+  opportunities they need to create sustainable economic outcomes.
+- Areas 01–05 carry an **Explore programmes** button (→ `#programmes`
+  on this page). Area 06 carries **Partner with HerNext**
+  (→ `contact.html?subject=partnership#contact-form`).
+
+| # | Area | Heading | Text | Includes |
+|---|---|---|---|---|
+| 01 | Enterprise & Livelihood Development | Building stronger enterprises and sustainable livelihoods. | We support women, entrepreneurs and communities to strengthen enterprises and build sustainable livelihoods. Our work focuses on business capability, productivity, technical support, enterprise development, access to productive resources and pathways for sustainable growth. | Enterprise development · Business skills and capability · Technical support · Productivity improvement · Entrepreneurship · Livelihood development · Enterprise resilience · Access to productive resources |
+| 02 | Markets & Trade | Connecting enterprise to opportunity. | Having a good product or service is only part of the journey. Sustainable growth requires access to customers, buyers, markets and the right commercial relationships. HerNext helps connect producers and entrepreneurs to domestic, regional and international market opportunities. | Buyer connections · Market linkages · B2B opportunities · Trade missions · Exhibitions · Value-chain participation · Market readiness · Regional/international market access |
+| 03 | Finance & Investment | Turning financial access into growth. | Access to appropriate finance can determine whether an enterprise survives, grows or remains constrained. HerNext works to strengthen financial capability, investment readiness and connections to appropriate financing and investment opportunities. | Financial capability · Investment readiness · Access to finance · Investor connections · Business financial planning · Capital readiness · Financial partnerships |
+| 04 | Skills, Leadership & Enterprise Capability | Building the capabilities that create opportunity. | Skills become transformative when they lead to practical economic opportunity. HerNext supports practical technical, vocational, digital, entrepreneurial and leadership capabilities that help women and young people participate more meaningfully in the economy. | Technical and vocational skills · Entrepreneurship · Digital skills · Business capability · Leadership · Mentorship · Professional development · Enterprise development · Employability |
+| 05 | Innovation, Technology & Sustainability | Using innovation to build resilient futures. | Technology and innovation can improve productivity, access, efficiency and resilience when they are applied to real needs. HerNext works with partners to explore appropriate technologies, innovative approaches and sustainable practices that create long-term economic value. | Digital solutions · Appropriate technology · Innovation · Sustainable practices · Climate resilience · Productivity solutions · Knowledge and innovation partnerships |
+| 06 | Partnerships & Economic Ecosystems | Bringing the right people together. | Complex economic challenges cannot be solved by one organisation alone. HerNext builds partnerships across business, government, finance, academia, research, technical expertise, development and communities to bring complementary capabilities together around practical challenges. | Programme partnerships · Technical partnerships · Funding partnerships · Market partnerships · Research partnerships · Government collaboration · Training partnerships · Industry partnerships |
+
+### Our model
+- **Label:** Our model
+- **Heading:** Opportunity works best when the pieces *connect*
+- **Lead:** Skills without opportunity can remain unused. Finance without
+  capability can create risk. Products without markets cannot grow.
+  Innovation without adoption cannot create impact. HerNext therefore works
+  across interconnected parts of the economic ecosystem — bringing together
+  skills, enterprise, markets, finance, technology and partnerships around
+  real needs.
+- **Pathway:** Skills → Capability → Enterprise & livelihoods →
+  Markets + finance + technology → Growth & resilience → Measurable impact
+
+### How we work
+- **Label:** How we work
+- **Heading:** From listening to measurable *impact*
+- **Lead:** We begin with the challenge, not the solution. We listen, gather
+  evidence, identify gaps and design practical interventions with the right
+  partners. We then implement, measure what changes and use what we learn
+  to improve and scale what works.
+- **Pathway:** Listen → Identify → Design → Partner → Implement → Measure →
+  Learn → Scale (same eight steps as Home and Impact; capitalisation follows
+  the site pattern)
+
+### Our programmes `#programmes`
+- **Label:** Our programmes
+- **Heading:** Turning our areas of work into practical *programmes*
+- **Lead:** Our programmes translate HerNext's areas of work into practical
+  interventions designed around specific economic needs and opportunities.
+- Six text-only cards, visually equal. No card is featured; Animal Nutrition
+  & Feed Systems is one programme among six, not the institutional identity.
+  Descriptions reuse the approved Home programme wording. Each card carries a
+  **Learn more** link to its anchored section on the dedicated Our Programmes
+  page (`our-programmes.html#programme-<slug>`) and carries a
+  `data-programme="<slug>"` hook for clean rewiring when detail pages land.
+
+| Programme | Text |
+|---|---|
+| Women & Enterprise Development | Strengthening women-led enterprises, livelihoods, business capability, productivity and growth. |
+| Youth Skills & Employability | Building practical skills and pathways from learning to employment, entrepreneurship and economic participation. |
+| Skills, TVET & Industry Partnerships | Connecting TVET institutions, industry experts and employers to practical skills, enterprise and opportunity pathways. |
+| Agriculture & Farmer Development | Supporting smallholder farmers with practical knowledge, productive systems, organisation, markets and climate-resilient livelihoods. |
+| Animal Nutrition & Feed Systems | Developing quality animal nutrition alongside farmer capacity building, organisation and market systems. |
+| Trade & Market Access | Connecting women entrepreneurs, producers and enterprises to buyers, trade missions, exhibitions, B2B opportunities and new markets. |
+
+### Current opportunities `#current-opportunities`
+- **Heading:** What is open *today*
+- **Lead:** HerNext periodically opens programmes, partnerships, trade
+  opportunities, calls for participation and other initiatives aligned with our
+  mission. Only opportunities that are currently active and accepting
+  applications appear here.
+- **Empty state:** **No opportunity is open at the moment.** Our initiatives are
+  in development, and we do not list a programme here until it is genuinely
+  accepting applications. Register your interest and we will contact you as
+  opportunities open. HerNext never charges a fee to register or to take part.
+- **Buttons:** Register your interest · Partner with HerNext
+
+The partial carries an HTML comment showing the card markup for a real
+opportunity. Remove a card the moment its deadline passes.
+
+### Final call to action *(our-work only, replaces the shared block here)*
+- **Label:** Partner with HerNext
+- **Heading:** Let's build practical solutions *together*
+- **Body:** Whether you are a business, funder, government institution,
+  training organisation, technical expert, market actor or community
+  organisation, HerNext welcomes opportunities to collaborate.
+- **Buttons:** Partner with HerNext
+  (→ `contact.html?subject=partnership#contact-form`, lands on the contact
+  form with *Partnership enquiry* pre-selected) · Explore our programmes
+  (→ `#programmes` on this page)
+
+*The shared closing call to action is switched off on Our Work in
+`tools/make.py`; this page carries its own, as Home and About do.*
+
+---
+
+## Our Programmes *(our-programmes.html)*
+
+Dedicated overview page, October 2026: hero → portfolio introduction → six
+programme families → how our programmes work → who we work with → programme
+status → partner with HerNext → final CTA. Matches the Our Work page
+patterns (`page-hero`, `section-head`, `grid grid--3`, `card`, `tags`,
+`pathway`, `callout`, `section--invert`).
+
+### Hero
+- **Label:** Our programmes
+- **Heading:** Programmes that turn opportunity into *action*
+- **Lead paragraph 1:** HerNext translates economic needs into practical programmes that strengthen capabilities, enterprises, livelihoods and connections to opportunity.
+- **Lead paragraph 2:** We work with women, young people, farmers, entrepreneurs, institutions and strategic partners to develop responses grounded in real challenges and designed for meaningful, measurable outcomes.
+- **Buttons:** Explore our programmes (→ `#portfolio` on this page) · Partner with HerNext (→ `contact.html?subject=partnership#contact-form`)
+
+### Programme portfolio introduction `#portfolio`
+- **Label:** Our portfolio
+- **Heading:** Practical programmes. Connected *opportunities*
+- **Lead:** HerNext brings together complementary programmes across enterprise development, skills, agriculture, markets and partnerships. Each programme responds to a distinct area of opportunity while contributing to our wider purpose: advancing women's economic transformation and inclusive economic opportunity across Africa.
+- **Lead:** Our programmes are developed with attention to local needs, practical implementation, collaboration and measurable results. Programme activities and availability may vary according to development stage, partnerships and resources.
+
+### Six programme families `#programmes`
+- **Label:** Six programme families
+- **Heading:** One institution, six complementary *programmes*
+- **Lead:** The six programmes below are complementary parts of one institution, not six unrelated businesses. Women remain at the centre of our purpose, while young people, farmers, entrepreneurs, communities and institutions form the wider ecosystem in which opportunity grows.
+- Six image cards (`media--landscape` 3:2, widths 400/800/1200), visually equal. No card is featured; Animal Nutrition & Feed Systems is one programme among six, not the institutional identity. Each card carries its number, an **In development** status pill, supporting line, description, potential areas as tags, and an **Enquire about this programme** link to `contact.html` with a `data-programme="<slug>"` hook for clean rewiring when detail pages land. Card anchors are `#programme-<slug>` and are the targets of the nav dropdown.
+
+| # | Programme | Supporting line |
+|---|---|---|
+| 01 | Women & Enterprise Development | Stronger enterprises. More sustainable livelihoods. |
+| 02 | Youth Skills & Employability | Skills that connect young people to opportunity. |
+| 03 | Skills, TVET & Industry Partnerships | Connecting training with the world of work. |
+| 04 | Agriculture & Farmer Development | Stronger farmers. More resilient livelihoods. |
+| 05 | Animal Nutrition & Feed Systems | Quality inputs. Practical knowledge. Stronger farmers. |
+| 06 | Trade & Market Access | Connecting enterprises to buyers and markets. |
+
+- Photography is licensed Unsplash work (commercial use permitted), one frame per card, consistent 3:2 treatment: women in discussion (Christina @ wocintechchat.com); young woman at a laptop (JEaLiFe Pictures); hands at a workshop machine (Vatsal Tyagi); farm worker in vegetable rows (Nel Ranoko); hens at a feeder, this card only (Arisa Chattasa); young woman at a coffee machine (Mugabi Owen). Sources and crops are recorded in `tools/images.py`.
+
+### How our programmes work
+- **Label:** How our programmes work
+- **Heading:** From capability to measurable *opportunity*
+- **Lead:** HerNext designs programmes around the needs of the people and communities involved. We listen, identify barriers, develop practical responses with appropriate partners, implement responsibly and measure what changes. What we learn helps us strengthen programmes and guide future development.
+- **Pathway:** Skills → Capability → Connections → Opportunity → Measurable impact
+
+### Who we work with
+- **Label:** Who we work with
+- **Heading:** Collaboration makes opportunity *stronger*
+- **Lead:** Our programmes may involve women, young people, farmers, entrepreneurs, communities, TVET and training institutions, employers, businesses, buyers, financial institutions, technical experts, researchers, government institutions and development partners.
+- **Lead:** The mix of participants and partners depends on the programme's objectives, location, development stage and confirmed partnerships.
+- Shown as a tag strip of the fourteen groups above.
+
+### Programme status
+- **Label:** Programme status
+- **Heading:** Clear information about where each programme *stands*
+- **Lead:** We use consistent status labels on programme cards. Only activities currently being delivered with open participation are ever described as active.
+- **Active:** Activities are currently being delivered and participation is open or underway.
+- **Upcoming:** An activity is planned, with launch or participation details to be announced.
+- **In development:** The programme is being designed, tested or prepared with potential participants and partners.
+- **Callout:** **All six programmes are currently in development.** Nothing on this page is open for applications. Register your interest and we will contact you as opportunities open. HerNext never charges a fee to register or to take part.
+- **Buttons:** Register your interest (→ `contact.html`) · Current opportunities (→ `our-work.html#current-opportunities`)
+
+### Partner with HerNext
+- **Label:** Partner with HerNext
+- **Heading:** Help turn opportunity into *action*
+- **Body:** We welcome collaboration with organisations and individuals who can contribute expertise, training, funding, technology, market access, research, finance or implementation capacity. Together, we can develop practical programmes that respond to real needs and create measurable economic outcomes.
+- **Buttons:** Partner with HerNext (→ `contact.html?subject=partnership#contact-form`) · Contact HerNext (→ `contact.html`)
+
+### Final call to action *(our-programmes only, replaces the shared block here)*
+- **Heading:** Let's build opportunities *together*
+- **Body:** Whether you are seeking to collaborate, contribute expertise, connect people to markets or support a programme, we invite you to start a conversation with HerNext.
+- **Buttons:** Partner with HerNext (→ `contact.html?subject=partnership#contact-form`) · Explore our work (→ `our-work.html`)
+
+*The shared closing call to action is switched off on Our Programmes in
+`tools/make.py`; this page carries its own, as Home, About and Our Work do.*
+
+---
+
+## Impact
+
 About explains who HerNext is. Our Work explains what HerNext does. Impact shows
 what HerNext seeks to change, how change is measured, and what the evidence so
 far demonstrates.
