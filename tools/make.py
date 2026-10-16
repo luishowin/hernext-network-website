@@ -38,9 +38,9 @@ PAGES = [
   False, "Impact", "Our Impact"),
 
  (D+"partners.html", "_partners.html", "partners.html",
-  "Partners and Collaboration | HerNext Network",
-  "The eight kinds of partner we work with, the seven forms collaboration takes, how a HerNext partnership begins, and the five principles behind every one.",
-  False, "Partners", "Partners and Collaboration"),
+  "Our Partners | HerNext Network",
+  "Strong partnerships create lasting impact: why partner with HerNext, who we partner with, eight ways to contribute, partnerships across programmes, how a partnership begins and our seven principles.",
+  False, "Partners", "Our Partners"),
 
  (D+"contact.html", "_contact.html", "contact.html",
   "Contact Us | HerNext Network",
