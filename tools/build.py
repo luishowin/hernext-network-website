@@ -45,13 +45,12 @@ ORG = {
     ],
     "sameAs": ["https://www.instagram.com/hernextnetworkltd/"],
     "email": "info@hernextnetwork.com",
-    "telephone": "+254780528551",
+    "telephone": "+254734806637",
     "contactPoint": [
         {
             "@type": "ContactPoint",
             "contactType": "general enquiries",
             "email": "info@hernextnetwork.com",
-            "telephone": "+254780528551",
             "availableLanguage": ["English"],
         },
         {

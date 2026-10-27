@@ -721,7 +721,6 @@ The real details are in place. One placeholder remains.
 |---|---|---|
 | Primary email | `info@hernextnetwork.com` | footer, contact page, legal pages, JSON-LD, `llms.txt`, `forms.js` error message |
 | Secondary email | `hernextnetwork@gmail.com` | footer, contact page, terms, JSON-LD, `llms.txt` |
-| Telephone | `0780 528 551`, dialling `+254780528551` | footer, contact page, JSON-LD |
 | Telephone | `0734 806 637`, dialling `+254734806637` | footer, contact page, JSON-LD |
 | Instagram | `@hernextnetworkltd` | footer, contact page, terms, JSON-LD, `llms.txt` |
 | LinkedIn | `https://www.linkedin.com/company/hernext-network/` | footer, contact page |

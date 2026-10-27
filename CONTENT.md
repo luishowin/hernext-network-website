@@ -52,13 +52,13 @@ carries a `data-programme` slug for clean rewiring when detail pages land.
 - **Engage:** Partner With HerNext · Register Your Interest ·
   Current opportunities
 - **Contact:** info@hernextnetwork.com · hernextnetwork@gmail.com ·
-  0780 528 551 · 0734 806 637 · Instagram @hernextnetworkltd ·
+  0734 806 637 · Instagram @hernextnetworkltd ·
   LinkedIn `https://www.linkedin.com/company/hernext-network/`
 - **Legal line:** Privacy · Terms · Accessibility
 - **Legal:** Copyright HerNext Network Ltd. All rights reserved.
 
-Telephone numbers display in Kenyan local format and dial in international
-format, `tel:+254780528551` and `tel:+254734806637`.
+The telephone number displays in Kenyan local format and dials in international
+format, `tel:+254734806637`.
 
 ### Closing call to action *(shared by Impact only)* **[new]**
 - **Label:** Take the next step
@@ -1210,7 +1210,7 @@ registration flow that used to live at `apply.html`.
 - **Lead:** Whether you are registering your interest, exploring a partnership
   or requesting information about our work, we would be glad to hear from you.
 - **Contact details:** info@hernextnetwork.com · hernextnetwork@gmail.com ·
-  0780 528 551 · 0734 806 637
+  0734 806 637
 - **Follow:** Instagram @hernextnetworkltd · LinkedIn `https://www.linkedin.com/company/hernext-network/`
 - **Registering your interest:** Our initiatives are in development and none is
   currently accepting applications. Choose *Register your interest* below and
