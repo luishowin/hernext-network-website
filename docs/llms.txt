@@ -15,14 +15,14 @@ The organisation works with women, communities and strategic partners to identif
 
 ## Pages
 
-- [Home](https://luishowin.github.io/hernext-network-website/): the institutional introduction, why HerNext exists, the six areas of work, the six programmes, the HerNext pathway, the seven impact outcomes sought, partnership capabilities, and how to partner or contact.
-- [About](https://luishowin.github.io/hernext-network-website/about.html): who we are, our evolution, women at the centre, the vision, mission, purpose and philosophy, the eight core values, and the Africa we envision.
-- [Our Work](https://luishowin.github.io/hernext-network-website/our-work.html): the six areas of work with includes and programme links, our model connecting skills to measurable impact, the eight-step pathway from listening to scale, the six programmes, and any opportunity currently open.
-- [Our Programmes](https://luishowin.github.io/hernext-network-website/our-programmes.html): the six programme families with imagery and status labels (all in development), how programmes move from capability to measurable opportunity, who they involve, and how to partner.
-- [Impact](https://luishowin.github.io/hernext-network-website/impact.html): our approach to impact, the seven areas of change, how change is measured, programme measurement areas, and emerging learning from farmer engagement in Kiambu.
-- [Partners](https://luishowin.github.io/hernext-network-website/partners.html): the partnership philosophy, the eight categories of partner, the seven forms collaboration takes, how a partnership begins, and the five partnership principles.
-- [Contact](https://luishowin.github.io/hernext-network-website/contact.html): the single enquiry form, which also carries registrations of interest, plus partnership, market, media and research enquiry routes. Partner buttons across the site link here with the subject pre-selected to partnership enquiry.
-- [Resources](https://luishowin.github.io/hernext-network-website/resources.html): the library shelf for reports, publications, guides and downloads. Empty by design until verified material is ready to publish.
+- [Home](https://hernextnetwork.com/): the institutional introduction, why HerNext exists, the six areas of work, the six programmes, the HerNext pathway, the seven impact outcomes sought, partnership capabilities, and how to partner or contact.
+- [About](https://hernextnetwork.com/about.html): who we are, our evolution, women at the centre, the vision, mission, purpose and philosophy, the eight core values, and the Africa we envision.
+- [Our Work](https://hernextnetwork.com/our-work.html): the six areas of work with includes and programme links, our model connecting skills to measurable impact, the eight-step pathway from listening to scale, the six programmes, and any opportunity currently open.
+- [Our Programmes](https://hernextnetwork.com/our-programmes.html): the six programme families with imagery and status labels (all in development), how programmes move from capability to measurable opportunity, who they involve, and how to partner.
+- [Impact](https://hernextnetwork.com/impact.html): our approach to impact, the seven areas of change, how change is measured, programme measurement areas, and emerging learning from farmer engagement in Kiambu.
+- [Partners](https://hernextnetwork.com/partners.html): the partnership philosophy, the eight categories of partner, the seven forms collaboration takes, how a partnership begins, and the five partnership principles.
+- [Contact](https://hernextnetwork.com/contact.html): the single enquiry form, which also carries registrations of interest, plus partnership, market, media and research enquiry routes. Partner buttons across the site link here with the subject pre-selected to partnership enquiry.
+- [Resources](https://hernextnetwork.com/resources.html): the library shelf for reports, publications, guides and downloads. Empty by design until verified material is ready to publish.
 
 ## Key facts
 
@@ -35,9 +35,9 @@ The organisation works with women, communities and strategic partners to identif
 
 ## Optional
 
-- [Privacy policy](https://luishowin.github.io/hernext-network-website/privacy.html): what the site collects, the third parties involved, retention periods and data rights.
-- [Terms of use](https://luishowin.github.io/hernext-network-website/terms.html): the status of the initiatives, and the policy that no fee is ever charged.
-- [Accessibility statement](https://luishowin.github.io/hernext-network-website/accessibility.html): conformance target, measures taken and known limitations.
+- [Privacy policy](https://hernextnetwork.com/privacy.html): what the site collects, the third parties involved, retention periods and data rights.
+- [Terms of use](https://hernextnetwork.com/terms.html): the status of the initiatives, and the policy that no fee is ever charged.
+- [Accessibility statement](https://hernextnetwork.com/accessibility.html): conformance target, measures taken and known limitations.
 
 ## Contact
 

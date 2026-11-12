@@ -8,9 +8,15 @@ evidence-driven interventions that expand access to markets, finance, skills,
 strategic partnerships and sustainable livelihood opportunities.
 
 Plain HTML, CSS and JavaScript. No framework and no dependencies. The contents
-of `docs/` are the deployed site exactly as served.
+of `docs/` are the final deployed site.
 
-**Live at** https://luishowin.github.io/hernext-network-website/
+> **Project status: sunset.** Active development has ended. This repository is
+> the final source archive for the site. It was hosted on GitHub, deployed
+> through Cloudflare Pages, and served at https://hernextnetwork.com/. The notes
+> below record how the site was built, hosted and deployed, and what a future
+> maintainer needs to take it over.
+
+**Final live site:** https://hernextnetwork.com/
 
 ---
 
@@ -27,40 +33,47 @@ of `docs/` are the deployed site exactly as served.
 - [SEO and crawling](#seo-and-crawling)
 - [Legal pages](#legal-pages)
 - [Editing the copy](#editing-the-copy)
-- [Deploying to GitHub Pages](#deploying-to-github-pages)
-- [Adding the custom domain](#adding-the-custom-domain)
-- [Before launch](#before-launch)
+- [How the site was hosted and deployed](#how-the-site-was-hosted-and-deployed)
+- [Handover checklist](#handover-checklist)
 - [Browser support and accessibility](#browser-support-and-accessibility)
+- [Content provenance](#content-provenance)
+- [Future support](#future-support)
 
 ---
 
 ## Status
 
-The site is complete, verified and deployed. The 2026 content corrections have
-been applied in full. Since then the home page has been rebuilt to the
-approved Pan-African-institution direction (institution → rationale → work
-areas → programmes → approach → impact → partnerships → CTA), replacing the
-commitments, initiatives, philosophy band, sectors and where-we-work
-sections; the footer now lists the fuller Explore/Engage structure, and
-the brand line reads HerNext Network Ltd. In September 2026 the home hero
-and five photographs were replaced, the contact form was connected to
+**Sunset.** The site is no longer under active development. The final build is
+the content of `docs/`, and it matches what was served at
+https://hernextnetwork.com/ before the project closed.
+
+The 2026 content corrections were applied in full. Since then the home page was
+rebuilt to the approved Pan-African-institution direction (institution →
+rationale → work areas → programmes → approach → impact → partnerships → CTA),
+replacing the commitments, initiatives, philosophy band, sectors and
+where-we-work sections; the footer now lists the fuller Explore/Engage
+structure, and the brand line reads HerNext Network Ltd. In September 2026 the
+home hero and five photographs were replaced, the contact form was connected to
 Formspree, and phones gained a portrait hero with a looping clip. In October
-2026 the navigation moved to the eight-item institutional structure (About,
-Our Work, Our Programmes, Impact, Partners, Opportunities, Resources,
-Contact) with a programmes dropdown driven by one list in `tools/build.py`,
-a Resources placeholder page was added, partner buttons were pointed at the
-contact form with the subject pre-selected, and the Impact page was aligned
-to the same seven outcomes as Home. Six things
-are still outstanding, and two of them block launch.
+2026 the navigation moved to the eight-item institutional structure (About, Our
+Work, Our Programmes, Impact, Partners, Opportunities, Resources, Contact) with
+a programmes dropdown driven by one list in `tools/build.py`, a Resources
+placeholder page was added, partner buttons were pointed at the contact form
+with the subject pre-selected, and the Impact page was aligned to the same
+seven outcomes as Home.
 
-| Outstanding | Where it goes | Blocking launch |
-|---|---|---|
-| Hero clip watched on a real phone | home page | No. Encoded, wired and tested in a desktop browser, but starting on scroll has not been seen on a phone |
-| Redrawn logo SVG | regenerates `logo-mark`, `logo-light`, `logo-dark`, `favicon` | No, current files are derived from the supplied SVG |
-| Final social preview image | `assets/images/` | Recut from the hero photograph |
+### Known limitations at sunset
 
-Each has its own section below, and the full list is repeated as a checklist
-under [Before launch](#before-launch).
+These were open when development ended. They are recorded so a future
+maintainer is not surprised by them; none is a launch blocker now.
+
+| Limitation | Where it lives |
+|---|---|
+| Hero clip not watched on a real phone | home page. Encoded, wired and tested in a desktop browser, but starting on scroll was not verified on a phone |
+| Logo SVG is derived from the supplied artwork | regenerates `logo-mark`, `logo-light`, `logo-dark`, `favicon` |
+| Social preview image is an interim cut | `docs/assets/images/og-image.jpg` |
+| Photo consent for public web use not confirmed for everyone shown | photography in `docs/assets/images/` |
+| Legal pages are drafts and need qualified review | `docs/privacy.html`, `docs/terms.html`, `docs/accessibility.html` |
 
 One thing to know before reading further: **the pages in `docs/` are generated.**
 Edit `tools/partials/` and run `python tools/make.py`. See
@@ -158,7 +171,7 @@ docs/                      the published site, this is the deploy root
   robots.txt               permissive, points at the sitemap
   sitemap.xml              the eleven indexable pages, stubs excluded
   llms.txt                 structured summary for assistants and answer engines
-  .nojekyll                tells GitHub Pages to serve the files as they are
+  .nojekyll                tells GitHub to serve the files as they are if the repo is used with GitHub Pages
   css/style.css            the entire design system, one file
   js/main.js               navigation, programmes dropdown, scroll reveal, header state, year, hero clip
   js/forms.js              validation, submission and subject pre-selection for the contact form
@@ -327,18 +340,18 @@ safeguards mean content can never be left invisible:
 
 ## Connect the form
 
-GitHub Pages serves static files and cannot receive a form submission, so the
-contact form posts to [Formspree](https://formspree.io). It is connected to
-form `mrpgwdpg`:
+A static host cannot receive a form submission, so the contact form posts to
+[Formspree](https://formspree.io). It is connected to form `mrpgwdpg`:
 
 | File | Attribute |
 |---|---|
 | `tools/partials/_contact.html` | `<form id="contact-form" data-endpoint="https://formspree.io/f/mrpgwdpg">` |
 
-**Before launch, submit the form once from the live site** and confirm the
-enquiry reaches the HerNext inbox. If Formspree refuses it, check the form's
-settings in the Formspree dashboard: the delivery address, and any reCAPTCHA
-or allowed-domain restriction.
+The form was tested live before handover. If it is moved to a new Formspree
+account or the endpoint changes, submit it once and confirm the enquiry reaches
+the HerNext inbox. If Formspree refuses it, check the form's settings in the
+Formspree dashboard: the delivery address, and any reCAPTCHA or allowed-domain
+restriction.
 
 To move to a different form, change the ID in the partial, not in the built
 page, and run `python tools/make.py`. `forms.js` still refuses to submit while
@@ -628,25 +641,19 @@ Three files support crawling:
 ### The origin is defined in one place
 
 Canonicals, `og:url`, JSON-LD and the sitemap all need an absolute URL. That
-lives in `BASE` near the top of `tools/build.py`, and is currently the live
-GitHub Pages address. It is deliberately not the future custom domain, because
-a canonical pointing at a site that does not answer yet will get the pages
-dropped from the index.
+lives in `BASE` near the top of `tools/build.py`, and is currently
+`https://hernextnetwork.com/`. All generated pages and redirect stubs read it
+from there.
 
-When the domain is live, change `BASE`, rebuild, and regenerate the sitemap:
-
-```bash
-python tools/make.py
-```
-
-`robots.txt` and `sitemap.xml` are not generated by that script, so update the
-origin in both by hand, or run:
+`robots.txt`, `sitemap.xml` and `llms.txt` are not generated by `make.py`, so if
+the origin ever changes, update them by hand as well:
 
 ```bash
-sed -i 's#https://luishowin.github.io/hernext-network-website/#https://www.hernextnetwork.com/#g' docs/robots.txt docs/sitemap.xml docs/llms.txt
+sed -i 's#https://hernextnetwork.com/#https://new.example/#g' docs/robots.txt docs/sitemap.xml docs/llms.txt
 ```
 
-Then submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+Then rebuild and, if the site is relaunched, submit `sitemap.xml` in Google
+Search Console and Bing Webmaster Tools.
 
 ---
 
@@ -668,9 +675,10 @@ marked in the text:
 grep -rn "\[registered entity name\]\|\[registered address\]\|\[governing jurisdiction\]" docs/
 ```
 
-The privacy policy names the three third parties that actually see visitor
-data: Formspree, GitHub Pages and Google Fonts. If you drop Google Fonts in
-favour of self-hosting, or add analytics, that section has to change with it.
+The privacy policy names Formspree, GitHub Pages and Google Fonts. The deployed
+site was actually served through Cloudflare Pages, so that section should name
+Cloudflare as well if the policy is revised. If Google Fonts is replaced with
+self-hosted fonts, or analytics is added, that section has to change with it.
 
 ### Why the site says "register your interest" and never "apply"
 
@@ -757,75 +765,90 @@ summary become appropriate again.
 
 ---
 
-## Deploying to GitHub Pages
+## How the site was hosted and deployed
 
-The site is configured to publish from the `docs/` folder on the default
-branch, so deployment is a push.
+> **Past tense:** this describes the setup at sunset. It is written so the same
+> arrangement can be rebuilt, not because the site is still maintained.
 
-1. Push to `main`.
-2. In the repository, open **Settings**, then **Pages**.
-3. Under **Build and deployment**, set **Source** to *Deploy from a branch*.
-4. Choose branch `main` and folder `/docs`, then **Save**.
+### GitHub repository
 
-The site appears at `https://<username>.github.io/<repository>/` within a
-minute or two.
+The source lived in a GitHub repository with `main` as the production branch.
+The published site is the `docs/` folder committed to that branch. There is no
+compiled build artifact: `python tools/make.py` is an author-time convenience
+that rewrites the HTML in place.
 
-Two details make this work and are worth preserving:
+`docs/.nojekyll` is retained so GitHub Pages can serve the folder as plain
+static files if it is ever used that way. Production traffic did not use GitHub
+Pages; it went through Cloudflare Pages.
+
+### Cloudflare Pages
+
+The GitHub repository was connected to a Cloudflare Pages project. The project
+settings were:
+
+| Setting | Value |
+|---|---|
+| Git provider | GitHub |
+| Repository | the HerNext Network website repository |
+| Production branch | `main` |
+| Framework preset | None |
+| Build command | none |
+| Build output directory | `docs` |
+| Root directory | repository root |
+
+Cloudflare Pages uploaded the contents of `docs/` as static assets. There was
+no server-side runtime, no database and no environment variables.
+
+The custom domain `hernextnetwork.com` was attached to the Pages project in
+Cloudflare. `www.hernextnetwork.com` redirected to the apex domain. DNS and TLS
+were managed in Cloudflare.
+
+### Redeploying the site
+
+1. Edit the relevant file in `tools/partials/`, not the generated page.
+2. Run `python tools/make.py`.
+3. Commit the changes to `main` and push.
+4. Cloudflare Pages builds and publishes automatically. A preview deployment is
+   created for non-production branches if preview deployments are enabled.
+5. Confirm the production deployment in the Cloudflare Pages dashboard.
+
+### Rebuilding the setup from scratch
+
+1. Create a GitHub repository and push this source to `main`.
+2. In Cloudflare, create a Pages project and connect the repository.
+3. Use the settings above: no build command, output directory `docs`.
+4. Add `hernextnetwork.com` as a custom domain and follow Cloudflare's DNS
+   instructions. Redirect `www` to the apex.
+5. Confirm HTTPS has been issued, then check the home page, a deep page and a
+   redirect stub.
+
+Two details make the static build portable and are worth preserving:
 
 - **`docs/.nojekyll`** stops GitHub from running the files through Jekyll,
   which would otherwise ignore anything beginning with an underscore.
 - **Every internal link is relative and has no leading slash**, for example
   `about.html` and `assets/images/logo-mark.svg`, never `/about.html`. This is
-  what lets the identical build work from a subdirectory today and from a
-  custom domain later without a single edit. Keep it that way when adding
-  pages.
+  what lets the identical build work from a subdirectory or from the apex
+  domain without a single edit. Keep it that way when adding pages.
 
 ---
 
-## Adding the custom domain
+## Handover checklist
 
-Once the domain is registered:
+The archive contains no credentials, tokens or account access. Ownership of the
+following has to be transferred or re-established:
 
-1. Create a file named `CNAME` inside `docs/`, containing only the domain and
-   nothing else:
+- [ ] GitHub repository and `main` branch
+- [ ] Cloudflare account, Pages project and custom domain
+- [ ] Domain registration for `hernextnetwork.com`
+- [ ] DNS records in Cloudflare
+- [ ] Formspree form `mrpgwdpg` and its delivery address
+- [ ] Any Google account used for Search Console or analytics, if applicable
+- [ ] Confirm the live site and contact form still work after transfer
 
-   ```
-   www.hernextnetwork.com
-   ```
-
-2. At your DNS provider, add a `CNAME` record pointing `www` to
-   `<username>.github.io`. To serve the apex domain as well, add four `A`
-   records pointing at `185.199.108.153`, `185.199.109.153`,
-   `185.199.110.153` and `185.199.111.153`.
-3. Back in **Settings**, then **Pages**, enter the domain and tick
-   **Enforce HTTPS** once the certificate has been issued, which usually takes
-   a few minutes and occasionally up to a day.
-
-The social sharing tags need no attention here. `og:url` and `og:image` are
-generated from `BASE`, so changing `BASE` and rebuilding updates them on all
-twelve pages and both redirect stubs at once. The steps for that are under
-[The origin is defined in one place](#the-origin-is-defined-in-one-place).
-
----
-
-## Before launch
-
-- [x] Formspree ID added to `tools/partials/_contact.html` and rebuilt
-- [x] Contact form tested live: one enquiry sent from the site and received
-- [ ] Hero clip watched on a real phone: starts when the photograph scrolls into
-      view, pauses when scrolled away, and its button stops it
-- [x] LinkedIn URL confirmed and swapped in
-- [x] Legal placeholders filled in: entity name, address, governing jurisdiction
-- [ ] Privacy policy and terms reviewed by a qualified adviser
-- [ ] Redrawn logo dropped in, and all three logo files plus the favicon regenerated
-- [ ] Final social preview image replacing the interim `og-image.jpg`
-- [ ] Confirm photo consent covers public web use for everyone shown
-- [ ] `CNAME` added, HTTPS enforced, `BASE` updated in `tools/build.py` and rebuilt,
-      and the origin swapped in `robots.txt`, `sitemap.xml` and `llms.txt`
-- [ ] `sitemap.xml` submitted to Google Search Console
-- [ ] Copy signed off against `CONTENT.md`
-- [ ] Nothing on the site claims an initiative is open, or attributes a result
-      to an intervention that has not yet been measured
+At sunset these build items were still open; see
+[Known limitations at sunset](#known-limitations-at-sunset). The legal pages are
+drafts and are not legal advice.
 
 ---
 
@@ -869,11 +892,17 @@ none.
 
 ---
 
-## Credits
+## Content provenance
 
-Design and development by [Beben Design](https://beben.design).
 Content adapted from the HerNext Network Institutional Profile, First Edition,
 2026, and revised in full against the 2026 correction documents for the About,
 Our Work, Impact, and Partners and Collaboration pages.
 
 Copyright HerNext Network. All rights reserved.
+
+---
+
+## Future support
+
+Luis Howin Maina
+hello.beben.design@gmail.com

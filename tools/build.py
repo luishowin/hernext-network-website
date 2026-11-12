@@ -5,9 +5,9 @@ around a per-page body file, and generates the per-page canonical URL, social
 tags and JSON-LD. Output is plain static HTML with no runtime dependency on
 this script; it exists only so the pages cannot drift apart from one another.
 
-BASE is the single place the live origin is defined. When the custom domain is
-connected, change it here and rebuild, or run the sed command documented in the
-README under "Adding the custom domain".
+BASE is the single place the live origin is defined. Change it here and rebuild
+with `python tools/make.py`; the `README.md` handover notes record the origin
+and the deployment setup.
 """
 import io, json, os
 
@@ -17,7 +17,7 @@ ROOT = os.path.dirname(TOOLS)
 
 # The single place the live origin is defined. Everything that needs an
 # absolute URL reads it from here: canonicals, og:url, JSON-LD and the sitemap.
-BASE = "https://luishowin.github.io/hernext-network-website/"
+BASE = "https://hernextnetwork.com/"
 
 ORG = {
     "@type": "Organization",
