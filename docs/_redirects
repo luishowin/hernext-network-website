@@ -10,3 +10,6 @@
 /accessibility.html / 301
 /opportunities.html / 301
 /apply.html / 301
+
+# Any other path lands on the retirement notice rather than a blank 404.
+/* / 302
